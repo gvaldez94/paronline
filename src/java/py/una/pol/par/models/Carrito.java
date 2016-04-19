@@ -13,11 +13,9 @@ import java.util.List;
  * @author Gabriel
  */
 public class Carrito {
-    private List<Pedido> pedidos = new ArrayList<>();
+    private List<Pedido> pedidos = new ArrayList<Pedido>();
 
-
-
-    public void add(Producto p, int cantidad) {
+    public void add(Producto p, Float cantidad) {
         Pedido pedido = new Pedido();
         pedido.setCantidad(cantidad);
         pedido.setProducto(p);
@@ -27,7 +25,7 @@ public class Carrito {
 
     }
 
-    public Pedido buscar(Producto p, int cantidad) {
+    public Pedido buscar(Producto p, Float cantidad) {
         for (Pedido pedido : this.getAll()) {
             if (p.getId() == pedido.getProducto().getId()) {
                 pedido.setCantidad(pedido.getCantidad() + cantidad);
@@ -38,7 +36,7 @@ public class Carrito {
     }
 
     public void remove(Producto p) {
-        Pedido pedido = this.buscar(p, 0);
+        Pedido pedido = this.buscar(p, 0f);
         pedidos.remove(pedido);
     }
 
