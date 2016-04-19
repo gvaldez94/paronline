@@ -16,18 +16,18 @@ import java.util.List;
 public class Producto extends BaseEntity implements Serializable {
     private String descripcion;
     private BigDecimal precioUnit;
-    private int cantidad;
+    private Integer unidadMedida;
     private Categoria categorias;
     private List<TransaccionesDet> transaccionesDetList;
 
     public Producto() {
     }
 
-    public Producto(Integer id, String descripcion, BigDecimal precioUnit, int cantidad) {
+    public Producto(Integer id, String descripcion, BigDecimal precioUnit, Integer unidadMedida) {
         super.setId(id);
         this.descripcion = descripcion;
         this.precioUnit = precioUnit;
-        this.cantidad = cantidad;
+        this.unidadMedida = unidadMedida;
     }
 
     public String getDescripcion() {
@@ -46,12 +46,12 @@ public class Producto extends BaseEntity implements Serializable {
         this.precioUnit = precioUnit;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public Integer getUnidadMedida() {
+        return unidadMedida;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setUnidadMedida(Integer unidadMedida) {
+        this.unidadMedida = unidadMedida;
     }
 
     public Categoria getCategorias() {
