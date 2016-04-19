@@ -10,19 +10,23 @@ package py.una.pol.par.models;
  * @author Gabriel
  */
 public class Pedido {
-    private int cantidad;
+    private Float cantidad;
     private Producto producto;
-    public Pedido (){}
-    public Pedido(Producto p, int cantidad) {
+
+    public Pedido ()
+    {
+    }
+
+    public Pedido(Producto p, Float cantidad) {
         this.producto = p;
         this.cantidad = cantidad;
     }
 
-    public int getCantidad() {
+    public Float getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(Float cantidad) {
         this.cantidad = cantidad;
     }
 
