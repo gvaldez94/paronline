@@ -1,0 +1,47 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="js/validacion.js"></script>
+  </head>
+  <body>
+    <h1>Login</h1>
+
+    <form id="formLogin" action="Login" method="POST">
+      <fieldset>
+        <legend>Credenciales de usuario</legend>
+        Usuario:
+        <input id="userLogin" name="user" onfocusout="validarUserLogin()"><p id="userLoginMsg"></p><br>
+        Contraseña:
+        <input id="passLogin" name="pass" type="password" onfocusout="validarPassLogin()"><p id="passLoginMsg"></p><br>
+        <input id="submitLogin" type="submit" value="LogIn" disabled="true">
+      </fieldset>
+    </form>
+
+    <h1>Registro</h1>
+    <form id="formRegistro" action="Registro" method="POST">
+      <fieldset>
+        <legend>Nuevo usuario</legend>
+        Nombre *:
+        <input id="nombreRegistro" name="nombre" onfocusout="validarNombre()"><p id="nombreMsg"></p><br>
+        Apellido *:
+        <input id="apellidoRegistro" name="apellido" onfocusout="validarApellido()"><p id="apellidoMsg"></p><br>
+        Nombre de usuario *:
+        <input id="userRegistro" name="user" onfocusout="validarUser()"><p id="userMsg"></p><br>
+        E-mail *:
+        <input id="emailRegistro" name="email" type="email" onfocusout="validarEmail()"><p id="emailMsg"></p><br>
+        Contraseña *:
+        <input id="passRegistro" name="pass" type="password" onfocusout="validarPass()"><p id="passMsg"></p><br>
+        Contraseña (verificación) *:
+        <input id="pass_verRegistro" name="pass_ver" type="password" onfocusout="validarPass_ver()"><p id="pass_verMsg"></p><br>
+        <input type="submit" value="Regístrame" disabled="true">
+      </fieldset>
+    </form>
+  </body>
+</html>
