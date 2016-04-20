@@ -79,19 +79,17 @@ public class CategoriaDao {
     }
 
     public List<Categoria> getAll() throws SQLException {
-        List<Categoria> retorno = new ArrayList<>();
+        List<Categoria> retorno = new ArrayList<Categoria>();
         try {
             Connection c = DBConnection.getConnection();
             Statement stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM categorias ORDER BY descripcion");
-            
-            
-            
+
             while (rs.next()) {
                 Categoria cat = new Categoria(rs.getInt(1), rs.getString(2));
                 retorno.add(cat);
             }
-            
+
             rs.close();
             stmt.close();
             DBConnection.closeConnection(c);

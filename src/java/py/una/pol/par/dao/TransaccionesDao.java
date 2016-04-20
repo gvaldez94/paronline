@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 import py.una.pol.par.models.Compra;
 import py.una.pol.par.models.TransaccionesCab;
 import py.una.pol.par.models.TransaccionesDet;
-import py.una.pol.par.models.Usuarios;
+import py.una.pol.par.models.Usuario;
 import py.una.pol.par.util.DBConnection;
 
 /**
@@ -83,7 +83,7 @@ public class TransaccionesDao {
     }
 
     public List<Compra> getAll(int idUsuario) throws SQLException {
-        List<Compra> retorno = new ArrayList<>();
+        List<Compra> retorno = new ArrayList<Compra>();
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement sql = c.prepareStatement("select * from transacciones_cab where usuario_id = ?");
@@ -96,13 +96,13 @@ public class TransaccionesDao {
                 cab.setMedioPago(rs.getInt(6));
                 cab.setTotal(rs.getBigDecimal(4));
                 cab.setNroTarjeta(rs.getString(7));
-                Usuarios usr = new UsuarioDao().consultar(rs.getInt(3));
+                Usuario usr = new UsuarioDao().consultar(rs.getInt(3));
                 cab.setUsuarios(usr);
                 compra.setCab(cab);
                 PreparedStatement pstmt = c.prepareStatement("select * from transacciones_det where transaccion_cab_id = ?");
                 pstmt.setInt(1, cab.getId());
                 ResultSet result = pstmt.executeQuery();
-                List <TransaccionesDet> detalles = new ArrayList<>();
+                List <TransaccionesDet> detalles = new ArrayList<TransaccionesDet>();
                 while (result.next()){
                     TransaccionesDet det = new TransaccionesDet();
                     det.setId(result.getInt(1));

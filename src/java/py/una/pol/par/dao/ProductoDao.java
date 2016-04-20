@@ -82,7 +82,7 @@ public class ProductoDao {
     }
 
     public List<Producto> getAll() throws SQLException {
-        List<Producto> retorno = new ArrayList<>();
+        List<Producto> retorno = new ArrayList<Producto>();
         try {
             Connection c = DBConnection.getConnection();
             Statement stmt = c.createStatement();
@@ -104,7 +104,7 @@ public class ProductoDao {
     }
 
     public List<Producto> consultar(int idCategoria, String desc) throws SQLException {
-        List<Producto> retorno = new ArrayList<>();
+        List<Producto> retorno = new ArrayList<Producto>();
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
