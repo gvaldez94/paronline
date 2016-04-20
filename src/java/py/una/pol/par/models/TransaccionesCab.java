@@ -22,7 +22,7 @@ public class TransaccionesCab extends BaseEntity implements Serializable {
     private String nroTarjeta;
     private String estado;
     private List<TransaccionesDet> transaccionesDetList;
-    private Usuarios usuarios;
+    private Usuario usuarios;
 
     public TransaccionesCab() {
     }
@@ -94,11 +94,11 @@ public class TransaccionesCab extends BaseEntity implements Serializable {
         this.transaccionesDetList = transaccionesDetList;
     }
 
-    public Usuarios getUsuarios() {
+    public Usuario getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(Usuarios usuarios) {
+    public void setUsuarios(Usuario usuarios) {
         this.usuarios = usuarios;
     }
 
