@@ -1,7 +1,7 @@
 var formLogin,
     formRegistro;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
     formLogin = document.forms['formLogin'];
     formRegistro = document.forms['formRegistro'];
 });
@@ -21,6 +21,19 @@ function validarPassLogin() {
         : '');
 }
 
+function activarLogIn() {
+    var campos = ['user','pass'],
+        lleno = true;
+
+    for (var i = 0; i < campos.length; ++i) {
+        if (formLogin[campos[i]].value == null || formLogin[campos[i]].value == '') {
+            lleno = false;
+            break;
+        }
+    }
+
+    document.getElementById('submitLogin').disabled = !lleno;
+}
 
 /* formRegistro */
 function validarNombre() {
@@ -59,8 +72,9 @@ function validarPass() {
             ? 'Las contraseñas no coinciden.'
             : '');
     } else {
-        document.getElementById('passMsg').innerHTML =
-            'Debe proporcionar una contraseña.';
+        document.getElementById('passMsg').innerHTML = (formRegistro['pass'].value == ''
+            ? 'Debe proporcionar una contraseña.'
+            : '');
     }
 }
 
@@ -70,4 +84,18 @@ function validarPass_ver() {
     document.getElementById('pass_verMsg').innerHTML = (pass !== pass_ver
         ? 'Las contraseñas no coinciden.'
         : '');
+}
+
+function activarRegistro() {
+    var campos = ['nombre','apellido','user','email','pass','pass_ver'],
+        lleno = true;
+
+    for (var i = 0; i < campos.length; ++i) {
+        if (formRegistro[campos[i]].value == null || formRegistro[campos[i]].value == '') {
+            lleno = false;
+            break;
+        }
+    }
+
+    document.getElementById('submitRegistro').disabled = !lleno;
 }
