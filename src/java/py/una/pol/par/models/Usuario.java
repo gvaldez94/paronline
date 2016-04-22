@@ -105,6 +105,6 @@ public class Usuario extends BaseEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "py.una.pol.par.ec.Usuarios[ id=" + id + " ]";
+        return "py.una.pol.par.ec.Usuario[ id=" + id + " ]";
     }
 }
