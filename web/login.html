@@ -17,9 +17,9 @@ and open the template in the editor.
       <fieldset>
         <legend>Credenciales de usuario</legend>
         Usuario:
-        <input id="userLogin" name="user" onfocusout="validarUserLogin()"><p id="userLoginMsg"></p><br>
+        <input id="userLogin" name="user" onfocusout="validarUserLogin()" onkeyup="activarLogIn()"><p id="userLoginMsg"></p><br>
         Contraseña:
-        <input id="passLogin" name="pass" type="password" onfocusout="validarPassLogin()"><p id="passLoginMsg"></p><br>
+        <input id="passLogin" name="pass" type="password" onfocusout="validarPassLogin()" onkeyup="activarLogIn()"><p id="passLoginMsg"></p><br>
         <input id="submitLogin" type="submit" value="LogIn" disabled="true">
       </fieldset>
     </form>
@@ -29,18 +29,18 @@ and open the template in the editor.
       <fieldset>
         <legend>Nuevo usuario</legend>
         Nombre *:
-        <input id="nombreRegistro" name="nombre" onfocusout="validarNombre()"><p id="nombreMsg"></p><br>
+        <input id="nombreRegistro" name="nombre" onfocusout="validarNombre()" onkeyup="activarRegistro()"><p id="nombreMsg"></p><br>
         Apellido *:
-        <input id="apellidoRegistro" name="apellido" onfocusout="validarApellido()"><p id="apellidoMsg"></p><br>
+        <input id="apellidoRegistro" name="apellido" onfocusout="validarApellido()" onkeyup="activarRegistro()"><p id="apellidoMsg"></p><br>
         Nombre de usuario *:
-        <input id="userRegistro" name="user" onfocusout="validarUser()"><p id="userMsg"></p><br>
+        <input id="userRegistro" name="user" onfocusout="validarUser()" onkeyup="activarRegistro()"><p id="userMsg"></p><br>
         E-mail *:
-        <input id="emailRegistro" name="email" type="email" onfocusout="validarEmail()"><p id="emailMsg"></p><br>
+        <input id="emailRegistro" name="email" type="email" onfocusout="validarEmail()" onkeyup="activarRegistro()"><p id="emailMsg"></p><br>
         Contraseña *:
-        <input id="passRegistro" name="pass" type="password" onfocusout="validarPass()"><p id="passMsg"></p><br>
+        <input id="passRegistro" name="pass" type="password" onfocusout="validarPass()" onkeyup="activarRegistro()"><p id="passMsg"></p><br>
         Contraseña (verificación) *:
-        <input id="pass_verRegistro" name="pass_ver" type="password" onfocusout="validarPass_ver()"><p id="pass_verMsg"></p><br>
-        <input type="submit" value="Regístrame" disabled="true">
+        <input id="pass_verRegistro" name="pass_ver" type="password" onfocusout="validarPass_ver()" onkeyup="activarRegistro()"><p id="pass_verMsg"></p><br>
+        <input id="submitRegistro" type="submit" value="Regístrame" disabled="true">
       </fieldset>
     </form>
   </body>
