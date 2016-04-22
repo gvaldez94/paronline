@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Gabriel
  */
-public class Usuarios extends BaseEntity implements Serializable {
+public class Usuario extends BaseEntity implements Serializable {
     private String nombre;
     private String apellido;
     private String loginName;
@@ -20,14 +20,14 @@ public class Usuarios extends BaseEntity implements Serializable {
     private Integer tipoUsuario;
     private List<TransaccionesCab> transaccionesCabList;
 
-    public Usuarios() {
+    public Usuario() {
     }
 
-    public Usuarios(Integer id) {
+    public Usuario(Integer id) {
         this.id = id;
     }
 
-    public Usuarios(Integer id, String nombre, String apellido, String loginName, String passwd) {
+    public Usuario(Integer id, String nombre, String apellido, String loginName, String passwd) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -93,10 +93,10 @@ public class Usuarios extends BaseEntity implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuarios)) {
+        if (!(object instanceof Usuario)) {
             return false;
         }
-        Usuarios other = (Usuarios) object;
+        Usuario other = (Usuario) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -105,6 +105,6 @@ public class Usuarios extends BaseEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "py.una.pol.par.ec.Usuarios[ id=" + id + " ]";
+        return "py.una.pol.par.ec.Usuario[ id=" + id + " ]";
     }
 }

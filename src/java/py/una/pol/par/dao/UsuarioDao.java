@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import py.una.pol.par.models.Usuarios;
+import py.una.pol.par.models.Usuario;
 import py.una.pol.par.util.DBConnection;
 
 /**
@@ -22,7 +22,7 @@ import py.una.pol.par.util.DBConnection;
  * @author Gabriel
  */
 public class UsuarioDao {
-    public void crear(Usuarios usr) throws SQLException {
+    public void crear(Usuario usr) throws SQLException {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
@@ -40,7 +40,7 @@ public class UsuarioDao {
         }
     }
 
-    public void actualizar(Usuarios usr) throws SQLException {
+    public void actualizar(Usuario usr) throws SQLException {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
@@ -69,13 +69,13 @@ public class UsuarioDao {
         }
     }
 
-    public Usuarios consultar(Integer usrId) {
+    public Usuario consultar(Integer usrId) {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt = c.prepareStatement("SELECT * FROM usuarios WHERE id = ?");
             pstmt.setInt(1, usrId);
             ResultSet rs = pstmt.executeQuery();
-            Usuarios user = new Usuarios();
+            Usuario user = new Usuario();
             rs.next();
             user.setId(rs.getInt(1));
             user.setNombre(rs.getString(2));
@@ -91,14 +91,14 @@ public class UsuarioDao {
         }
     }
 
-    public List<Usuarios> getAll() throws SQLException {
-        List<Usuarios> retorno = new ArrayList<>();
+    public List<Usuario> getAll() throws SQLException {
+        List<Usuario> retorno = new ArrayList<Usuario>();
         try {
             Connection c = DBConnection.getConnection();
             Statement stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios ORDER BY apellido, nombre");
             while (rs.next()) {
-                Usuarios usr = new Usuarios(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
                 retorno.add(usr);
             }
             rs.close();
@@ -111,8 +111,8 @@ public class UsuarioDao {
         }
     }
 
-    public Usuarios login(String loginName, String passwd) throws SQLException {
-        Usuarios retorno = null;
+    public Usuario login(String loginName, String passwd) throws SQLException {
+        Usuario retorno = null;
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt = c.prepareStatement("SELECT * FROM usuarios WHERE login_name = ? AND passwd = md5(?)");
@@ -120,7 +120,7 @@ public class UsuarioDao {
             pstmt.setString(2, passwd);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                Usuarios u = new Usuarios();
+                Usuario u = new Usuario();
                 u.setId(rs.getInt("id"));
                 u.setNombre(rs.getString("nombre"));
                 u.setApellido(rs.getString("apellido"));
