@@ -11,14 +11,15 @@
 /* Archivo destinado al codigo SQL responsable de crear la base de datos */
 
 -- PostgreSQL version: 9.4
--- Model Author: Gabriel---
+-- Project Site: pgmodeler.com.br
+-- Model Author: Gabriel ---
 
 
 -- Database creation must be done outside an multicommand file.
 -- These commands were put in this file only for convenience.
--- -- object: paronline | type: DATABASE --
--- -- DROP DATABASE IF EXISTS paronline;
--- CREATE DATABASE paronline
+-- -- object: new_database | type: DATABASE --
+-- -- DROP DATABASE IF EXISTS new_database;
+-- CREATE DATABASE new_database
 -- ;
 -- -- ddl-end --
 -- 
@@ -101,6 +102,32 @@ CREATE TABLE public.transacciones_det(
 ALTER TABLE public.transacciones_det OWNER TO postgres;
 -- ddl-end --
 
+-- object: public.stock | type: TABLE --
+-- DROP TABLE IF EXISTS public.stock CASCADE;
+CREATE TABLE public.stock(
+	id serial NOT NULL,
+	producto_id integer NOT NULL,
+	unidad_id integer NOT NULL,
+	cantidad integer NOT NULL,
+	CONSTRAINT pkstockid PRIMARY KEY (id)
+
+);
+-- ddl-end --
+ALTER TABLE public.stock OWNER TO postgres;
+-- ddl-end --
+
+-- object: public.unidad | type: TABLE --
+-- DROP TABLE IF EXISTS public.unidad CASCADE;
+CREATE TABLE public.unidad(
+	id serial NOT NULL,
+	descripcion character varying(50) NOT NULL,
+	CONSTRAINT pkunidadid PRIMARY KEY (id)
+
+);
+-- ddl-end --
+ALTER TABLE public.unidad OWNER TO postgres;
+-- ddl-end --
+
 -- object: fkcategoria | type: CONSTRAINT --
 -- ALTER TABLE public.producto DROP CONSTRAINT IF EXISTS fkcategoria CASCADE;
 ALTER TABLE public.producto ADD CONSTRAINT fkcategoria FOREIGN KEY (categoria_id)
@@ -126,6 +153,20 @@ ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ALTER TABLE public.transacciones_det DROP CONSTRAINT IF EXISTS fkproductoid CASCADE;
 ALTER TABLE public.transacciones_det ADD CONSTRAINT fkproductoid FOREIGN KEY (producto_id)
 REFERENCES public.producto (id) MATCH FULL
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: fkproductoid | type: CONSTRAINT --
+-- ALTER TABLE public.stock DROP CONSTRAINT IF EXISTS fkproductoid CASCADE;
+ALTER TABLE public.stock ADD CONSTRAINT fkproductoid FOREIGN KEY (producto_id)
+REFERENCES public.producto (id) MATCH FULL
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: fkunidadid | type: CONSTRAINT --
+-- ALTER TABLE public.stock DROP CONSTRAINT IF EXISTS fkunidadid CASCADE;
+ALTER TABLE public.stock ADD CONSTRAINT fkunidadid FOREIGN KEY (unidad_id)
+REFERENCES public.unidad (id) MATCH FULL
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
