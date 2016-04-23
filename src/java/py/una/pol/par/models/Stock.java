@@ -13,17 +13,15 @@ import java.io.Serializable;
  */
 public class Stock extends BaseEntity implements Serializable {
     private Integer productoId;
-    private Integer unidadId;
     private Integer cantidad;
 
     public Stock() {
         
     }
     
-    public Stock(Integer id, Integer productoId, Integer unidadId, Integer cantidad) {
+    public Stock(Integer id, Integer productoId, Integer cantidad) {
         super.setId(id);
         this.productoId = productoId;
-        this.unidadId = unidadId;
         this.cantidad = cantidad;
     }
     
@@ -34,16 +32,6 @@ public class Stock extends BaseEntity implements Serializable {
     public void setProductoId(Integer productoId) {
         this.productoId = productoId;
     }
-
-    public Integer getUnidadId() {
-        return unidadId;
-    }
-
-    public void setUnidadId(Integer unidadId) {
-        this.unidadId = unidadId;
-    }
-    
-    
 
     public Integer getCantidad() {
         return cantidad;
