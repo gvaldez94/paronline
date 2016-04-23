@@ -27,7 +27,7 @@ public class ProductoDao {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
-            pstmt = c.prepareStatement("INSERT INTO productos (descripcion, categoria_id, precio_unit, unidad_medida) VALUES (?,?,?,?)");
+            pstmt = c.prepareStatement("INSERT INTO producto (descripcion, categoria_id, precio_unit, unidad_medida) VALUES (?,?,?,?)");
             pstmt.setString(1, prod.getDescripcion());
             pstmt.setInt(2, prod.getCategorias().getId());
             pstmt.setBigDecimal(3, prod.getPrecioUnit());
@@ -44,7 +44,7 @@ public class ProductoDao {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
-            pstmt = c.prepareStatement("UPDATE productos SET descripcion = ?, categoria_id = ?, precio_unit = ?, unidad_medida = ? WHERE id = ?");
+            pstmt = c.prepareStatement("UPDATE producto SET descripcion = ?, categoria_id = ?, precio_unit = ?, unidad_medida = ? WHERE id = ?");
             pstmt.setString(1, prod.getDescripcion());
             pstmt.setInt(2, prod.getCategorias().getId());
             pstmt.setBigDecimal(3, prod.getPrecioUnit());
@@ -59,7 +59,7 @@ public class ProductoDao {
     public void eliminar(Integer prodId) throws SQLException {
         try {
             Connection c = DBConnection.getConnection();
-            PreparedStatement pstmt = c.prepareStatement("DELETE FROM productos WHERE id = ?");
+            PreparedStatement pstmt = c.prepareStatement("DELETE FROM producto WHERE id = ?");
             pstmt.setInt(1, prodId);
             pstmt.executeUpdate();
             DBConnection.closeConnection(c);
@@ -71,7 +71,7 @@ public class ProductoDao {
     public void disminuir(Integer prodId, int cant) throws SQLException {
         try {
             Connection c = DBConnection.getConnection();
-            PreparedStatement pstmt = c.prepareStatement("UPDATE productos set cantidad = ? WHERE id = ?");
+            PreparedStatement pstmt = c.prepareStatement("UPDATE producto set cantidad = ? WHERE id = ?");
             pstmt.setInt(1, cant);
             pstmt.setInt(2, prodId);
             pstmt.executeUpdate();
@@ -86,7 +86,7 @@ public class ProductoDao {
         try {
             Connection c = DBConnection.getConnection();
             Statement stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM productos ORDER BY descripcion");    
+            ResultSet rs = stmt.executeQuery("SELECT * FROM producto ORDER BY descripcion");    
             while (rs.next()) {
                 Producto prod = new Producto(rs.getInt(1), rs.getString(2), rs.getBigDecimal(4), rs.getInt(5));
                 Categoria cat = new CategoriaDao().consultar(rs.getInt(3));
@@ -110,17 +110,17 @@ public class ProductoDao {
             PreparedStatement pstmt;
             desc = "%"+desc + "%";
             if (idCategoria != 0) {
-                pstmt = c.prepareStatement("SELECT * FROM productos WHERE lower(descripcion) like ? and categoria_id = ? ORDER BY descripcion asc");
+                pstmt = c.prepareStatement("SELECT * FROM producto WHERE lower(descripcion) like ? and categoria_id = ? ORDER BY descripcion asc");
                 pstmt.setString(1, desc.toLowerCase());
                 pstmt.setInt(2, idCategoria);
             } else {
-                pstmt = c.prepareStatement("SELECT * FROM productos WHERE lower(descripcion) like ? ORDER BY descripcion asc");
+                pstmt = c.prepareStatement("SELECT * FROM producto WHERE lower(descripcion) like ? ORDER BY descripcion asc");
                 pstmt.setString(1, desc.toLowerCase());
             }
             ResultSet rs = pstmt.executeQuery();    
             while (rs.next()) {
-                Producto prod = new Producto(rs.getInt(1), rs.getString(2), rs.getBigDecimal(4), rs.getInt(5));
-                Categoria cat = new CategoriaDao().consultar(rs.getInt(3));
+                Producto prod = new Producto(rs.getInt(1), rs.getString(2), rs.getBigDecimal(3), rs.getInt(4));
+                Categoria cat = new CategoriaDao().consultar(rs.getInt(5));
                 prod.setCategorias(cat);
                 retorno.add(prod);
             }
@@ -137,7 +137,7 @@ public class ProductoDao {
     public Producto consultar(Integer prodId) {
         try {
             Connection c = DBConnection.getConnection();
-            PreparedStatement pstmt = c.prepareStatement("SELECT * FROM productos WHERE id = ?");
+            PreparedStatement pstmt = c.prepareStatement("SELECT * FROM producto WHERE id = ?");
             pstmt.setInt(1, prodId);
             ResultSet rs = pstmt.executeQuery();
             rs.next();

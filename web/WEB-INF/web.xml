@@ -8,6 +8,10 @@
         <servlet-name>Registro</servlet-name>
         <servlet-class>py.una.pol.par.controllers.Registro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Buscar</servlet-name>
+        <servlet-class>py.una.pol.par.controllers.Buscar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
         <url-pattern>/Registro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Buscar</servlet-name>
+        <url-pattern>/Buscar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

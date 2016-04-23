@@ -26,7 +26,7 @@ public class CategoriaDao {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
-            pstmt = c.prepareStatement("INSERT INTO categorias (descripcion) VALUES (?)");
+            pstmt = c.prepareStatement("INSERT INTO categoria (descripcion) VALUES (?)");
             pstmt.setString(1, cat.getDescripcion());
             pstmt.execute();
             pstmt.close();
@@ -40,7 +40,7 @@ public class CategoriaDao {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
-            pstmt = c.prepareStatement("UPDATE categorias SET descripcion = ? WHERE id = ?");
+            pstmt = c.prepareStatement("UPDATE categoria SET descripcion = ? WHERE id = ?");
             pstmt.setString(1, cat.getDescripcion());
             pstmt.setInt(2, cat.getId());
             pstmt.executeUpdate();
@@ -52,7 +52,7 @@ public class CategoriaDao {
     public void eliminar(Integer catId) throws SQLException {
         try {
             Connection c = DBConnection.getConnection();
-            PreparedStatement pstmt = c.prepareStatement("DELETE FROM categorias WHERE id = ?");
+            PreparedStatement pstmt = c.prepareStatement("DELETE FROM categoria WHERE id = ?");
             pstmt.setInt(1, catId);
             pstmt.executeUpdate();
             DBConnection.closeConnection(c);
@@ -63,7 +63,7 @@ public class CategoriaDao {
     public Categoria consultar(Integer catId) {
         try {
             Connection c = DBConnection.getConnection();
-            PreparedStatement pstmt = c.prepareStatement("SELECT * FROM categorias WHERE id = ?");
+            PreparedStatement pstmt = c.prepareStatement("SELECT * FROM categoria WHERE id = ?");
             pstmt.setInt(1, catId);
             ResultSet rs = pstmt.executeQuery();
             Categoria cat = new Categoria();
@@ -83,7 +83,7 @@ public class CategoriaDao {
         try {
             Connection c = DBConnection.getConnection();
             Statement stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM categorias ORDER BY descripcion");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM categoria ORDER BY descripcion");
 
             while (rs.next()) {
                 Categoria cat = new Categoria(rs.getInt(1), rs.getString(2));
