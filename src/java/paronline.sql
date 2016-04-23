@@ -10,9 +10,11 @@
 
 /* Archivo destinado al codigo SQL responsable de crear la base de datos */
 
+-- Database generated with pgModeler (PostgreSQL Database Modeler).
+-- pgModeler  version: 0.8.1
 -- PostgreSQL version: 9.4
 -- Project Site: pgmodeler.com.br
--- Model Author: Gabriel ---
+-- Model Author: Gabriel---
 
 
 -- Database creation must be done outside an multicommand file.
@@ -28,7 +30,7 @@
 -- DROP TABLE IF EXISTS public.producto CASCADE;
 CREATE TABLE public.producto(
 	id serial NOT NULL,
-	descripcion character varying(20) NOT NULL,
+	descripcion character varying(50) NOT NULL,
 	precio_unit numeric(14,2) NOT NULL,
 	unidad_medida integer NOT NULL,
 	categoria_id integer NOT NULL,
@@ -107,7 +109,6 @@ ALTER TABLE public.transacciones_det OWNER TO postgres;
 CREATE TABLE public.stock(
 	id serial NOT NULL,
 	producto_id integer NOT NULL,
-	unidad_id integer NOT NULL,
 	cantidad integer NOT NULL,
 	CONSTRAINT pkstockid PRIMARY KEY (id)
 
@@ -132,6 +133,13 @@ ALTER TABLE public.unidad OWNER TO postgres;
 -- ALTER TABLE public.producto DROP CONSTRAINT IF EXISTS fkcategoria CASCADE;
 ALTER TABLE public.producto ADD CONSTRAINT fkcategoria FOREIGN KEY (categoria_id)
 REFERENCES public.categoria (id) MATCH FULL
+ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ddl-end --
+
+-- object: fkunidadid | type: CONSTRAINT --
+-- ALTER TABLE public.producto DROP CONSTRAINT IF EXISTS fkunidadid CASCADE;
+ALTER TABLE public.producto ADD CONSTRAINT fkunidadid FOREIGN KEY (unidad_medida)
+REFERENCES public.unidad (id) MATCH FULL
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
 
@@ -162,12 +170,3 @@ ALTER TABLE public.stock ADD CONSTRAINT fkproductoid FOREIGN KEY (producto_id)
 REFERENCES public.producto (id) MATCH FULL
 ON DELETE NO ACTION ON UPDATE NO ACTION;
 -- ddl-end --
-
--- object: fkunidadid | type: CONSTRAINT --
--- ALTER TABLE public.stock DROP CONSTRAINT IF EXISTS fkunidadid CASCADE;
-ALTER TABLE public.stock ADD CONSTRAINT fkunidadid FOREIGN KEY (unidad_id)
-REFERENCES public.unidad (id) MATCH FULL
-ON DELETE NO ACTION ON UPDATE NO ACTION;
--- ddl-end --
-
-
