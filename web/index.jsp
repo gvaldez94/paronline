@@ -13,6 +13,8 @@
         <title>PAR On Line</title>
     </head>
     <body>
+        <a href="#">Consultar carrito</a>
+        <a href="buscar.html">Buscador de productos</a>
         <a href="login.html">LogIn o Registro</a>
     </body>
 </html>
