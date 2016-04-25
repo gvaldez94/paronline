@@ -12,6 +12,10 @@
         <servlet-name>Buscar</servlet-name>
         <servlet-class>py.una.pol.par.controllers.Buscar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Sesion</servlet-name>
+        <servlet-class>py.una.pol.par.controllers.Sesion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Buscar</servlet-name>
         <url-pattern>/Buscar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Sesion</servlet-name>
+        <url-pattern>/Sesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
