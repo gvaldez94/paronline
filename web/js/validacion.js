@@ -8,21 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* formLogin */
 function validarUserLogin() {
-    var usuario = formLogin['user'].value;
+    var usuario = formLogin['login_name'].value;
     document.getElementById('userLoginMsg').innerHTML = (usuario == ''
         ? 'Debe identificarse con un nombre de usuario.'
         : '');
 }
 
 function validarPassLogin() {
-    var contrasenya = formLogin['pass'].value;
+    var contrasenya = formLogin['passwd'].value;
     document.getElementById('passLoginMsg').innerHTML = (contrasenya == ''
         ? 'Ingrese su contraseña.'
         : '');
 }
 
 function activarLogIn() {
-    var campos = ['user','pass'],
+    var campos = ['login_name','passwd'],
         lleno = true;
 
     for (var i = 0; i < campos.length; ++i) {
@@ -51,8 +51,8 @@ function validarApellido() {
 }
 
 function validarUser() {
-    var user = formRegistro['user'].value;
-    document.getElementById('userMsg').innerHTML = (user == ''
+    var login_name = formRegistro['login_name'].value;
+    document.getElementById('userMsg').innerHTML = (login_name == ''
         ? 'Debe ingresar un nombre de usuario.'
         : '');
 }
@@ -67,27 +67,27 @@ function validarEmail() {
 function validarPass() {
     var pass_ver = formRegistro['pass_ver'].value;
     if (pass_ver != '') {
-        var pass = formRegistro['pass'].value;
-        document.getElementById('pass_verMsg').innerHTML = (pass !== pass_ver
+        var passwd = formRegistro['passwd'].value;
+        document.getElementById('pass_verMsg').innerHTML = (passwd !== pass_ver
             ? 'Las contraseñas no coinciden.'
             : '');
     } else {
-        document.getElementById('passMsg').innerHTML = (formRegistro['pass'].value == ''
+        document.getElementById('passMsg').innerHTML = (formRegistro['passwd'].value == ''
             ? 'Debe proporcionar una contraseña.'
             : '');
     }
 }
 
 function validarPass_ver() {
-    var pass = formRegistro['pass'].value,
+    var passwd = formRegistro['passwd'].value,
         pass_ver = formRegistro['pass_ver'].value;
-    document.getElementById('pass_verMsg').innerHTML = (pass !== pass_ver
+    document.getElementById('pass_verMsg').innerHTML = (passwd !== pass_ver
         ? 'Las contraseñas no coinciden.'
         : '');
 }
 
 function activarRegistro() {
-    var campos = ['nombre','apellido','user','email','pass','pass_ver'],
+    var campos = ['nombre','apellido','login_name','email','passwd','pass_ver'],
         lleno = true;
 
     for (var i = 0; i < campos.length; ++i) {
