@@ -6,11 +6,16 @@
 package py.una.pol.par.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import py.una.pol.par.dao.UsuarioDao;
+import py.una.pol.par.models.Usuario;
 
 /**
  *
@@ -27,21 +32,44 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here */
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Login</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Login at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally { 
-            out.close();
-        }
+        request.getSession().setAttribute("error", null);
+        UsuarioDao um = new UsuarioDao();
+        String modo = request.getParameter("modo");
+        if (modo != null && modo.compareTo("login") == 0) {
+            String usuario = request.getParameter("login_name");
+            String passwd = request.getParameter("passwd");
+            Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+            if (u != null) {
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                if (rd != null) {
+                    rd.forward(request, response);
+                }
+            }
+            try {
+                u = um.login(usuario, passwd);
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String vista = "/index.jsp";
+            if (u != null) {
+                request.getSession().setAttribute("usuario", u);
+                String url = (String) request.getSession().getAttribute("url");
+                if (url != null) {
+                    vista = url;
+                }
+            } else {
+                request.setAttribute("error", "Usuario o contraseña incorrectos!");
+                vista = "/login.jsp";
+            }
+            RequestDispatcher rd = request.getRequestDispatcher(vista);
+            if (rd != null) {
+                rd.forward(request, response);
+            }
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            if (rd != null) {
+                rd.forward(request, response);
+        }}
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
