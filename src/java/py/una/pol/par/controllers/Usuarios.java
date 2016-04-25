@@ -38,7 +38,7 @@ public class Usuarios extends HttpServlet {
             throws ServletException, IOException {
         String modo = request.getParameter("modo");
         String vista = null;
-        // vista
+        // logged
         if (modo == null || "L".equals(modo)) {
             vista = this.abmUsuario(request);
         }
@@ -126,7 +126,7 @@ public class Usuarios extends HttpServlet {
                 Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return abmUsuario(req);
+        return "/index.jsp";
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -46,7 +46,7 @@
                     <%=usr.getLoginName()%>
                 </td>
                 <td>
-                    <form method="POST" action="/paronline/admin/UsuarioABM">
+                    <form method="POST" action="/paronline/Usuarios">
                         <input type="hidden" name="id" value="<%=usr.getId()%>"/>
                         <input type="hidden" name="modo" value="EL"/>
                         <input type="submit" style="border-radius: 0px" onclick="return confirm('Está seguro?')" value="Eliminar"/>
@@ -57,7 +57,7 @@
                 }
             %>
         </table>
-        <form method="POST" action="/paronline/admin/UsuarioABM">
+        <form method="POST" action="/paronline/Usuarios">
             <input type="hidden" name="modo" value="NW"/>
             <br/>
             <input type="submit" style="width:49%; margin: 0 auto; display: inline" value="Agregar"/>
