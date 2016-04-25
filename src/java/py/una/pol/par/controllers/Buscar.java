@@ -64,6 +64,8 @@ public class Buscar extends HttpServlet {
             
             out.println("</body>");
             out.println("</html>");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
