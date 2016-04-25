@@ -99,3 +99,18 @@ function activarRegistro() {
 
     document.getElementById('submitRegistro').disabled = !lleno;
 }
+
+
+function activarCambio() {
+    var campos = ['actual','nueva'],
+        lleno = true;
+
+    for (var i = 0; i < campos.length; ++i) {
+        if (changePass[campos[i]].value == null || changePass[campos[i]].value == '') {
+            lleno = false;
+            break;
+        }
+    }
+
+    document.getElementById('submitChangePass').disabled = !lleno;
+}
