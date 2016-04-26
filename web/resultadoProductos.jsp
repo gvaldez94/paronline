@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="py.una.pol.par.models.Producto"%>
+<%@page import="py.una.pol.par.models.Stock" %>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
