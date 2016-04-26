@@ -6,14 +6,19 @@
 package py.una.pol.par.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import py.una.pol.par.dao.ProductoDao;
+import py.una.pol.par.models.Carrito;
 import py.una.pol.par.models.Producto;
+import py.una.pol.par.util.UtilClass;
 
 /**
  *
@@ -34,39 +39,44 @@ public class Buscar extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Buscar</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Buscar at " + request.getContextPath() + "</h1>");
-            
-            
+        String modo = request.getParameter("modo");
+        if ("B".equals(modo)) {
+            String descripcion = request.getParameter("descripcion");
+            Integer categoria_id = Integer.parseInt((request.getParameter("categoria")));
+            ProductoDao prodDao = new ProductoDao();
             try {
-                List<Producto> productos = productoDao.consultar(1, request.getParameter("producto"));
-                
-                if (!productos.isEmpty()) {
-                    for (Producto p : productos) {
-                        out.println("<h3>Descripcion: " + p.getDescripcion() + "</h3>");
-                        out.println("<p>Precio: " + p.getPrecioUnit() + "</p>");
-                    }
-                } else {
-                    out.println("<h2>No se encontraron productos</h2>");
+                List<Producto> productos = prodDao.consultar(categoria_id, descripcion);
+                request.getSession().setAttribute("productos", productos);
+                RequestDispatcher rd = request.getRequestDispatcher("resultadoProductos.jsp");
+                if (rd != null) {
+                    rd.forward(request, response);
                 }
-            out.println("</html>");
-            } catch (Exception e) {
-                out.println("<h2>Ocurrio un error: " + e.getMessage() + "</h2>");
+            } catch (SQLException ex) {
+                Logger.getLogger(Buscar.class.getName()).log(Level.SEVERE, null, ex);
+                RequestDispatcher rd = request.getRequestDispatcher("buscar.jsp");
+                if (rd != null) {
+                    rd.forward(request, response);
+                }
             }
-            
-            out.println("</body>");
-            out.println("</html>");
-        } catch (Exception e) {
-            out.println("<h2>Ocurrio un error: " + e.getMessage() + "</h2>");
+        }
+        if ("C".equals(modo)) {
+            Carrito c = (Carrito) request.getSession().getAttribute("carrito");
+            if (c == null) {
+                c = new Carrito();
+            }
+            Integer cantidad = UtilClass.leerNumero(request.getParameter("cantidad"));
+            int idProd = Integer.parseInt(request.getParameter("id"));
+            Producto p = new ProductoDao().consultar(idProd);
+            /*
+            if (cantidad !=null && p.getCantidad()>=cantidad){
+                c.add(p, cantidad);
+                request.getSession().setAttribute("carrito", c);
+            } 
+            */
+            RequestDispatcher rd = request.getRequestDispatcher("buscar.jsp");
+                if (rd != null) {
+                    rd.forward(request, response);
+                }
         }
     }
 
