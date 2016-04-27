@@ -27,11 +27,11 @@
         %>
         <div>
             <h1>ParOnline</h1>
-            <form id="changePass" action="/paronline/Sesion" method="POST">
-                Contraseña Actual:<input type="password" name="actual" onfocusout="validarPassLogin()" onkeyup="activarCambio()"><br>
-                Contraseña Nueva:<input type="password" name="nueva"  onfocusout="validarPassLogin()" onkeyup="activarCambio()"><p id="passMsg"></p><br>
+            <form id="changePasswd" action="/paronline/Sesion" method="POST">
+                Contraseña Actual:<input type="password" name="actual" onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><br>
+                Contraseña Nueva:<input type="password" name="nueva"  onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><p id="passwdMsg"></p><br>
                 <input type="hidden" name="modo" value="C">
-                <input id="submitChangePass" type="submit" value="Cambiar" name="cambiar" disabled="true"> 
+                <input id="submitChangePasswd" type="submit" value="Cambiar" name="cambiar" disabled="true"> 
             </form>
         </div>
     </body>
