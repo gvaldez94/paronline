@@ -13,7 +13,7 @@
         <title>Login</title>
         <script type="text/javascript" src="js/validacion.js"></script>
     </head>
-    <body>
+    <body onload="activarLogIn()">
         <h1>Login</h1>
         <%
             String error = (String) request.getAttribute("error");
@@ -35,9 +35,9 @@
           <fieldset>
             <legend>Credenciales de usuario</legend>
             Usuario:
-            <input id="userLogin" name="login_name" onfocusout="validarUserLogin()" onkeyup="activarLogIn()"><p id="userLoginMsg"></p><br>
+            <input id="login_nameLogin" name="login_name" onfocusout="validarUserLogin()" onkeyup="activarLogIn()"><p id="login_nameLoginMsg"></p><br>
             Contraseña:
-            <input id="passLogin" name="passwd" type="password" onfocusout="validarPassLogin()" onkeyup="activarLogIn()"><p id="passLoginMsg"></p><br>
+            <input id="passwdLogin" name="passwd" type="password" onfocusout="validarPasswdLogin()" onkeyup="activarLogIn()"><p id="passwdLoginMsg"></p><br>
             <input type="hidden" name="modo" value="login">
             <input id="submitLogin" type="submit" value="LogIn" disabled="true">
           </fieldset>

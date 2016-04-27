@@ -13,7 +13,7 @@
         <script type="text/javascript" src="../js/validacion.js"></script>
         <title>Crear cuenta</title>
     </head>
-    <body>
+    <body onload="activarRegistro()">
         <%
             String error = (String) request.getAttribute("error");
             if (error != null) {
@@ -39,13 +39,13 @@
             Apellido *:
             <input id="apellidoRegistro" name="apellido" onfocusout="validarApellido()" onkeyup="activarRegistro()"><p id="apellidoMsg"></p><br>
             Nombre de usuario *:
-            <input id="userRegistro" name="login_name" onfocusout="validarUser()" onkeyup="activarRegistro()"><p id="userMsg"></p><br>
+            <input id="login_nameRegistro" name="login_name" onfocusout="validarLogin_name()" onkeyup="activarRegistro()"><p id="login_nameMsg"></p><br>
             E-mail *:
             <input id="emailRegistro" name="email" type="email" onfocusout="validarEmail()" onkeyup="activarRegistro()"><p id="emailMsg"></p><br>
             Contraseña *:
-            <input id="passRegistro" name="passwd" type="password" onfocusout="validarPass()" onkeyup="activarRegistro()"><p id="passMsg"></p><br>
+            <input id="passwdRegistro" name="passwd" type="password" onfocusout="validarPasswd()" onkeyup="activarRegistro()"><p id="passwdMsg"></p><br>
             Contraseña (verificación) *:
-            <input id="pass_verRegistro" name="pass_ver" type="password" onfocusout="validarPass_ver()" onkeyup="activarRegistro()"><p id="pass_verMsg"></p><br>
+            <input id="passwd_verRegistro" name="passwd_ver" type="password" onfocusout="validarPasswd_ver()" onkeyup="activarRegistro()"><p id="passwd_verMsg"></p><br>
             <input type="hidden" name="modo" value="G">
             <input type="hidden" name="tipo" value="N">
             <input type="hidden" name="tipoUsuario" value="1">
