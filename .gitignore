@@ -3,3 +3,4 @@ dist/
 nbproject/
 test/
 build.xml
+web/META-INF/context.xml
