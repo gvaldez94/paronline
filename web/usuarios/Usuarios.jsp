@@ -58,9 +58,6 @@
             %>
         </table>
         <form method="POST" action="/paronline/Usuarios">
-            <input type="hidden" name="modo" value="NW"/>
-            <br/>
-            <input type="submit" style="width:49%; margin: 0 auto; display: inline" value="Agregar"/>
             <button type="button" style="width:49%; margin: 0 auto; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>
         </form>
         <%

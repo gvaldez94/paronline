@@ -1,9 +1,11 @@
 var formLogin,
-    formRegistro;
+    formRegistro,
+    formCategoria;
 
 document.addEventListener('DOMContentLoaded', function() {
     formLogin = document.forms['formLogin'];
     formRegistro = document.forms['formRegistro'];
+    formCategoria = document.forms['formCategoria'];
 });
 
 /* formLogin */
@@ -113,4 +115,27 @@ function activarCambio() {
     }
 
     document.getElementById('submitChangePass').disabled = !lleno;
+}
+
+
+/* formCategoria */
+function validarCategoria() {
+    var descripcion = formCategoria['descripcion'].value;
+    document.getElementById('categoriaDescMsg').innerHTML = (descripcion == ''
+        ? 'Debe introducir un nombre para la categoría.'
+        : '');
+}
+
+function activarCatGuardar() {
+    var campos = ['descripcion'],
+        lleno = true;
+
+    for (var i = 0; i < campos.length; ++i) {
+        if (formCategoria[campos[i]].value == null || formCategoria[campos[i]].value == '') {
+            lleno = false;
+            break;
+        }
+    }
+
+    document.getElementById('submitCategoria').disabled = !lleno;
 }

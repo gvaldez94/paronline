@@ -24,6 +24,7 @@
                     Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                     if (usuario.getTipoUsuario() == 0) {%>
                 <a href="/paronline/Usuarios">ABM Usuario</a>
+                <a href="/paronline/Categorias">ABM Categorías</a>
                 <%}%>
                 <a href="/paronline/usuarios/cambiarPass.jsp">Cambiar Contraseña</a>
                 <a href="/paronline/Sesion">Cerrar Sesión</a>

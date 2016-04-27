@@ -20,6 +20,10 @@
         <servlet-name>Usuarios</servlet-name>
         <servlet-class>py.una.pol.par.controllers.Usuarios</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Categoria</servlet-name>
+        <servlet-class>py.una.pol.par.controllers.Categorias</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>Usuarios</servlet-name>
         <url-pattern>/Usuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Categoria</servlet-name>
+        <url-pattern>/Categorias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
