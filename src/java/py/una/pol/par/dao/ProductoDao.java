@@ -88,8 +88,8 @@ public class ProductoDao {
             Statement stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM producto ORDER BY descripcion");    
             while (rs.next()) {
-                Producto prod = new Producto(rs.getInt(1), rs.getString(2), rs.getBigDecimal(4), rs.getInt(5));
-                Categoria cat = new CategoriaDao().consultar(rs.getInt(3));
+                Producto prod = new Producto(rs.getInt(1), rs.getString(2), rs.getBigDecimal(3), rs.getInt(4));
+                Categoria cat = new CategoriaDao().consultar(rs.getInt(5));
                 prod.setCategorias(cat);
                 retorno.add(prod);
             }
@@ -141,8 +141,8 @@ public class ProductoDao {
             pstmt.setInt(1, prodId);
             ResultSet rs = pstmt.executeQuery();
             rs.next();
-            Producto prod = new Producto(rs.getInt(1), rs.getString(2), rs.getBigDecimal(4), rs.getInt(5));
-            Categoria cat = new CategoriaDao().consultar(rs.getInt(3));
+            Producto prod = new Producto(rs.getInt(1), rs.getString(2), rs.getBigDecimal(3), rs.getInt(4));
+            Categoria cat = new CategoriaDao().consultar(rs.getInt(5));
             prod.setCategorias(cat);
             DBConnection.closeConnection(c);
             return prod;
