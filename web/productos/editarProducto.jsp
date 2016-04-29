@@ -35,7 +35,7 @@
                         List<Categoria> categorias= c.getAll();
                         for (Categoria cat : categorias){
                     %>    
-                        <option value="<%=cat.getId()%>" <%if (cat.getId()==prod.getCategorias().getId()) {%> out.print("selected")<% ; }%>><%=cat.getDescripcion()%></option>
+                        <option value="<%=cat.getId()%>" <%if (cat.getId()==prod.getCategorias().getId()) {%> selected<% ; }%>><%=cat.getDescripcion()%></option>
                         <% } %>
                     </select>
                     Precio Unitario
@@ -47,7 +47,7 @@
                         List<Unidad> unidades= u.getAll();
                         for (Unidad unidad : unidades){
                     %>    
-                        <option value="<%=unidad.getId()%>" <%if (unidad.getId()==prod.getCategorias().getId()) { out.print("selected"); }%>><%=unidad.getDescripcion()%></option>
+                        <option value="<%=unidad.getId()%>" <%if (unidad.getId()==prod.getCategorias().getId()) { %> selected <%; }%>><%=unidad.getDescripcion()%></option>
                         <% } %>
                     </select>
             <br/>
