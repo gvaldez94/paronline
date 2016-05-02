@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
     formLogin = document.forms['formLogin'];
     formRegistro = document.forms['formRegistro'];
     formCategoria = document.forms['formCategoria'];
-    activarRegistro();
+    // activarRegistro();
 });
 
 /* formLogin */
 function validarLogin_nameLogin() {
     var usuario = formLogin['login_name'].value;
-    document.getElementById('userLoginMsg').innerHTML = (usuario == ''
+    document.getElementById('login_nameLogin').innerHTML = (usuario == ''
         ? 'Debe identificarse con un nombre de usuario.'
         : '');
 }
