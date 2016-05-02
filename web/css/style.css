@@ -1,0 +1,16 @@
+/* 
+    Created on : 02/05/2016, 04:00:16 PM
+    Author     : Maciel
+*/
+
+* {
+    font-family: 'Droid Sans', sans-serif;
+}
+
+input[type=text], input[type=password] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid black;
+}
