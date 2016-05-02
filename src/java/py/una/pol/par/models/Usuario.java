@@ -17,7 +17,7 @@ public class Usuario extends BaseEntity implements Serializable {
     private String apellido;
     private String loginName;
     private String passwd;
-    private Integer tipoUsuario;
+    private Integer tipoUsuario; // 0 (Administrador), 1 (Cliente)
     private List<TransaccionesCab> transaccionesCabList;
 
     public Usuario() {
