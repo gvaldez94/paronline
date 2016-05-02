@@ -12,6 +12,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ABM de usuarios</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <%

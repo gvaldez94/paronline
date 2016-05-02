@@ -10,8 +10,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript" src="../js/validacion.js"></script>
         <title>Crear cuenta</title>
+        <script type="text/javascript" src="../js/validacion.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body onload="activarRegistro()">
         <%
