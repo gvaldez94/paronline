@@ -12,8 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Crear cuenta</title>
         <script type="text/javascript" src="../js/validacion.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     </head>
     <body onload="activarRegistro()">
         <%
@@ -36,18 +36,18 @@
         <form id="formRegistro" action="/paronline/Usuarios" method="POST">
           <fieldset>
             <legend>Nuevo usuario</legend>
-            Nombre *:
-            <input id="nombreRegistro" name="nombre" onfocusout="validarNombre()" onkeyup="activarRegistro()"><p id="nombreMsg"></p><br>
-            Apellido *:
-            <input id="apellidoRegistro" name="apellido" onfocusout="validarApellido()" onkeyup="activarRegistro()"><p id="apellidoMsg"></p><br>
-            Nombre de usuario *:
-            <input id="login_nameRegistro" name="login_name" onfocusout="validarLogin_name()" onkeyup="activarRegistro()"><p id="login_nameMsg"></p><br>
-            E-mail *:
-            <input id="emailRegistro" name="email" type="email" onfocusout="validarEmail()" onkeyup="activarRegistro()"><p id="emailMsg"></p><br>
-            Contraseña *:
-            <input id="passwdRegistro" name="passwd" type="password" onfocusout="validarPasswd()" onkeyup="activarRegistro()"><p id="passwdMsg"></p><br>
-            Contraseña (verificación) *:
-            <input id="passwd_verRegistro" name="passwd_ver" type="password" onfocusout="validarPasswd_ver()" onkeyup="activarRegistro()"><p id="passwd_verMsg"></p><br>
+            Nombre *:<br/>
+            <input id="nombreRegistro" name="nombre" type="text" onfocusout="validarNombre()" onkeyup="activarRegistro()"><p id="nombreMsg" class="warningMsg"></p><br>
+            Apellido *:<br/>
+            <input id="apellidoRegistro" name="apellido" type="text" onfocusout="validarApellido()" onkeyup="activarRegistro()"><p id="apellidoMsg" class="warningMsg"></p><br>
+            Nombre de usuario *:<br/>
+            <input id="login_nameRegistro" name="login_name" type="text" onfocusout="validarLogin_name()" onkeyup="activarRegistro()"><p id="login_nameMsg" class="warningMsg"></p><br>
+            E-mail *:<br/>
+            <input id="emailRegistro" name="email" type="email" onfocusout="validarEmail()" onkeyup="activarRegistro()"><p id="emailMsg" class="warningMsg"></p><br>
+            Contraseña *:<br/>
+            <input id="passwdRegistro" name="passwd" type="password" onfocusout="validarPasswd()" onkeyup="activarRegistro()"><p id="passwdMsg" class="warningMsg"></p><br>
+            Contraseña (verificación) *:<br/>
+            <input id="passwd_verRegistro" name="passwd_ver" type="password" onfocusout="validarPasswd_ver()" onkeyup="activarRegistro()"><p id="passwd_verMsg" class="warningMsg"></p><br>
             <input type="hidden" name="modo" value="G">
             <input type="hidden" name="tipo" value="N">
             <input type="hidden" name="tipoUsuario" value="1">
