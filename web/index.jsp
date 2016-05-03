@@ -11,6 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/paronline/css/style.css" />
         <title>PAR On Line</title>
     </head>
     <body>
@@ -26,6 +27,7 @@
                 <a href="/paronline/Usuarios">ABM Usuario</a>
                 <a href="/paronline/Categorias">ABM Categorías</a>
                 <a href="/paronline/Productos">ABM Productos</a>
+                <a href="/paronline/StockController">ABM Stock</a>
                 <%}%>
                 <a href="/paronline/usuarios/cambiarPass.jsp">Cambiar Contraseña</a>
                 <a href="/paronline/Sesion">Cerrar Sesión</a>

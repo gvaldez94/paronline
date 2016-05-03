@@ -16,7 +16,7 @@
     <head>
         <script type="text/javascript" src="/paronline/js/validarProducto.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Editar de Producto</title>
+        <title>Editar Producto</title>
     </head>
     <body>
         <form id="formProducto" method="POST" action="/paronline/Productos">

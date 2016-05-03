@@ -1,7 +1,9 @@
-var formProducto;
+var formProducto,
+    formStock;
 
 document.addEventListener('DOMContentLoaded', function() {
     formProducto = document.forms['formProducto'];
+    formStock = document.forms['formStock'];
     activarRegistro();
 });
 
@@ -32,4 +34,26 @@ function activarProducto() {
     }
 
     document.getElementById('submitProducto').disabled = !lleno;
+}
+
+function validarCantidad() {
+    var cantidad = formStock['cantidad'].value;
+    
+    document.getElementById('cantMsg').innerHTML = (cantidad == ''
+            ? 'Debe ingresar una cantidad.'
+                    : '');
+}
+
+function activarStock() {
+    var campos = ['cantidad'],
+        lleno = true;
+
+    for (var i = 0; i < campos.length; ++i) {
+        if (formStock[campos[i]].value == '') {
+            lleno = false;
+            break;
+        }
+    }
+
+    document.getElementById('submitStock').disabled = !lleno;
 }

@@ -12,11 +12,10 @@ import java.io.Serializable;
  * @author Gabriel
  */
 public class Stock extends BaseEntity implements Serializable {
-    // falta agregar un campo del tipo Producto para hacer un select
-    // y obtener directamente los datos del stock, ya que solo la cantidad
-    // va a variar
     private Integer productoId;
     private Integer cantidad;
+    
+    private Producto producto;
 
     public Stock() {
         
@@ -44,6 +43,14 @@ public class Stock extends BaseEntity implements Serializable {
         this.cantidad = cantidad;
     }
 
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+    
     @Override
     public String toString() {
         return "py.una.pol.par.models.Stock[ id=" + id + " ]";
