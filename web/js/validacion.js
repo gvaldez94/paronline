@@ -55,9 +55,24 @@ function validarApellido() {
 
 function validarLogin_name() {
     var login_name = formRegistro['login_name'].value;
-    document.getElementById('login_nameMsg').innerHTML = (login_name == ''
-        ? 'Debe ingresar un nombre de usuario.'
-        : '');
+    if (login_name == '')
+        document.getElementById('login_nameMsg').innerHTML = 'Debe ingresar un nombre de usuario.'
+    else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if (xmlhttp.responseText != 'valido') {
+                    document.getElementById('login_nameMsg').innerHTML =
+                        'Nombre de usuario ya existente.';
+                } else {
+                    document.getElementById('login_nameMsg').innerHTML =
+                            '';
+                }
+            }
+        };
+        xmlhttp.open("GET", "../ValidarLoginName?login_name=" + login_name, true);
+        xmlhttp.send();
+    }
 }
 
 function validarEmail() {
