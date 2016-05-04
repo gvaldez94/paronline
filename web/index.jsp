@@ -28,6 +28,7 @@
                 <a href="/paronline/Categorias">ABM Categorías</a>
                 <a href="/paronline/Productos">ABM Productos</a>
                 <a href="/paronline/StockController">ABM Stock</a>
+                <a href="/paronline/Unidades">ABM Unidades</a>
                 <%}%>
                 <a href="/paronline/usuarios/cambiarPass.jsp">Cambiar Contraseña</a>
                 <a href="/paronline/Sesion">Cerrar Sesión</a>
