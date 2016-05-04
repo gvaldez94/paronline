@@ -45,20 +45,14 @@ public class ValidarLoginName extends HttpServlet {
                 Statement stmt = c.createStatement();
                 String loginName = request.getParameter("login_name");
                 /* Buscar una mejor manera de hacer esta parte, si java deja */
-                /*try {
-                    ResultSet rs = stmt.executeQuery("SELECT COUNT(*) AS total FROM public.usuarios WHERE login_name LIKE " + loginName);
-                    out.write("no_valido");
-                } catch (Exception ex) {
-                    Logger.getLogger(ValidarLoginName.class.getName()).log(Level.SEVERE, null, ex + "SELECT COUNT(*) AS total FROM public.usuarios WHERE login_name LIKE " + loginName);
-                    out.write("valido");
-                }*/
-                PreparedStatement st = c.prepareStatement("SELECT * FROM public.usuarios WHERE login_name = ?");
-                st.setString(1, loginName);
-                try {
-                    st.executeUpdate();
-                    out.write("no_valido"); // si se ejecuta bien el executeUpdate hay resultados entonces ya existe el login_name.
-                } catch (Exception ex) {
-                    out.write("valido"); // hay una exepcion, no hay login_name en la tabla usuarios.
+                ResultSet rs = stmt.executeQuery("SELECT count(*) as total FROM public.usuarios WHERE login_name = '" + loginName + "';");
+                if(rs.next()) {
+                    int total = rs.getInt("total");
+                    if(total == 0) {
+                        out.write("valido");
+                    } else {
+                        out.write("no_valido");
+                    }
                 }
                 /* */
                 DBConnection.closeConnection(c);
