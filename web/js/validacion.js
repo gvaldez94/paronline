@@ -53,11 +53,46 @@ function validarApellido() {
         : '');
 }
 
+function login_nameValido()
+{
+    var login_name = formRegistro['login_name'].value;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            return (xmlhttp.responseText == 'valido' ? true : false);
+        }
+    };
+    xmlhttp.open("GET", "../ValidarLoginName?login_name=" + login_name, true);
+    xmlhttp.send();
+}
+
 function validarLogin_name() {
     var login_name = formRegistro['login_name'].value;
     if (login_name == '')
         document.getElementById('login_nameMsg').innerHTML = 'Debe ingresar un nombre de usuario.'
     else {
+        /* var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if (xmlhttp.responseText != 'valido') {
+                    document.getElementById('login_nameMsg').innerHTML =
+                        'Nombre de usuario ya existente.';
+                } else {
+                    document.getElementById('login_nameMsg').innerHTML =
+                            '';
+                }
+            }
+        };
+        xmlhttp.open("GET", "../ValidarLoginName?login_name=" + login_name, true);
+        xmlhttp.send(); */
+        login_nameUnico();
+        // document.getElementById('login_nameMsg').innerHTML = '';
+    }
+}
+
+function login_nameUnico() {
+    var login_name = formRegistro['login_name'].value;
+    if (login_name != '') {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -86,9 +121,12 @@ function validarPasswd() {
     var passwd_ver = formRegistro['passwd_ver'].value;
     if (passwd_ver != '') {
         var passwd = formRegistro['passwd'].value;
-        document.getElementById('passwd_verMsg').innerHTML = (passwd !== passwd_ver
-            ? 'Las contraseñas no coinciden.'
-            : '');
+        if (passwd !== passwd_ver) {
+            document.getElementById('passwd_verMsg').innerHTML = 'Las contraseñas no coinciden.';
+            document.getElementById('submitRegistro').disabled = true;
+        } else {
+            document.getElementById('passwd_verMsg').innerHTML = '';
+        }
     } else {
         document.getElementById('passwdMsg').innerHTML = (formRegistro['passwd'].value == ''
             ? 'Debe proporcionar una contraseña.'
@@ -99,9 +137,12 @@ function validarPasswd() {
 function validarPasswd_ver() {
     var passwd = formRegistro['passwd'].value,
         passwd_ver = formRegistro['passwd_ver'].value;
-    document.getElementById('passwd_verMsg').innerHTML = (passwd !== passwd_ver
-        ? 'Las contraseñas no coinciden.'
-        : '');
+    if (passwd !== passwd_ver) {
+        document.getElementById('passwd_verMsg').innerHTML = 'Las contraseñas no coinciden.';
+        document.getElementById('submitRegistro').disabled = true;
+    } else {
+        document.getElementById('passwd_verMsg').innerHTML = '';
+    }
 }
 
 function activarRegistro() {
@@ -115,7 +156,7 @@ function activarRegistro() {
         }
     }
 
-    if (formRegistro['passwd'].value == formRegistro['passwd_ver'].value) {
+    if (formRegistro['passwd'].value === formRegistro['passwd_ver'].value) {
         document.getElementById('submitRegistro').disabled = !lleno;
     }
 }
