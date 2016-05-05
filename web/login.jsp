@@ -12,6 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
         <script type="text/javascript" src="js/validacion.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
     </head>
     <body onload="activarLogIn()">
         <h1>Login</h1>
@@ -34,9 +36,9 @@
         <form id="formLogin" action="Login" method="POST">
           <fieldset>
             <legend>Credenciales de usuario</legend>
-            Usuario:
-            <input id="login_nameLogin" name="login_name" onfocusout="validarUserLogin()" onkeyup="activarLogIn()"><p id="login_nameLoginMsg"></p><br>
-            Contraseña:
+            Usuario:<br/>
+            <input id="login_nameLogin" name="login_name" type="text" onfocusout="validarLogin_nameLogin()" onkeyup="activarLogIn()"><p id="login_nameLoginMsg"></p><br>
+            Contraseña:<br/>
             <input id="passwdLogin" name="passwd" type="password" onfocusout="validarPasswdLogin()" onkeyup="activarLogIn()"><p id="passwdLoginMsg"></p><br>
             <input type="hidden" name="modo" value="login">
             <input id="submitLogin" type="submit" value="LogIn" disabled="true">

@@ -36,6 +36,10 @@
         <servlet-name>Unidades</servlet-name>
         <servlet-class>py.una.pol.par.controllers.Unidades</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ValidarLoginName</servlet-name>
+        <servlet-class>py.una.pol.par.controllers.ValidarLoginName</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -65,12 +69,17 @@
         <url-pattern>/Productos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Stock</servlet-name>
         <url-pattern>/StockController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Unidades</servlet-name>
         <url-pattern>/Unidades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidarLoginName</servlet-name>
+        <url-pattern>/ValidarLoginName</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

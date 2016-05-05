@@ -9,8 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Cambiar pass</title>
         <script type="text/javascript" src="../js/validacion.js"></script>
-        <title>JSP Page</title>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     </head>
     <body>
         <%
@@ -28,8 +30,10 @@
         <div>
             <h1>ParOnline</h1>
             <form id="changePasswd" action="/paronline/Sesion" method="POST">
-                Contraseña Actual:<input type="password" name="actual" onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><br>
-                Contraseña Nueva:<input type="password" name="nueva"  onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><p id="passwdMsg"></p><br>
+                Contraseña Actual:<br/>
+                <input type="password" name="actual" onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><br>
+                Contraseña Nueva:<br/>
+                <input type="password" name="nueva"  onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><p id="passwdMsg"></p><br>
                 <input type="hidden" name="modo" value="C">
                 <input id="submitChangePasswd" type="submit" value="Cambiar" name="cambiar" disabled="true"> 
             </form>
