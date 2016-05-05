@@ -7,7 +7,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="py.una.pol.par.models.Producto"%>
 <%@page import="py.una.pol.par.models.Stock" %>
+<%@page import="py.una.pol.par.dao.StockDao" %>
+<%@page import="py.una.pol.par.models.Unidad" %>
+<%@page import="py.una.pol.par.dao.UnidadDao" %>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,6 +27,7 @@
         <br/>
         <%
             ArrayList<Producto> productos = (ArrayList<Producto>) request.getSession().getAttribute("productos");
+            List<Stock> stocks = new StockDao().getAll();
         %>
         <div style="max-width: 750px">
             <h1>Productos</h1>
@@ -53,6 +58,18 @@
                     </td>
                     <td>
                         <%=prod.getPrecioUnit()%>
+                    </td>
+                    <td>
+                        <%
+                            for (Stock stock : stocks) {
+                                if (prod.getId() == stock.getProductoId()) {
+                                    Unidad unidad = new UnidadDao().consultar(prod.getUnidadMedida());
+                        %>
+                        <%=stock.getCantidad() + " " + unidad.getDescripcion()%>
+                        <%
+                                }
+                            }
+                        %>
                     </td>
                     <td>
                         <form method="POST" action="/paronline/Buscar">

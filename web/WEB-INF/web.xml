@@ -69,7 +69,6 @@
         <url-pattern>/Productos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Stock</servlet-name>
         <url-pattern>/StockController</url-pattern>
     </servlet-mapping>
