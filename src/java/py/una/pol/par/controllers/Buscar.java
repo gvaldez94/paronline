@@ -7,7 +7,9 @@ package py.una.pol.par.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -16,8 +18,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import py.una.pol.par.dao.ProductoDao;
+import py.una.pol.par.dao.StockDao;
 import py.una.pol.par.models.Carrito;
 import py.una.pol.par.models.Producto;
+import py.una.pol.par.models.Stock;
 import py.una.pol.par.util.UtilClass;
 
 /**
@@ -27,6 +31,7 @@ import py.una.pol.par.util.UtilClass;
 public class Buscar extends HttpServlet {
 
     ProductoDao productoDao = new ProductoDao();
+    StockDao stockDao = new StockDao();
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,7 +51,19 @@ public class Buscar extends HttpServlet {
             ProductoDao prodDao = new ProductoDao();
             try {
                 List<Producto> productos = prodDao.consultar(categoria_id, descripcion);
+                List<Stock> stocks = stockDao.getAll();
+                List<Stock> stockList = new ArrayList<Stock>();
+                
+                for (Producto prod : productos) {
+                    for (Stock stock : stocks) {
+                        if (Objects.equals(prod.getId(), stock.getProductoId())) {
+                            stockList.add(stock);
+                        }
+                    }
+                }
+                
                 request.getSession().setAttribute("productos", productos);
+                request.getSession().setAttribute("stockList", stockList);
                 RequestDispatcher rd = request.getRequestDispatcher("resultadoProductos.jsp");
                 if (rd != null) {
                     rd.forward(request, response);

@@ -26,12 +26,12 @@
         <%}%>
         <br/>
         <%
+            ArrayList<Stock> stockList = (ArrayList<Stock>) request.getSession().getAttribute("stockList");
             ArrayList<Producto> productos = (ArrayList<Producto>) request.getSession().getAttribute("productos");
-            List<Stock> stocks = new StockDao().getAll();
         %>
         <div style="max-width: 750px">
             <h1>Productos</h1>
-            <%if (productos.size() > 0) {%>
+            <%if ((productos.size() > 0) && (stockList.size() > 0)) {%>
             <table>
                 <tr>
                     <th>Id</th>
@@ -43,8 +43,15 @@
                 </tr>
                 <%
                     int cont = 0;
-                    for (Producto prod : productos) {
+                    
+                    Producto prod = new Producto();
+                    for (Stock stock : stockList) {
                         cont++;
+                        for (Producto producto : productos) {
+                            if (producto.getId() == stock.getProductoId()) {
+                                prod = producto;
+                            }
+                        }
                 %>
                 <tr>
                     <td>
@@ -61,26 +68,23 @@
                     </td>
                     <td>
                         <%
-                            for (Stock stock : stocks) {
-                                if (prod.getId() == stock.getProductoId()) {
-                                    Unidad unidad = new UnidadDao().consultar(prod.getUnidadMedida());
+                            if (prod.getId() == stock.getProductoId()) {
+                                Unidad unidad = new UnidadDao().consultar(prod.getUnidadMedida());
                         %>
                         <%=stock.getCantidad() + " " + unidad.getDescripcion()%>
                         <%
                                 }
-                            }
                         %>
                     </td>
                     <td>
                         <form method="POST" action="/paronline/Buscar">
                         </form>
                     </td>
-
+                    <%
+                        }
+                    %>
                 </tr>
 
-                <%
-                    }
-                %>
             </table>        
             <br/>
             <button type="button" name="Ir a la pantalla principal" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>    
