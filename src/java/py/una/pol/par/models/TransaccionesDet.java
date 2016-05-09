@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  */
 public class TransaccionesDet extends BaseEntity implements Serializable {
     private Integer item;
-    private Integer cantidad;
+    private Float cantidad;
     private BigDecimal precio;
     private BigDecimal subtotal;
     private Producto productos;
@@ -35,11 +35,11 @@ public class TransaccionesDet extends BaseEntity implements Serializable {
         this.item = item;
     }
 
-    public Integer getCantidad() {
+    public Float getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(Integer cantidad) {
+    public void setCantidad(Float cantidad) {
         this.cantidad = cantidad;
     }
 

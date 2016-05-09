@@ -44,6 +44,18 @@
         <servlet-name>CarritoController</servlet-name>
         <servlet-class>py.una.pol.par.controllers.CarritoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TransaccionesController</servlet-name>
+        <servlet-class>py.una.pol.par.controllers.TransaccionesController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ComprasController</servlet-name>
+        <servlet-class>py.una.pol.par.controllers.ComprasController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Compras</servlet-name>
+        <jsp-file>/listarCompras.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -95,6 +107,18 @@
     <servlet-mapping>
         <servlet-name>CarritoController</servlet-name>
         <url-pattern>/Carrito</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransaccionesController</servlet-name>
+        <url-pattern>/Compras/Comprar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ComprasController</servlet-name>
+        <url-pattern>/Compras</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Compras</servlet-name>
+        <url-pattern>/Compras/listar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

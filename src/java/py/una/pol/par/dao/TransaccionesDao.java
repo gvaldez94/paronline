@@ -52,11 +52,11 @@ public class TransaccionesDao {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
-            pstmt = c.prepareStatement("INSERT INTO transacciones_det (transaccion_cab_id, item, producto_id, cantidad, precio, subtotal) VALUES (?,?,?,?,?,?)");
+            pstmt = c.prepareStatement("INSERT INTO transacciones_det (transacciones_cab_id, item, producto_id, cantidad, precio, subtotal) VALUES (?,?,?,?,?,?)");
             pstmt.setInt(1, det.getTransaccionesCab().getId());
             pstmt.setInt(2, det.getItem());
             pstmt.setInt(3, det.getProductos().getId());
-            pstmt.setInt(4, det.getCantidad());
+            pstmt.setFloat(4, det.getCantidad());
             pstmt.setBigDecimal(5, det.getPrecio());
             pstmt.setBigDecimal(6, det.getSubtotal());
             pstmt.execute();
@@ -99,7 +99,7 @@ public class TransaccionesDao {
                 Usuario usr = new UsuarioDao().consultar(rs.getInt(3));
                 cab.setUsuarios(usr);
                 compra.setCab(cab);
-                PreparedStatement pstmt = c.prepareStatement("select * from transacciones_det where transaccion_cab_id = ?");
+                PreparedStatement pstmt = c.prepareStatement("select * from transacciones_det where transacciones_cab_id = ?");
                 pstmt.setInt(1, cab.getId());
                 ResultSet result = pstmt.executeQuery();
                 List <TransaccionesDet> detalles = new ArrayList<TransaccionesDet>();
@@ -109,7 +109,7 @@ public class TransaccionesDao {
                     det.setTransaccionesCab(cab);
                     det.setItem(result.getInt(3));
                     det.setProductos(new ProductoDao().consultar(result.getInt(4)));
-                    det.setCantidad(result.getInt(5));
+                    det.setCantidad(result.getFloat(5));
                     det.setPrecio(result.getBigDecimal(6));
                     det.setSubtotal(result.getBigDecimal(7));
                     detalles.add(det);
