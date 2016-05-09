@@ -36,7 +36,7 @@
                 </select>
             <br/>
             <input type="submit" value="Buscar" style="width:48%; display: inline"> 
-            <button style="width: 48%;display: inline" type="button" name="Consultar Carrito" onclick="location.href = '/paronline/ConsultarCarrito.jsp'">Consultar Carrito</button>
+            <button style="width: 48%;display: inline" type="button" name="Consultar Carrito" onclick="location.href = '/paronline/carrito.jsp'">Consultar Carrito</button>
         </form>
     </body>
 </html>

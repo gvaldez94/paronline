@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import py.una.pol.par.dao.ProductoDao;
 import py.una.pol.par.dao.StockDao;
 import py.una.pol.par.models.Carrito;
+import py.una.pol.par.models.Pedido;
 import py.una.pol.par.models.Producto;
 import py.una.pol.par.models.Stock;
 import py.una.pol.par.util.UtilClass;
@@ -75,8 +76,7 @@ public class Buscar extends HttpServlet {
                     rd.forward(request, response);
                 }
             }
-        }
-        if ("C".equals(modo)) {
+        } else if ("C".equals(modo)) {
             Carrito c = (Carrito) request.getSession().getAttribute("carrito");
             if (c == null) {
                 c = new Carrito();
@@ -84,12 +84,20 @@ public class Buscar extends HttpServlet {
             Integer cantidad = UtilClass.leerNumero(request.getParameter("cantidad"));
             int idProd = Integer.parseInt(request.getParameter("id"));
             Producto p = new ProductoDao().consultar(idProd);
-            /*
-            if (cantidad !=null && p.getCantidad()>=cantidad){
-                c.add(p, cantidad);
+            Stock stock = stockDao.consultar(UtilClass.leerNumero(request.getParameter("stock")));
+
+            Logger.getLogger("INFO").info("Cantidad form: " + cantidad);
+            Logger.getLogger("INFO").info("stock: " + stock.getCantidad());
+
+            if (cantidad !=null && (stock.getCantidad()>=cantidad)){
+                c.add(p, cantidad.floatValue());
                 request.getSession().setAttribute("carrito", c);
             } 
-            */
+
+            for (Pedido pe : c.getAll()) {
+                Logger.getLogger("INFO").info("pe.cantidad " + pe.getCantidad());
+                Logger.getLogger("INFO").info("pe.prod.desc " + pe.getProducto().getDescripcion());
+            }
             RequestDispatcher rd = request.getRequestDispatcher("buscar.jsp");
                 if (rd != null) {
                     rd.forward(request, response);

@@ -78,6 +78,12 @@
                     </td>
                     <td>
                         <form method="POST" action="/paronline/Buscar">
+                            <input type="hidden" name="id" value="<%=prod.getId()%>"/>
+                            <input type="hidden" name="stock" value="<%=stock.getId()%>">
+                            <input type="hidden" id="cant<%=cont%>" value="<%=stock.getCantidad()%>"/>
+                            Cantidad:<input type="number" name="cantidad" style="width: 35%" id="cantidad<%=cont%>">
+                            <input type="hidden" name="modo" value="C"/>
+                            <input type="submit" style="display: inline" value="Comprar"/>
                         </form>
                     </td>
                     <%

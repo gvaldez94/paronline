@@ -7,6 +7,7 @@ package py.una.pol.par.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -27,7 +28,7 @@ public class Carrito {
 
     public Pedido buscar(Producto p, Float cantidad) {
         for (Pedido pedido : this.getAll()) {
-            if (p.getId() == pedido.getProducto().getId()) {
+            if (Objects.equals(p.getId(), pedido.getProducto().getId())) {
                 pedido.setCantidad(pedido.getCantidad() + cantidad);
                 return pedido;
             }
