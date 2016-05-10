@@ -20,12 +20,11 @@
                 ArrayList<Unidad> unidades = (ArrayList<Unidad>) request.getAttribute("unidades");
                 if (unidades.size() > 0) {
         %>
-        <header>
-            <h1>Unidades</h1>
-        </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <section>
             <table style="margin: 0 auto">
                 <tr>

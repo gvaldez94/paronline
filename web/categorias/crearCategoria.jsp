@@ -13,12 +13,14 @@
         <title>Creación de Categoría</title>
     </head>
     <body>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <header>
-            <h1>Nueva Categoría</h1>
+            <h1>Nueva categoría</h1>
         </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <form id="formCategoria" method="POST" action="/paronline/Categorias">            
                 <input type="hidden" name="modo" value="G"/>

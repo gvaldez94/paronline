@@ -16,12 +16,14 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     </head>
     <body>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <header>
             <h1>Usuarios</h1>
         </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <%
             String modo = (String) request.getAttribute("modo");
             if ("L".equals(modo)) {

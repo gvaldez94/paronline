@@ -16,19 +16,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ABM de Productos</title>
     </head>
-    <body style="max-width: 610px">
+    <body>
         <%
             String modo = (String) request.getAttribute("modo");
             if ("L".equals(modo)) {
                 ArrayList<Producto> productos = (ArrayList<Producto>) request.getAttribute("productos");
                 if (productos.size() > 0) {
         %>
-        <header>
-            <h1>Productos</h1>
-        </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <%-- <div > --%>
         <section>
             <table>

@@ -19,12 +19,11 @@
         <title>Editar Stock</title>
     </head>
     <body>
-        <header>
-            <h1>Editar Stock</h1>
-        </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <section>
             <form id="formStock" method="POST" action="/paronline/StockController">
                 <input type="hidden" name="modo" value="G"/>

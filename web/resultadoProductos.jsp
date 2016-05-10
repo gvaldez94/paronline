@@ -24,18 +24,19 @@
     <body>
         <%if (request.getSession().getAttribute("usuario") != null) {%>
         <%}%>
-        <br/>
         <%
             ArrayList<Stock> stockList = (ArrayList<Stock>) request.getSession().getAttribute("stockList");
             ArrayList<Producto> productos = (ArrayList<Producto>) request.getSession().getAttribute("productos");
         %>
-        <div style="max-width: 750px">
+        <div>
+            <%if (request.getSession().getAttribute("usuario")!=null){%>
+                <%@ include file="mainL.jsp" %>
+            <%}else {%>
+                <%@ include file="main.jsp" %>    
+            <%}%>
             <header>
-                <h1>Productos</h1>
+                <h1>Resultados</h1>
             </header>
-            <nav>
-                <!-- add menu here -->
-            </nav>
             <%if ((productos.size() > 0) && (stockList.size() > 0)) {%>
             <section>
                 <table>

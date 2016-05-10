@@ -14,12 +14,14 @@
         <title>Modificación de Unidad</title>
     </head>
     <body>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <header>
-            <h1>Editar Unidad</h1>
+            <h1>Editar unidad de medida</h1>
         </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <form id="formUnidad" method="POST" action="/paronline/Unidades">
                 <%

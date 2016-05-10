@@ -16,7 +16,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Carga de Stock</title>
     </head>
-    <body style="max-width: 610px">
+    <body>
         <%
             String modo = (String) request.getAttribute("modo");
             if ("L".equals(modo)) {
@@ -24,12 +24,11 @@
                 if (stocks.size() > 0) {
         %>
         <%-- <div > --%>
-            <header>
-                <h1>Stocks</h1>
-            </header>
-            <nav>
-                <!-- add menu here -->
-            </nav>
+            <%if (request.getSession().getAttribute("usuario")!=null){%>
+                <%@ include file="../mainL.jsp" %>
+            <%}else {%>
+                <%@ include file="../main.jsp" %>    
+            <%}%>
             <section>
                 <table>
                     <tr>

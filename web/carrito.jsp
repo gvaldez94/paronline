@@ -16,17 +16,19 @@
         <title>Consultar Carrito</title>
     </head>
     <body>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="main.jsp" %>    
+        <%}%>
+        <header>
+            <h1>Carrito de Compras</h1>
+        </header>
         <%
             Carrito c = (Carrito) request.getSession().getAttribute("carrito");
             if (c != null&&(c.getAll().size()>0)) {
                 List<Pedido> pedidos = c.getAll();
         %>
-        <header>
-            <h1>Carrito de Compras</h1>
-        </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <table>
                 <tr>
@@ -62,7 +64,6 @@
             <button name="Volver" style="width:49%; display: inline" type="button" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> 
             <%} else { 
             %>
-            <h1>Carrito de Compras</h1>
             <table>
                 <tr>
                     <th>Producto</th>

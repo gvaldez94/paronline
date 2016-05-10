@@ -16,12 +16,14 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     </head>
     <body>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <header>
-            <!-- no se que titulo ponerle a este -->
+            <h1>Editar cuenta</h1>
         </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <%
                 String error = (String) request.getAttribute("error");

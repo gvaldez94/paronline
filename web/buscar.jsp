@@ -15,19 +15,15 @@
         <title>Buscador de productos</title>
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" href="css/search.css">
     </head>
     <body>
-        <header>Buscar</header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%}%>
-            <br/>
             <form action="/paronline/Buscar">
                 <input type="hidden" name="modo" value="B">
-                Producto:<input style="width: 35%;margin-right: 8px" type="search" name="descripcion">
+                Producto:<input type="search" name="descripcion">
                 Categoria<select name="categoria">
                         <option value=0>----Seleccione----</option>
 
@@ -41,7 +37,7 @@
                     </select>
                 <br/>
                 <input type="submit" value="Buscar" style="width:48%; display: inline"> 
-                <button style="width: 48%;display: inline" type="button" name="Consultar Carrito" onclick="location.href = '/paronline/carrito.jsp'">Consultar Carrito</button>
+                <button type="button" name="Consultar Carrito" onclick="location.href = '/paronline/carrito.jsp'">Consultar Carrito</button>
             </form>
         </section>
     </body>

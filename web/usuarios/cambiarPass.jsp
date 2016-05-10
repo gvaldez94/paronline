@@ -15,12 +15,11 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     </head>
     <body>
-        <header>
-            <h1>ParOnline</h1>
-        </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <%
             String cambio = (String) request.getAttribute("cambio");
             if (cambio != null) {

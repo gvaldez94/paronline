@@ -14,12 +14,14 @@
         <title>Modificación de Categoría</title>
     </head>
     <body>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <header>
-            <h1>Editar Categoría</h1>
+            <h1>Editar categoría</h1>
         </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <form id="formCategoria" method="POST" action="/paronline/Categorias">
                 <%

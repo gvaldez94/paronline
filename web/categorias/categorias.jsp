@@ -20,12 +20,11 @@
                 ArrayList<Categoria> categ = (ArrayList<Categoria>) request.getAttribute("categorias");
                 if (categ.size() > 0) {
         %>
-        <header>
-            <h1>Categorías</h1>
-        </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <section>
             <table style="margin: 0 auto">
                 <tr>

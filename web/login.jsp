@@ -16,6 +16,11 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
     </head>
     <body onload="activarLogIn()">
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <header>
             <h1>Login</h1>
         </header>

@@ -18,12 +18,14 @@
         <title>Creación de Producto</title>
     </head>
     <body>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="../mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
         <header>
-            <h1>Nuevo Producto</h1>
+            <h1>Nuevo producto</h1>
         </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <form id="formProducto" method="POST" action="/paronline/Productos">
                 <input type="hidden" name="modo" value="G"/>

@@ -13,12 +13,14 @@
         <title>Registrar Transaccion</title>
     </head>
     <body>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="main.jsp" %>    
+        <%}%>
         <header>
             <h1>Registrar Transacción</h1>
         </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <%if (request.getSession().getAttribute("usuario") != null) { %>
             <form id="formTransaccion" action="/paronline/Compras/Comprar" >

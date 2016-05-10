@@ -17,12 +17,11 @@
         <title>Compras</title>
     </head>
     <body>
-        <header>
-            <h1>Listado de compras</h1>
-        </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
+        <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%@ include file="mainL.jsp" %>
+        <%}else {%>
+            <%@ include file="main.jsp" %>    
+        <%}%>
         <section>
             <% Usuario u = (Usuario)request.getSession().getAttribute("usuario"); 
                if (u==null){RequestDispatcher rd = request.getRequestDispatcher("/paronline/login.jsp");
