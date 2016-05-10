@@ -78,7 +78,7 @@ CREATE TABLE public.transacciones_cab(
 	total numeric(14,2),
 	direccion character varying(50) NOT NULL,
 	medio_pago integer NOT NULL,
-	nro_tarjeta character varying(40) NOT NULL,
+	nro_tarjeta character varying(40),
 	estado character varying NOT NULL,
 	usuario_id integer NOT NULL,
 	CONSTRAINT pktransaccionescab PRIMARY KEY (id)
@@ -91,13 +91,14 @@ ALTER TABLE public.transacciones_cab OWNER TO postgres;
 -- object: public.transacciones_det | type: TABLE --
 -- DROP TABLE IF EXISTS public.transacciones_det CASCADE;
 CREATE TABLE public.transacciones_det(
+        id serial NOT NULL,
 	transacciones_cab_id integer NOT NULL,
 	item integer NOT NULL,
 	cantidad integer NOT NULL,
 	precio numeric(14,2) NOT NULL,
 	subtotal numeric(14,2) NOT NULL,
 	producto_id integer NOT NULL,
-	CONSTRAINT pktransaccionesdet PRIMARY KEY (transacciones_cab_id)
+	CONSTRAINT pktransaccionesdet PRIMARY KEY (id, transacciones_cab_id)
 
 );
 -- ddl-end --
