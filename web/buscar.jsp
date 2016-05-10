@@ -17,26 +17,32 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
     </head>
     <body>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
-        <%}%>
-        <br/>
-        <form action="/paronline/Buscar">
-            <input type="hidden" name="modo" value="B">
-            Producto:<input style="width: 35%;margin-right: 8px" type="search" name="descripcion">
-            Categoria<select name="categoria">
-                    <option value=0>----Seleccione----</option>
-                
-                    <%
-                        CategoriaDao c = new CategoriaDao();
-                        List<Categoria> categorias = c.getAll();
-                        for (Categoria cat : categorias) {
-                    %>    
-                    <option value="<%=cat.getId()%>"><%=cat.getDescripcion()%></option>
-                    <% }%>
-                </select>
+        <header>Buscar</header>
+        <nav>
+            <!-- add menu here -->
+        </nav>
+        <section>
+            <%if (request.getSession().getAttribute("usuario") != null) {%>
+            <%}%>
             <br/>
-            <input type="submit" value="Buscar" style="width:48%; display: inline"> 
-            <button style="width: 48%;display: inline" type="button" name="Consultar Carrito" onclick="location.href = '/paronline/carrito.jsp'">Consultar Carrito</button>
-        </form>
+            <form action="/paronline/Buscar">
+                <input type="hidden" name="modo" value="B">
+                Producto:<input style="width: 35%;margin-right: 8px" type="search" name="descripcion">
+                Categoria<select name="categoria">
+                        <option value=0>----Seleccione----</option>
+
+                        <%
+                            CategoriaDao c = new CategoriaDao();
+                            List<Categoria> categorias = c.getAll();
+                            for (Categoria cat : categorias) {
+                        %>    
+                        <option value="<%=cat.getId()%>"><%=cat.getDescripcion()%></option>
+                        <% }%>
+                    </select>
+                <br/>
+                <input type="submit" value="Buscar" style="width:48%; display: inline"> 
+                <button style="width: 48%;display: inline" type="button" name="Consultar Carrito" onclick="location.href = '/paronline/carrito.jsp'">Consultar Carrito</button>
+            </form>
+        </section>
     </body>
 </html>

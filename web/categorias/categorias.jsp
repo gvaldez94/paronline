@@ -20,8 +20,13 @@
                 ArrayList<Categoria> categ = (ArrayList<Categoria>) request.getAttribute("categorias");
                 if (categ.size() > 0) {
         %>
-        <div>
+        <header>
             <h1>Categorías</h1>
+        </header>
+        <nav>
+            <!-- add menu here -->
+        </nav>
+        <section>
             <table style="margin: 0 auto">
                 <tr>
                     <th>Id</th>
@@ -63,12 +68,17 @@
                 <input style="width:49%; display: inline" type="submit" value="Agregar"/>
                 <button style="width:49%; display: inline" type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>    
             </form>
-            </div>
-            <%
+        </section>
+        <%
             } else {
-            %>    
-            <div>
+        %>    
+        <header>
             <h1>Categorías</h1>
+        </header>
+        <nav>
+            <!-- add menu here -->
+        </nav>
+        <section>
             <table style="margin: 0 auto">
                 <tr>
                     <th>Id</th>
@@ -84,10 +94,10 @@
                 <br/>
                 <input style="width:49%; display: inline" type="submit" value="Agregar"/>
             </form>
-            </div>
-                <%
-                        }
-                    }
-                %>
+        </section>
+        <%
+                }
+            }
+        %>
     </body>
 </html>

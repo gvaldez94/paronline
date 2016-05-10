@@ -16,16 +16,18 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
     </head>
     <body onload="activarLogIn()">
-        <h1>Login</h1>
+        <header>
+            <h1>Login</h1>
+        </header>
         <%
             String error = (String) request.getAttribute("error");
             if (error != null) {
         %>
-        <div>
+        <section>
             <%
                 out.print(error);
             %>
-        </div>
+        </section>
         <%
             }
         %>
@@ -33,29 +35,34 @@
         <% Usuario u = (Usuario) request.getSession().getAttribute("usuario");
             if (u == null) {
         %>
-        <form id="formLogin" action="Login" method="POST">
-          <fieldset>
-            <legend>Credenciales de usuario</legend>
-            Usuario:<br/>
-            <input id="login_nameLogin" name="login_name" type="text" onfocusout="validarLogin_nameLogin()" onkeyup="activarLogIn()"><p id="login_nameLoginMsg"></p><br>
-            Contraseña:<br/>
-            <input id="passwdLogin" name="passwd" type="password" onfocusout="validarPasswdLogin()" onkeyup="activarLogIn()"><p id="passwdLoginMsg"></p><br>
-            <input type="hidden" name="modo" value="login">
-            <input id="submitLogin" type="submit" value="LogIn" disabled="true">
-          </fieldset>
-        </form>
+        <nav>
+            <!-- add menu here -->
+        </nav>
+        <section>
+            <form id="formLogin" action="Login" method="POST">
+              <fieldset>
+                <legend>Credenciales de usuario</legend>
+                Usuario:<br/>
+                <input id="login_nameLogin" name="login_name" type="text" onfocusout="validarLogin_nameLogin()" onkeyup="activarLogIn()"><p id="login_nameLoginMsg"></p><br>
+                Contraseña:<br/>
+                <input id="passwdLogin" name="passwd" type="password" onfocusout="validarPasswdLogin()" onkeyup="activarLogIn()"><p id="passwdLoginMsg"></p><br>
+                <input type="hidden" name="modo" value="login">
+                <input id="submitLogin" type="submit" value="LogIn" disabled="true">
+              </fieldset>
+            </form>
 
-        <h1>Registro</h1>
-        <form action="/paronline/usuarios/crearUsuario.jsp" method="POST" >
-            <input id="submit" type="submit" value="Registrarme">
-        </form>
-        <%
-            } else {
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                if (rd != null) {
-                    rd.forward(request, response);
+            <h1>Registro</h1>
+            <form action="/paronline/usuarios/crearUsuario.jsp" method="POST" >
+                <input id="submit" type="submit" value="Registrarme">
+            </form>
+            <%
+                } else {
+                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    if (rd != null) {
+                        rd.forward(request, response);
+                    }
                 }
-            }
-        %>
+            %>
+        </section>
     </body>
 </html>

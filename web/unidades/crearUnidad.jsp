@@ -13,8 +13,15 @@
         <title>Creación de Unidad</title>
     </head>
     <body>
-        <form id="formUnidad" method="POST" action="/paronline/Unidades">
+        <header>
             <h1>Nueva Unidad</h1>
+        </header>
+        <nav>
+            <!-- add menu here -->
+        </nav>
+        <section></section>
+        
+        <form id="formUnidad" method="POST" action="/paronline/Unidades">
             <input type="hidden" name="modo" value="G"/>
             <input type="hidden" name="tipo" value="N"/>
                     Descripcion

@@ -30,73 +30,79 @@
             ArrayList<Producto> productos = (ArrayList<Producto>) request.getSession().getAttribute("productos");
         %>
         <div style="max-width: 750px">
-            <h1>Productos</h1>
+            <header>
+                <h1>Productos</h1>
+            </header>
+            <nav>
+                <!-- add menu here -->
+            </nav>
             <%if ((productos.size() > 0) && (stockList.size() > 0)) {%>
-            <table>
-                <tr>
-                    <th>Id</th>
-                    <th>Descripcion</th>
-                    <th>Categoria</th>
-                    <th>Precio Unitario</th>
-                    <th>Stock</th>
-                    <th colspan="2">Accion</th>
-                </tr>
-                <%
-                    int cont = 0;
-                    
-                    Producto prod = new Producto();
-                    for (Stock stock : stockList) {
-                        cont++;
-                        for (Producto producto : productos) {
-                            if (producto.getId() == stock.getProductoId()) {
-                                prod = producto;
-                            }
-                        }
-                %>
-                <tr>
-                    <td>
-                        <%=prod.getId()%>
-                    </td>
-                    <td>
-                        <%=prod.getDescripcion()%>
-                    </td>
-                    <td>
-                        <%=prod.getCategorias().getDescripcion()%>
-                    </td>
-                    <td>
-                        <%=prod.getPrecioUnit()%>
-                    </td>
-                    <td>
-                        <%
-                            if (prod.getId() == stock.getProductoId()) {
-                                Unidad unidad = new UnidadDao().consultar(prod.getUnidadMedida());
-                        %>
-                        <%=stock.getCantidad() + " " + unidad.getDescripcion()%>
-                        <%
-                                }
-                        %>
-                    </td>
-                    <td>
-                        <form method="POST" action="/paronline/Buscar">
-                            <input type="hidden" name="id" value="<%=prod.getId()%>"/>
-                            <input type="hidden" name="stock" value="<%=stock.getId()%>">
-                            <input type="hidden" id="cant<%=cont%>" value="<%=stock.getCantidad()%>"/>
-                            Cantidad:<input type="number" name="cantidad" style="width: 35%" id="cantidad<%=cont%>">
-                            <input type="hidden" name="modo" value="C"/>
-                            <input type="submit" style="display: inline" value="Comprar"/>
-                        </form>
-                    </td>
+            <section>
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Descripcion</th>
+                        <th>Categoria</th>
+                        <th>Precio Unitario</th>
+                        <th>Stock</th>
+                        <th colspan="2">Accion</th>
+                    </tr>
                     <%
-                        }
-                    %>
-                </tr>
+                        int cont = 0;
 
-            </table>        
-            <br/>
-            <button type="button" name="Ir a la pantalla principal" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>    
+                        Producto prod = new Producto();
+                        for (Stock stock : stockList) {
+                            cont++;
+                            for (Producto producto : productos) {
+                                if (producto.getId() == stock.getProductoId()) {
+                                    prod = producto;
+                                }
+                            }
+                    %>
+                    <tr>
+                        <td>
+                            <%=prod.getId()%>
+                        </td>
+                        <td>
+                            <%=prod.getDescripcion()%>
+                        </td>
+                        <td>
+                            <%=prod.getCategorias().getDescripcion()%>
+                        </td>
+                        <td>
+                            <%=prod.getPrecioUnit()%>
+                        </td>
+                        <td>
+                            <%
+                                if (prod.getId() == stock.getProductoId()) {
+                                    Unidad unidad = new UnidadDao().consultar(prod.getUnidadMedida());
+                            %>
+                            <%=stock.getCantidad() + " " + unidad.getDescripcion()%>
+                            <%
+                                    }
+                            %>
+                        </td>
+                        <td>
+                            <form method="POST" action="/paronline/Buscar">
+                                <input type="hidden" name="id" value="<%=prod.getId()%>"/>
+                                <input type="hidden" name="stock" value="<%=stock.getId()%>">
+                                <input type="hidden" id="cant<%=cont%>" value="<%=stock.getCantidad()%>"/>
+                                Cantidad:<input type="number" name="cantidad" style="width: 35%" id="cantidad<%=cont%>">
+                                <input type="hidden" name="modo" value="C"/>
+                                <input type="submit" style="display: inline" value="Comprar"/>
+                            </form>
+                        </td>
+                        <%
+                            }
+                        %>
+                    </tr>
+                </table>
+                <br/>
+                <button type="button" name="Ir a la pantalla principal" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>
+            </section>
         </div>
         <%} else {%>
-        <div>
+        <section>
             <table>
                 <tr>
                     <th>Id</th>
@@ -111,7 +117,7 @@
             </table>
             <br/>
             <button type="button" name="Ir a la pantalla principal" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>    
-        </div>
+        </section>
         <%
             }
         %>

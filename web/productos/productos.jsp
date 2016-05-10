@@ -16,15 +16,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ABM de Productos</title>
     </head>
-    <body>
+    <body style="max-width: 610px">
         <%
             String modo = (String) request.getAttribute("modo");
             if ("L".equals(modo)) {
                 ArrayList<Producto> productos = (ArrayList<Producto>) request.getAttribute("productos");
                 if (productos.size() > 0) {
         %>
-        <div style="max-width: 610px">
+        <header>
             <h1>Productos</h1>
+        </header>
+        <nav>
+            <!-- add menu here -->
+        </nav>
+        <%-- <div > --%>
+        <section>
             <table>
                 <tr>
                     <th>Id</th>
@@ -74,32 +80,38 @@
                 <input type="submit" style="width:49%; display: inline" value="Agregar"/>
                 <button type="button" style="width:49%; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>    
             </form>
-            <%
-            } else {
-            %>            
-            <div>
-                <h1>Productos</h1>
-                <table style="margin: 0 auto">
-                    <tr>
-                        <th>Id</th>
-                        <th>Descripcion</th>
-                        <th>Categoria</th>
-                        <th>Precio Unitario</th>
-                        <th colspan="2">Accion</th>
-                    </tr>
-                    <tr>
-                        <td colspan="7">No hay productos</td>
-                    </tr>
-                </table>
-                <form method="POST" action="/paronline/Productos">
-                    <input type="hidden" name="modo" value="NW"/>
-                    <br/>
-                    <input style="width:49%; display: inline" type="submit" value="Agregar"/>
-                </form>
-            </div>       
-            <% }
-                }
-            %>
-        </div>
+        </section>
+        <%
+        } else {
+        %>  
+        <header>
+            <h1>Productos</h1>
+        </header>
+        <nav>
+            <!-- add menu here -->
+        </nav>
+        <section>
+            <table style="margin: 0 auto">
+                <tr>
+                    <th>Id</th>
+                    <th>Descripcion</th>
+                    <th>Categoria</th>
+                    <th>Precio Unitario</th>
+                    <th colspan="2">Accion</th>
+                </tr>
+                <tr>
+                    <td colspan="7">No hay productos</td>
+                </tr>
+            </table>
+            <form method="POST" action="/paronline/Productos">
+                <input type="hidden" name="modo" value="NW"/>
+                <br/>
+                <input style="width:49%; display: inline" type="submit" value="Agregar"/>
+            </form>
+        </section>
+        <% }
+            }
+        %>
+        <%-- </div> --%>
     </body>
 </html>

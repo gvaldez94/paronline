@@ -17,7 +17,13 @@
         <title>Compras</title>
     </head>
     <body>
-        <div>
+        <header>
+            <h1>Listado de compras</h1>
+        </header>
+        <nav>
+            <!-- add menu here -->
+        </nav>
+        <section>
             <% Usuario u = (Usuario)request.getSession().getAttribute("usuario"); 
                if (u==null){RequestDispatcher rd = request.getRequestDispatcher("/paronline/login.jsp");
                 if (rd!= null){
@@ -67,10 +73,8 @@
             %>
             <br/>
             <button type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Volver</button>    
-        </div>
         <%} else {
         %>
-        <div>
             <table style="margin: 0">
                 <tr>
                     <th>Item</th>
@@ -83,9 +87,9 @@
             </table>
             <br/>
             <button type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Volver</button>    
-        </div>
         <%
             }
         %>
+        </section>
     </body>
 </html>

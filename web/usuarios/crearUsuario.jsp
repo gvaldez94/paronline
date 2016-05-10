@@ -16,15 +16,18 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     </head>
     <body onload="activarRegistro()">
+        <header>
+            <h1>Registro</h1>
+        </header>
         <%
             String error = (String) request.getAttribute("error");
             if (error != null) {
         %>
-        <div>
+        <section>
             <%
                 out.print(error);
             %>
-        </div>
+        </section>
         <%
             }
         %>
@@ -32,35 +35,39 @@
         <% Usuario u = (Usuario) request.getSession().getAttribute("usuario");
             if (u == null) {
         %>
-        <h1>Registro</h1>
-        <form id="formRegistro" action="/paronline/Usuarios" method="POST">
-          <fieldset>
-            <legend>Nuevo usuario</legend>
-            Nombre *:<br/>
-            <input id="nombreRegistro" name="nombre" type="text" onfocusout="validarNombre()" onkeyup="activarRegistro()"><p id="nombreMsg" class="warningMsg"></p><br>
-            Apellido *:<br/>
-            <input id="apellidoRegistro" name="apellido" type="text" onfocusout="validarApellido()" onkeyup="activarRegistro()"><p id="apellidoMsg" class="warningMsg"></p><br>
-            Nombre de usuario *:<br/>
-            <input id="login_nameRegistro" name="login_name" type="text" onfocusout="validarLogin_name()" onkeyup="login_nameUnico(); activarRegistro()"><p id="login_nameMsg" class="warningMsg"></p><br>
-            E-mail *:<br/>
-            <input id="emailRegistro" name="email" type="email" onfocusout="validarEmail()" onkeyup="activarRegistro()"><p id="emailMsg" class="warningMsg"></p><br>
-            Contraseña *:<br/>
-            <input id="passwdRegistro" name="passwd" type="password" onkeyup="validarPasswd(); activarRegistro()"><p id="passwdMsg" class="warningMsg"></p><br>
-            Contraseña (verificación) *:<br/>
-            <input id="passwd_verRegistro" name="passwd_ver" type="password" onkeyup="validarPasswd_ver(); activarRegistro()"><p id="passwd_verMsg" class="warningMsg"></p><br>
-            <input type="hidden" name="modo" value="G">
-            <input type="hidden" name="tipo" value="N">
-            <input type="hidden" name="tipoUsuario" value="1">
-            <input id="submitRegistro" type="submit" value="Regístrame" disabled="true">
-          </fieldset>
-        </form>
-        <%
-            } else {
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                if (rd != null) {
-                    rd.forward(request, response);
+        <nav>
+            <!-- add menu here -->
+        </nav>
+        <section>
+            <form id="formRegistro" action="/paronline/Usuarios" method="POST">
+              <fieldset>
+                <legend>Nuevo usuario</legend>
+                Nombre *:<br/>
+                <input id="nombreRegistro" name="nombre" type="text" onfocusout="validarNombre()" onkeyup="activarRegistro()"><p id="nombreMsg" class="warningMsg"></p><br>
+                Apellido *:<br/>
+                <input id="apellidoRegistro" name="apellido" type="text" onfocusout="validarApellido()" onkeyup="activarRegistro()"><p id="apellidoMsg" class="warningMsg"></p><br>
+                Nombre de usuario *:<br/>
+                <input id="login_nameRegistro" name="login_name" type="text" onfocusout="validarLogin_name()" onkeyup="login_nameUnico(); activarRegistro()"><p id="login_nameMsg" class="warningMsg"></p><br>
+                E-mail *:<br/>
+                <input id="emailRegistro" name="email" type="email" onfocusout="validarEmail()" onkeyup="activarRegistro()"><p id="emailMsg" class="warningMsg"></p><br>
+                Contraseña *:<br/>
+                <input id="passwdRegistro" name="passwd" type="password" onkeyup="validarPasswd(); activarRegistro()"><p id="passwdMsg" class="warningMsg"></p><br>
+                Contraseña (verificación) *:<br/>
+                <input id="passwd_verRegistro" name="passwd_ver" type="password" onkeyup="validarPasswd_ver(); activarRegistro()"><p id="passwd_verMsg" class="warningMsg"></p><br>
+                <input type="hidden" name="modo" value="G">
+                <input type="hidden" name="tipo" value="N">
+                <input type="hidden" name="tipoUsuario" value="1">
+                <input id="submitRegistro" type="submit" value="Regístrame" disabled="true">
+              </fieldset>
+            </form>
+            <%
+                } else {
+                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    if (rd != null) {
+                        rd.forward(request, response);
+                    }
                 }
-            }
-        %>
+            %>
+        </section>
     </body>
 </html>

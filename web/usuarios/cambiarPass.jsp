@@ -15,6 +15,12 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     </head>
     <body>
+        <header>
+            <h1>ParOnline</h1>
+        </header>
+        <nav>
+            <!-- add menu here -->
+        </nav>
         <%
             String cambio = (String) request.getAttribute("cambio");
             if (cambio != null) {
@@ -27,8 +33,7 @@
         <%
             }
         %>
-        <div>
-            <h1>ParOnline</h1>
+        <section>
             <form id="changePasswd" action="/paronline/Sesion" method="POST">
                 Contraseña Actual:<br/>
                 <input type="password" name="actual" onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><br>
@@ -37,6 +42,6 @@
                 <input type="hidden" name="modo" value="C">
                 <input id="submitChangePasswd" type="submit" value="Cambiar" name="cambiar" disabled="true"> 
             </form>
-        </div>
+        </section>
     </body>
 </html>

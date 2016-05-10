@@ -17,32 +17,37 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
     </head>
     <body>
-        <%
-            if (request.getSession().getAttribute("usuario") != null) {
-        %>
-        <div>
+        <header>
             <h1> ParOnline </h1>
+        </header>
+        <nav>
+            <!-- add menu here -->
+        </nav>
+        <section>
+            <%
+                if (request.getSession().getAttribute("usuario") != null) {
+            %>
                 <a href="/paronline/buscar.jsp">Buscador de Productos</a>
                 <%
                     Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-                    if (usuario.getTipoUsuario() == 0) {%>
-                <a href="/paronline/Usuarios">ABM Usuario</a>
-                <a href="/paronline/Categorias">ABM Categorías</a>
-                <a href="/paronline/Productos">ABM Productos</a>
-                <a href="/paronline/StockController">ABM Stock</a>
-                <a href="/paronline/Unidades">ABM Unidades</a>
-                <%}%>
-                <a href="/paronline/usuarios/cambiarPass.jsp">Cambiar Contraseña</a>
-                <a href="/paronline/Sesion">Cerrar Sesión</a>
-        </div>
-        <%
-        } else {
-        %>
-        <div>
-            <h1> ParOnline </h1>
-                <a href="/paronline/buscar.jsp">Buscador de Productos</a>
-                <a href="/paronline/login.jsp">Login</a>
-        </div>
-        <% }%>
+                    if (usuario.getTipoUsuario() == 0) {
+                %>
+                    <a href="/paronline/Usuarios">ABM Usuario</a><br/>
+                    <a href="/paronline/Categorias">ABM Categorías</a><br/>
+                    <a href="/paronline/Productos">ABM Productos</a><br/>
+                    <a href="/paronline/StockController">ABM Stock</a><br/>
+                    <a href="/paronline/Unidades">ABM Unidades</a><br/>
+                    <%}%>
+                    <a href="/paronline/usuarios/cambiarPass.jsp">Cambiar Contraseña</a>
+                    <a href="/paronline/Sesion">Cerrar Sesión</a>
+            <%
+                } else {
+            %>
+                <div>
+                    <a href="/paronline/buscar.jsp">Buscador de Productos</a>
+                    <a href="/paronline/login.jsp">Login</a>
+                </div>
+            <%}%>
+        </section>
     </body>
 </html>

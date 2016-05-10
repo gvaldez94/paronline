@@ -16,56 +16,61 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     </head>
     <body>
+        <header>
+            <h1>Usuarios</h1>
+        </header>
+        <nav>
+            <!-- add menu here -->
+        </nav>
         <%
             String modo = (String) request.getAttribute("modo");
             if ("L".equals(modo)) {
                 ArrayList<Usuario> users = (ArrayList<Usuario>) request.getAttribute("usuarios");
         %>
-        <div>
-        <h1>Usuarios</h1>
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Login name</th>
-                <th colspan="2">Accion</th>
-            </tr>
-            <%
-                for (Usuario usr : users) {
-            %>
-            <tr>
-                <td>
-                    <%=usr.getId()%>
-                </td>
-                <td>
-                    <%=usr.getNombre()%>
-                </td>
-                <td>
-                    <%=usr.getApellido()%>
-                </td>
-                <td>
-                    <%=usr.getLoginName()%>
-                </td>
-                <td>
-                    <form method="POST" action="/paronline/Usuarios">
-                        <input type="hidden" name="id" value="<%=usr.getId()%>"/>
-                        <input type="hidden" name="modo" value="EL"/>
-                        <input type="submit" style="border-radius: 0px" onclick="return confirm('Está seguro?')" value="Eliminar"/>
-                    </form>
-                </td>
-            </tr>
+        <section>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Login name</th>
+                    <th colspan="2">Accion</th>
+                </tr>
+                <%
+                    for (Usuario usr : users) {
+                %>
+                <tr>
+                    <td>
+                        <%=usr.getId()%>
+                    </td>
+                    <td>
+                        <%=usr.getNombre()%>
+                    </td>
+                    <td>
+                        <%=usr.getApellido()%>
+                    </td>
+                    <td>
+                        <%=usr.getLoginName()%>
+                    </td>
+                    <td>
+                        <form method="POST" action="/paronline/Usuarios">
+                            <input type="hidden" name="id" value="<%=usr.getId()%>"/>
+                            <input type="hidden" name="modo" value="EL"/>
+                            <input type="submit" style="border-radius: 0px" onclick="return confirm('Está seguro?')" value="Eliminar"/>
+                        </form>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
+            <form method="POST" action="/paronline/Usuarios">
+                <button type="button" style="width:49%; margin: 0 auto; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>
+            </form>
             <%
                 }
             %>
-        </table>
-        <form method="POST" action="/paronline/Usuarios">
-            <button type="button" style="width:49%; margin: 0 auto; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>
-        </form>
-        <%
-            }
-        %>
-        <br/>
-        </div>
+            <br/>
+        </section>
     </body>
 </html>
