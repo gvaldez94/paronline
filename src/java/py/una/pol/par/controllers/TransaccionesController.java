@@ -67,7 +67,7 @@ public class TransaccionesController extends HttpServlet {
             TransaccionesDao tdao = new TransaccionesDao();
             if (tipo == 1 && UtilClass.leerCadena(tarjeta) && UtilClass.leerCadena(direccion) || tipo == 0 && UtilClass.leerCadena(direccion)) {
                 try {
-                    tdao.crearTransaccionesCab(cab);
+                    cab = tdao.crearTransaccionesCab(cab);
                     int id = cab.getId();
                     Carrito c = (Carrito) request.getSession().getAttribute("carrito");
                     if (c != null) {

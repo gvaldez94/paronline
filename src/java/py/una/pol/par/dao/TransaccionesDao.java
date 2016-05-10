@@ -25,7 +25,7 @@ import py.una.pol.par.util.DBConnection;
  * @author Gabriel
  */
 public class TransaccionesDao {
-    public void crearTransaccionesCab(TransaccionesCab cab) throws SQLException {
+    public TransaccionesCab crearTransaccionesCab(TransaccionesCab cab) throws SQLException {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
@@ -43,8 +43,10 @@ public class TransaccionesDao {
             }
             pstmt.close();
             DBConnection.closeConnection(c);
+            return cab;
         } catch (Exception ex) {
             Logger.getLogger(TransaccionesDao.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
     }
 
