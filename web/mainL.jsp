@@ -20,7 +20,6 @@
             <nav>
                 <ul class="ul-navbar">
                     <li class="li-navbar"><a href="/paronline/index.jsp">Inicio</a></li>
-                    <li class="li-navbar"><a href="/paronline/buscar.jsp">Buscar</a></li>
                     <%
                         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                         if (usuario.getTipoUsuario() == 0) {

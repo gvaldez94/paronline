@@ -19,8 +19,9 @@
     </head>
     <body>
         <section>
-            <%if (request.getSession().getAttribute("usuario") != null) {%>
-            <%}%>
+            <header>
+                <h1>Buscar producto</h1>
+            </header>
             <form action="/paronline/Buscar">
                 <input type="hidden" name="modo" value="B">
                 Producto:<input type="search" name="descripcion">

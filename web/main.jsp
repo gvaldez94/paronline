@@ -19,7 +19,6 @@
             <nav>
                 <ul class="ul-navbar">
                     <li class="li-navbar"><a href="/paronline/index.jsp">Inicio</a></li>
-                    <li class="li-navbar"><a href="/paronline/buscar.jsp">Buscar</a></li>
                     <li class="li-navbar" style="float: right"><a href="/paronline/login.jsp">Login</a></li>
                 </ul>
             </nav>
