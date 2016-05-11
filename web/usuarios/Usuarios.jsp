@@ -58,7 +58,7 @@
                         <form method="POST" action="/paronline/Usuarios">
                             <input type="hidden" name="id" value="<%=usr.getId()%>"/>
                             <input type="hidden" name="modo" value="EL"/>
-                            <input type="submit" style="border-radius: 0px" onclick="return confirm('Está seguro?')" value="Eliminar"/>
+                            <input type="submit" onclick="return confirm('Está seguro?')" value="Eliminar"/>
                         </form>
                     </td>
                 </tr>
@@ -68,7 +68,7 @@
             </table>
             <br/>
             <form method="POST" action="/paronline/Usuarios">
-                <button type="button" style="width:49%; margin: 0 auto; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>
+                <button type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>
             </form>
             <%
                 }

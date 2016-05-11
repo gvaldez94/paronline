@@ -29,7 +29,7 @@
             <h1>Unidades</h1>
         </header>
         <section>
-            <table style="margin: 0 auto">
+            <table>
                 <tr>
                     <th>Id</th>
                     <th>Descripcion</th>
@@ -49,14 +49,14 @@
                         <form method="POST" action="/paronline/Unidades">
                             <input type="hidden" name="id" value="<%=uni.getId()%>"/>
                             <input type="hidden" name="modo" value="ED"/>
-                            <input type="submit" style="border-radius: 0px" value="Editar"/>
+                            <input type="submit" value="Editar"/>
                         </form>
                     </td>
                     <td>
                         <form method="POST" action="/paronline/Unidades">
                             <input type="hidden" name="id" value="<%=uni.getId()%>"/>
                             <input type="hidden" name="modo" value="EL"/>
-                            <input type="submit" style="border-radius: 0px" onclick="return confirm('Está seguro?')" value="Eliminar"/>
+                            <input type="submit" onclick="return confirm('Está seguro?')" value="Eliminar"/>
                         </form>
                     </td>
                 </tr>
@@ -67,8 +67,8 @@
             <form method="POST" action="/paronline/Unidades">
                 <input type="hidden" name="modo" value="NW"/>
                 <br/>
-                <input style="width:49%; display: inline" type="submit" value="Agregar"/>
-                <button style="width:49%; display: inline" type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>    
+                <input type="submit" value="Agregar"/>
+                <button type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>    
             </form>
         </section>
         <%
@@ -78,7 +78,7 @@
             <h1>Categorías</h1>
         </header>
         <section>
-            <table style="margin: 0 auto">
+            <table>
                 <tr>
                     <th>Id</th>
                     <th>Descripcion</th>
@@ -91,7 +91,7 @@
             <form method="POST" action="/paronline/Unidades">
                 <input type="hidden" name="modo" value="NW"/>
                 <br/>
-                <input style="width:49%; display: inline" type="submit" value="Agregar"/>
+                <input type="submit" value="Agregar"/>
             </form>
         </section>
         <%

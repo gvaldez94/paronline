@@ -20,26 +20,27 @@
         <%}else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
-        <%
-            String cambio = (String) request.getAttribute("cambio");
-            if (cambio != null) {
-        %>
-        <div>
-            <%
-                out.print(cambio);
-            %>
-        </div>
-        <%
-            }
-        %>
         <header>
             <h1>Cambiar contraseña</h1>
         </header>
         <section>
+            <%
+                String cambio = (String) request.getAttribute("cambio");
+                if (cambio != null) {
+            %>
+
+                <p class="alertMsg">
+                    <%
+                        out.print(cambio);
+                    %>
+                </p>
+            <%
+                }
+            %>
             <form id="changePasswd" action="/paronline/Sesion" method="POST">
                 <fieldset>
                     Contraseña Actual:<br/>
-                    <input type="password" name="actual" onfocusout="validarPasswdLogin()" onkeyup="activarCambio()" autofocus><br>
+                    <input type="password" name="actual" onfocusout="validarPasswdLogin()" onkeyup="activarCambio()" autofocus><br><br>
                     Contraseña Nueva:<br/>
                     <input type="password" name="nueva"  onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><p id="passwdMsg"></p><br>
                     <input type="hidden" name="modo" value="C">
