@@ -98,7 +98,7 @@ public class Buscar extends HttpServlet {
                 Logger.getLogger("INFO").info("pe.cantidad " + pe.getCantidad());
                 Logger.getLogger("INFO").info("pe.prod.desc " + pe.getProducto().getDescripcion());
             }
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp"); // buscar cambiado por index
                 if (rd != null) {
                     rd.forward(request, response);
                 }

@@ -13,8 +13,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Carga de Stock</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
         <%
@@ -24,88 +24,88 @@
                 if (stocks.size() > 0) {
         %>
         <%-- <div > --%>
-            <%if (request.getSession().getAttribute("usuario")!=null){%>
-                <%@ include file="../mainL.jsp" %>
-            <%}else {%>
-                <%@ include file="../main.jsp" %>    
-            <%}%>
-            <section>
-                <table>
-                    <tr>
-                        <th>Id</th>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th colspan="2">Accion</th>
-                    </tr>
-                    <%
-                        for (Stock stock : stocks) {
-                    %>
-                    <tr>
-                        <td>
-                            <%=stock.getId()%>
-                        </td>
-                        <td>
-                            <%=stock.getProducto().getDescripcion()%>
-                        </td>
-                        <td>
-                            <%=stock.getCantidad()%>
-                        </td>
-                        <td>
-                            <form method="POST" action="/paronline/StockController">
-                                <input type="hidden" name="id" value="<%=stock.getId()%>"/>
-                                <input type="hidden" name="modo" value="ED"/>
-                                <input type="submit" style="border-radius: 0px" value="Editar"/>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="POST" action="/paronline/StockController">
-                                <input type="hidden" name="id" value="<%=stock.getId()%>"/>
-                                <input type="hidden" name="modo" value="EL"/>
-                                <input type="submit" style="border-radius: 0px" onclick="return confirm('Está seguro?')" value="Eliminar"/>
-                            </form>
-                        </td>
-                    </tr>
-                    <%
-                        }
-                    %>
-                </table>
-                <form method="POST" action="/paronline/StockController">
-                    <input type="hidden" name="modo" value="NW"/>
-                    <br/>
-                    <input type="submit" style="width:49%; display: inline" value="Agregar"/>
-                    <button type="button" style="width:49%; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>    
-                </form>
-            </section>
-            <%
-            } else {
-            %>            
-            <header>
-                <h1>Stock</h1>
-            </header>
-            <nav>
-                <!-- add menu here -->
-            </nav>
-            <section>
-                <table style="margin: 0 auto">
-                    <tr>
-                        <th>Id</th>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th colspan="2">Accion</th>
-                    </tr>
-                    <tr>
-                        <td colspan="7">No hay stock</td>
-                    </tr>
-                </table>
-                <form method="POST" action="/paronline/StockController">
-                    <input type="hidden" name="modo" value="NW"/>
-                    <br/>
-                    <input style="width:49%; display: inline" type="submit" value="Agregar"/>
-                </form>
-            </section>
-            <% }
-                }
-            %>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
+            <%@ include file="../mainL.jsp" %>
+        <%} else {%>
+            <%@ include file="../main.jsp" %>    
+        <%}%>
+        <header>
+            <h1>Stock</h1>
+        </header>
+        <section>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th colspan="2">Accion</th>
+                </tr>
+                <%
+                    for (Stock stock : stocks) {
+                %>
+                <tr>
+                    <td>
+                        <%=stock.getId()%>
+                    </td>
+                    <td>
+                        <%=stock.getProducto().getDescripcion()%>
+                    </td>
+                    <td>
+                        <%=stock.getCantidad()%>
+                    </td>
+                    <td>
+                        <form method="POST" action="/paronline/StockController">
+                            <input type="hidden" name="id" value="<%=stock.getId()%>"/>
+                            <input type="hidden" name="modo" value="ED"/>
+                            <input type="submit" style="border-radius: 0px" value="Editar"/>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="POST" action="/paronline/StockController">
+                            <input type="hidden" name="id" value="<%=stock.getId()%>"/>
+                            <input type="hidden" name="modo" value="EL"/>
+                            <input type="submit" style="border-radius: 0px" onclick="return confirm('Está seguro?')" value="Eliminar"/>
+                        </form>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
+            <form method="POST" action="/paronline/StockController">
+                <input type="hidden" name="modo" value="NW"/>
+                <br/>
+                <input type="submit" style="width:49%; display: inline" value="Agregar"/>
+                <button type="button" style="width:49%; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>    
+            </form>
+        </section>
+        <%
+        } else {
+        %>            
+        <header>
+            <h1>Stock</h1>
+        </header>
+        <section>
+            <table style="margin: 0 auto">
+                <tr>
+                    <th>Id</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th colspan="2">Accion</th>
+                </tr>
+                <tr>
+                    <td colspan="7">No hay stock</td>
+                </tr>
+            </table>
+            <form method="POST" action="/paronline/StockController">
+                <input type="hidden" name="modo" value="NW"/>
+                <br/>
+                <input style="width:49%; display: inline" type="submit" value="Agregar"/>
+            </form>
+        </section>
+        <% }
+            }
+        %>
         <%-- </div> --%>
     </body>
 </html>

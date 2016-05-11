@@ -15,8 +15,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Resultados de la búsqueda</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="../js/validacion.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -88,7 +88,7 @@
                                 <input type="hidden" name="id" value="<%=prod.getId()%>"/>
                                 <input type="hidden" name="stock" value="<%=stock.getId()%>">
                                 <input type="hidden" id="cant<%=cont%>" value="<%=stock.getCantidad()%>"/>
-                                Cantidad:<input type="number" name="cantidad" style="width: 35%" id="cantidad<%=cont%>">
+                                Cantidad:<input type="number" name="cantidad" style="width: 35%" id="cantidad<%=cont%>" min="1" max="<%=stock.getCantidad()%>">
                                 <input type="hidden" name="modo" value="C"/>
                                 <input type="submit" style="display: inline" value="Comprar"/>
                             </form>

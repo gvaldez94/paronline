@@ -10,8 +10,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Categorías</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
         <%
@@ -20,11 +20,14 @@
                 ArrayList<Unidad> unidades = (ArrayList<Unidad>) request.getAttribute("unidades");
                 if (unidades.size() > 0) {
         %>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
+        <header>
+            <h1>Unidades</h1>
+        </header>
         <section>
             <table style="margin: 0 auto">
                 <tr>
@@ -74,9 +77,6 @@
         <header>
             <h1>Categorías</h1>
         </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <table style="margin: 0 auto">
                 <tr>

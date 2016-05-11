@@ -8,8 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cambiar pass</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="../js/validacion.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
@@ -32,14 +32,19 @@
         <%
             }
         %>
+        <header>
+            <h1>Cambiar contraseña</h1>
+        </header>
         <section>
             <form id="changePasswd" action="/paronline/Sesion" method="POST">
-                Contraseña Actual:<br/>
-                <input type="password" name="actual" onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><br>
-                Contraseña Nueva:<br/>
-                <input type="password" name="nueva"  onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><p id="passwdMsg"></p><br>
-                <input type="hidden" name="modo" value="C">
-                <input id="submitChangePasswd" type="submit" value="Cambiar" name="cambiar" disabled="true"> 
+                <fieldset>
+                    Contraseña Actual:<br/>
+                    <input type="password" name="actual" onfocusout="validarPasswdLogin()" onkeyup="activarCambio()" autofocus><br>
+                    Contraseña Nueva:<br/>
+                    <input type="password" name="nueva"  onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><p id="passwdMsg"></p><br>
+                    <input type="hidden" name="modo" value="C">
+                    <input id="submitChangePasswd" type="submit" value="Cambiar" name="cambiar" disabled="true">
+                </fieldset>
             </form>
         </section>
     </body>

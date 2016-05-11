@@ -11,14 +11,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link type="text/css" rel="stylesheet" href="css/style.css" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Consultar Carrito</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="main.jsp" %>    
         <%}%>
         <header>
@@ -60,7 +60,7 @@
                     }%>    
             </table>
             <br/>
-            <button type="button" style="width:49%; display: inline" onclick="location.href = '/paronline/RegistrarTransaccion.jsp'">Comprar </button>
+            <button type="button" style="width:49%; display: inline" onclick="location.href = '/paronline/RegistrarTransaccion.jsp'">Comprar</button>
             <button name="Volver" style="width:49%; display: inline" type="button" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> 
             <%} else { 
             %>
@@ -71,11 +71,12 @@
                     <th>Cantidad</th>
                     <th colspan="2">Accion</th>
                 </tr>
-                <th colspan="4" style="background-color:#FFFFFF">
+                <td colspan="4" style="background-color:#FFFFFF">
                     No tiene productos en su carrito
-                </th>
+                </td>
             </table>
             <br/>
+
             <button type="button" style="width:49%; display: inline" name="Buscar Productos" onclick="location.href = '/paronline/index.jsp'">Buscar Productos</button>    
             <button type="button" style="width:49%; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> 
             <% }

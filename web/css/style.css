@@ -7,8 +7,36 @@
     font-family: 'Droid Sans', sans-serif;
 }
 
+header, section {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
 select {
     font-size: 16px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: black;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+}
+
+table tr:nth-child(even) {
+    background-color: whitesmoke;
+}
+
+table th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #007F80;
+    color: whitesmoke;
 }
 
 input[type=text], input[type=password], input[type=email] {
@@ -31,4 +59,8 @@ button {
 p.warningMsg {
     font-size: 80%;
     color: orange;
+}
+
+p.alertMsg {
+    color: red;
 }

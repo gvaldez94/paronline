@@ -14,14 +14,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type="text/javascript" src="/paronline/js/validarProducto.js"></script>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Editar Producto</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="/paronline/js/validarProducto.js"></script>
     </head>
     <body>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
         <header>
