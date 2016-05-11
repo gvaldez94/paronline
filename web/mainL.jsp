@@ -31,6 +31,7 @@
                 <%
                     }
                 %>
+                <li class="li-navbar"><a href="/paronline/Compras">Consultar compras</a></li>
                 <li class="li-navbar"><a href="/paronline/usuarios/cambiarPass.jsp">Cambiar contraseña</a></li>
                 <li class="li-navbar"><a href="#">Bienvenido, <%=usuario.getNombre()%></a></li>
                 <li class="li-navbar" style="float: right"><a href="/paronline/Sesion">Cerrar Sesión</a></li>
