@@ -62,8 +62,10 @@
             <br/>
             <button type="button" onclick="location.href = '/paronline/RegistrarTransaccion.jsp'">Comprar</button>
             <button name="Volver" type="button" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> 
+            </section>
             <%} else { 
             %>
+            <section>
             <table>
                 <tr>
                     <th>Producto</th>
@@ -79,8 +81,8 @@
 
             <button type="button" name="Buscar Productos" onclick="location.href = '/paronline/index.jsp'">Buscar Productos</button>    
             <%-- <button type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> --%>
+            </section>
             <% }
             %>
-        </section>
     </body>
 </html>
