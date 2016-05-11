@@ -52,7 +52,7 @@
                     <td>
                         <form method="POST" action="/paronline/Carrito">
                             <input type="hidden" name="id" value="<%=p.getProducto().getId()%>"/>
-                            <input type="submit" style="border-radius: 0px" onclick="return confirm('Está seguro?')" value="Eliminar"/>
+                            <input type="submit" onclick="return confirm('Está seguro?')" value="Eliminar"/>
                         </form>
                     </td>
                 </tr>
@@ -60,8 +60,8 @@
                     }%>    
             </table>
             <br/>
-            <button type="button" style="width:49%; display: inline" onclick="location.href = '/paronline/RegistrarTransaccion.jsp'">Comprar</button>
-            <button name="Volver" style="width:49%; display: inline" type="button" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> 
+            <button type="button" onclick="location.href = '/paronline/RegistrarTransaccion.jsp'">Comprar</button>
+            <button name="Volver" type="button" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> 
             <%} else { 
             %>
             <table>
@@ -77,8 +77,8 @@
             </table>
             <br/>
 
-            <button type="button" style="width:49%; display: inline" name="Buscar Productos" onclick="location.href = '/paronline/index.jsp'">Buscar Productos</button>    
-            <button type="button" style="width:49%; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> 
+            <button type="button" name="Buscar Productos" onclick="location.href = '/paronline/index.jsp'">Buscar Productos</button>    
+            <%-- <button type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> --%>
             <% }
             %>
         </section>

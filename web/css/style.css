@@ -33,8 +33,7 @@ table tr:nth-child(even) {
 }
 
 table th {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     background-color: #007F80;
     color: whitesmoke;
 }
@@ -49,11 +48,21 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 input[type=submit] {
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
     font-size: 16px;
+    padding: 8px 8px 8px 8px;
+    min-width: 100px;
 }
 
 button {
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
     font-size: 16px;
+    padding: 8px 8px 8px 8px;
+    min-width: 100px;
 }
 
 p.warningMsg {
