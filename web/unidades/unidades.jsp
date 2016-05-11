@@ -20,9 +20,9 @@
                 ArrayList<Unidad> unidades = (ArrayList<Unidad>) request.getAttribute("unidades");
                 if (unidades.size() > 0) {
         %>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
         <section>
@@ -74,9 +74,6 @@
         <header>
             <h1>Categorías</h1>
         </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <table style="margin: 0 auto">
                 <tr>

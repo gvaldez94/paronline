@@ -24,9 +24,9 @@
                 if (stocks.size() > 0) {
         %>
         <%-- <div > --%>
-            <%if (request.getSession().getAttribute("usuario")!=null){%>
+            <%if (request.getSession().getAttribute("usuario") != null) {%>
                 <%@ include file="../mainL.jsp" %>
-            <%}else {%>
+            <%} else {%>
                 <%@ include file="../main.jsp" %>    
             <%}%>
             <section>
@@ -82,9 +82,6 @@
             <header>
                 <h1>Stock</h1>
             </header>
-            <nav>
-                <!-- add menu here -->
-            </nav>
             <section>
                 <table style="margin: 0 auto">
                     <tr>

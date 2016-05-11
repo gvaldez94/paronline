@@ -14,16 +14,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type="text/javascript" src="/paronline/js/validarProducto.js"></script>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Editar Stock</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="/paronline/js/validarProducto.js"></script>
     </head>
     <body>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
+        <header>
+            <h1>Editar stock</h1>
+        </header>
         <section>
             <form id="formStock" method="POST" action="/paronline/StockController">
                 <input type="hidden" name="modo" value="G"/>
@@ -31,19 +34,18 @@
                 <%
                     Stock stock = (Stock) request.getSession().getAttribute("stock");
                 %>
-                        Producto
-                        <select name="producto_id" >
-                        <%
-                            ProductoDao c = new ProductoDao();
-                            List<Producto> productos= c.getAll();
-                            for (Producto prod : productos){
-                        %>    
-                            <option value="<%=prod.getId()%>" <%if (prod.getId()==stock.getProductoId()) {%> selected<% ; }%>><%=prod.getDescripcion()%></option>
-                            <% } %>
-                        </select>
-                        Cantidad
-                        <input id="cantidad" type="number" name="cantidad" onfocusout="validarCantidad()" onkeyup="activarStock()" value="<%=stock.getCantidad()%>" /><p id="cantMsg"></p><br/>
-
+                    Producto
+                    <select name="producto_id" >
+                    <%
+                        ProductoDao c = new ProductoDao();
+                        List<Producto> productos= c.getAll();
+                        for (Producto prod : productos){
+                    %>    
+                        <option value="<%=prod.getId()%>" <%if (prod.getId()==stock.getProductoId()) {%> selected<% ; }%>><%=prod.getDescripcion()%></option>
+                        <% } %>
+                    </select>
+                    Cantidad
+                    <input id="cantidad" type="number" name="cantidad" onfocusout="validarCantidad()" onkeyup="activarStock()" value="<%=stock.getCantidad()%>" /><p id="cantMsg"></p><br/>
                 <br/>
                 <input id="submitStock" type="submit" style="width:49%; display: inline" value="Guardar" disabled="true"/>
                 <button type="button" style="width:49%; display: inline" name="Cancelar" onclick="location.href = '/paronline/StockController'">Cancelar</button>

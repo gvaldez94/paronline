@@ -9,8 +9,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Crear cuenta</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="../js/validacion.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
@@ -48,7 +48,7 @@
               <fieldset>
                 <legend>Nuevo usuario</legend>
                 Nombre *:<br/>
-                <input id="nombreRegistro" name="nombre" type="text" onfocusout="validarNombre()" onkeyup="activarRegistro()"><p id="nombreMsg" class="warningMsg"></p><br>
+                <input id="nombreRegistro" name="nombre" type="text" onfocusout="validarNombre()" onkeyup="activarRegistro()" autofocus><p id="nombreMsg" class="warningMsg"></p><br>
                 Apellido *:<br/>
                 <input id="apellidoRegistro" name="apellido" type="text" onfocusout="validarApellido()" onkeyup="activarRegistro()"><p id="apellidoMsg" class="warningMsg"></p><br>
                 Nombre de usuario *:<br/>

@@ -13,8 +13,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ABM de Productos</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
         <%
@@ -23,9 +23,9 @@
                 ArrayList<Producto> productos = (ArrayList<Producto>) request.getAttribute("productos");
                 if (productos.size() > 0) {
         %>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
         <%-- <div > --%>
@@ -86,9 +86,6 @@
         <header>
             <h1>Productos</h1>
         </header>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
             <table style="margin: 0 auto">
                 <tr>

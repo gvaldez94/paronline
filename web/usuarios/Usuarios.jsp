@@ -10,8 +10,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ABM de usuarios</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     </head>
@@ -66,6 +66,7 @@
                     }
                 %>
             </table>
+            <br/>
             <form method="POST" action="/paronline/Usuarios">
                 <button type="button" style="width:49%; margin: 0 auto; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button>
             </form>
