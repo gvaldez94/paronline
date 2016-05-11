@@ -94,11 +94,11 @@ public class TransaccionesDao {
             ResultSet rs = sql.executeQuery();
             while (rs.next()) {
                 Compra compra = new Compra();
-                TransaccionesCab cab = new TransaccionesCab(rs.getInt(1), rs.getDate(2), rs.getString(5), rs.getString(8));
-                cab.setMedioPago(rs.getInt(6));
-                cab.setTotal(rs.getBigDecimal(4));
-                cab.setNroTarjeta(rs.getString(7));
-                Usuario usr = new UsuarioDao().consultar(rs.getInt(3));
+                TransaccionesCab cab = new TransaccionesCab(rs.getInt(1), rs.getDate(2), rs.getString(4), rs.getString(7));
+                cab.setMedioPago(rs.getInt(5));
+                cab.setTotal(rs.getBigDecimal(3));
+                cab.setNroTarjeta(rs.getString(6));
+                Usuario usr = new UsuarioDao().consultar(rs.getInt(8));
                 cab.setUsuarios(usr);
                 compra.setCab(cab);
                 PreparedStatement pstmt = c.prepareStatement("select * from transacciones_det where transacciones_cab_id = ?");
@@ -110,10 +110,10 @@ public class TransaccionesDao {
                     det.setId(result.getInt(1));
                     det.setTransaccionesCab(cab);
                     det.setItem(result.getInt(3));
-                    det.setProductos(new ProductoDao().consultar(result.getInt(4)));
-                    det.setCantidad(result.getFloat(5));
-                    det.setPrecio(result.getBigDecimal(6));
-                    det.setSubtotal(result.getBigDecimal(7));
+                    det.setProductos(new ProductoDao().consultar(result.getInt(7)));
+                    det.setCantidad(result.getFloat(4));
+                    det.setPrecio(result.getBigDecimal(5));
+                    det.setSubtotal(result.getBigDecimal(6));
                     detalles.add(det);
                 }
                 compra.setDetalles(detalles);
