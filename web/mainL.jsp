@@ -13,7 +13,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/paronline/css/menu.css">
+        <link rel="stylesheet" href="/paronline/css/dropdown.css">
         <link rel="stylesheet" href="/paronline/css/style.css">
+        <script type="text/javascript" src="/paronline/js/dropdown.js"></script>
     </head>
     <body>
         <nav>
@@ -23,17 +25,24 @@
                     Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                     if (usuario.getTipoUsuario() == 0) {
                 %>
-                <li class="li-navbar"><a href="/paronline/Usuarios">ABM Usuarios</a></li>
-                <li class="li-navbar"><a href="/paronline/Categorias">ABM Categorias</a></li>
-                <li class="li-navbar"><a href="/paronline/Unidades">ABM Unidades</a></li>
-                <li class="li-navbar"><a href="/paronline/Productos">ABM Productos</a></li>
-                <li class="li-navbar"><a href="/paronline/StockController">ABM Stock</a></li>
+                <li class="li-navbar">
+                    <button class="dropdown dropbtn" onclick="abmDropdownMenu()">ABMs</button>
+                    <div id="abmDropdown" class="dropdown-content">
+                        <a href="/paronline/Usuarios">ABM Usuarios</a>
+                        <a href="/paronline/Categorias">ABM Categorias</a>
+                        <a href="/paronline/Unidades">ABM Unidades</a>
+                        <a href="/paronline/Productos">ABM Productos</a>
+                        <a href="/paronline/StockController">ABM Stock</a>
+                    </div></li>
                 <%
                     }
                 %>
                 <li class="li-navbar"><a href="/paronline/Compras">Consultar compras</a></li>
-                <li class="li-navbar"><a href="/paronline/usuarios/cambiarPass.jsp">Cambiar contraseña</a></li>
-                <li class="li-navbar"><a href="#">Bienvenido, <%=usuario.getNombre()%></a></li>
+                <li class="li-navbar">
+                    <button class="dropdown dropbtn" onclick="dropdownMenu()">Bienvenido, <%=usuario.getNombre()%></button>
+                    <div id="dropdown" class="dropdown-content">
+                        <a href="/paronline/usuarios/cambiarPass.jsp">Cambiar contraseña</a>
+                    </div></li>
                 <li class="li-navbar" style="float: right"><a href="/paronline/Sesion">Cerrar Sesión</a></li>
             </ul>
         </nav>
