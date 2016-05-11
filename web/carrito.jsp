@@ -76,7 +76,7 @@
                 </th>
             </table>
             <br/>
-            <button type="button" style="width:49%; display: inline" name="Buscar Productos" onclick="location.href = '/paronline/buscar.jsp'">Buscar Productos</button>    
+            <button type="button" style="width:49%; display: inline" name="Buscar Productos" onclick="location.href = '/paronline/index.jsp'">Buscar Productos</button>    
             <button type="button" style="width:49%; display: inline" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> 
             <% }
             %>

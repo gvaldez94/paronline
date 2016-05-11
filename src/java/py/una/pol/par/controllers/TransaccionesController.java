@@ -81,6 +81,8 @@ public class TransaccionesController extends HttpServlet {
                             List<Stock> stockList = stockDao.getAll();
                             Stock stock = null;
                             for (Stock s : stockList) {
+                                // la logica del negocio seria acabar con el primer stock cargado
+                                // encontrar el primer stock que se ha cargado y descontarlo de el.
                                 if (Objects.equals(s.getProductoId(), p.getProducto().getId()) && (s.getCantidad() >= p.getCantidad())) {
                                     stock = s;
                                     break;
@@ -92,7 +94,7 @@ public class TransaccionesController extends HttpServlet {
                             item++;
                             td.setPrecio(p.getProducto().getPrecioUnit());
                             BigDecimal cant = new BigDecimal(td.getCantidad());
-                            stockDao.disminuir(p.getProducto().getId(), stock.getCantidad()-cant.intValue());
+                            stockDao.disminuir(stock.getId(), stock.getCantidad()-cant.intValue());
                             td.setSubtotal(td.getPrecio().multiply(cant));
                             td.setTransaccionesCab(cab);
                             total = total.add(td.getSubtotal());
