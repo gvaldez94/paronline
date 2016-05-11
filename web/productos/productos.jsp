@@ -28,7 +28,9 @@
         <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
-        <%-- <div > --%>
+        <header>
+            <h1>Productos</h1>
+        </header>
         <section>
             <table>
                 <tr>

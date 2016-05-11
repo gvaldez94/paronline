@@ -88,7 +88,7 @@
                                 <input type="hidden" name="id" value="<%=prod.getId()%>"/>
                                 <input type="hidden" name="stock" value="<%=stock.getId()%>">
                                 <input type="hidden" id="cant<%=cont%>" value="<%=stock.getCantidad()%>"/>
-                                Cantidad:<input type="number" name="cantidad" style="width: 35%" id="cantidad<%=cont%>">
+                                Cantidad:<input type="number" name="cantidad" style="width: 35%" id="cantidad<%=cont%>" min="1" max="<%=stock.getCantidad()%>">
                                 <input type="hidden" name="modo" value="C"/>
                                 <input type="submit" style="display: inline" value="Comprar"/>
                             </form>

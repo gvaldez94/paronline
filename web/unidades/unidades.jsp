@@ -10,8 +10,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Categorías</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
         <%
@@ -25,6 +25,9 @@
         <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
+        <header>
+            <h1>Unidades</h1>
+        </header>
         <section>
             <table style="margin: 0 auto">
                 <tr>
