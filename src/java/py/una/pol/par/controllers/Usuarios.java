@@ -104,6 +104,7 @@ public class Usuarios extends HttpServlet {
         String apellido = req.getParameter("apellido");
         String login_name = req.getParameter("login_name");
         String passwd = req.getParameter("passwd");
+        String email = req.getParameter("email");
         Integer tipoUsuario = Integer.parseInt(req.getParameter("tipoUsuario"));
         Usuario usr = new Usuario();
         usr.setApellido(apellido);
@@ -111,6 +112,7 @@ public class Usuarios extends HttpServlet {
         usr.setNombre(nombre);
         usr.setPasswd(passwd);
         usr.setTipoUsuario(tipoUsuario);
+        usr.setEmail(email);
         if (tipo.compareTo("N") == 0) {
             try {
                 this.um.crear(usr);

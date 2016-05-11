@@ -62,6 +62,7 @@ CREATE TABLE public.usuarios(
 	login_name character varying(15) NOT NULL,
 	passwd character varying(50) NOT NULL,
 	tipo_usuario integer NOT NULL,
+        email character varying(50) NOT NULL,
 	CONSTRAINT pkusuarios PRIMARY KEY (id),
 	CONSTRAINT unique_login_name UNIQUE (login_name)
 

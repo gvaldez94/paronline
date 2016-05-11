@@ -26,12 +26,13 @@ public class UsuarioDao {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
-            pstmt = c.prepareStatement("INSERT INTO usuarios (nombre, apellido, login_name, passwd, tipo_usuario) VALUES (?,?,?,md5(?),?)");
+            pstmt = c.prepareStatement("INSERT INTO usuarios (nombre, apellido, login_name, passwd, tipo_usuario, email) VALUES (?,?,?,md5(?),?,?)");
             pstmt.setString(1, usr.getNombre());
             pstmt.setString(2, usr.getApellido());
             pstmt.setString(3, usr.getLoginName());
             pstmt.setString(4, usr.getPasswd());
             pstmt.setInt(5, usr.getTipoUsuario());
+            pstmt.setString(6, usr.getEmail());
             pstmt.execute();
             pstmt.close();
             DBConnection.closeConnection(c);
@@ -44,13 +45,14 @@ public class UsuarioDao {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
-            pstmt = c.prepareStatement("UPDATE usuarios SET nombre = ?, apellido=?, login_name=?, passwd= md5(?), tipoUsuario=? WHERE id=?");
+            pstmt = c.prepareStatement("UPDATE usuarios SET nombre = ?, apellido=?, login_name=?, passwd= md5(?), tipoUsuario=?, email=? WHERE id=?");
             pstmt.setString(1, usr.getNombre());
             pstmt.setString(2, usr.getApellido());
             pstmt.setString(3, usr.getLoginName());
             pstmt.setString(4, usr.getPasswd());
-            pstmt.setInt(5, usr.getId());
-            pstmt.setInt(6, usr.getTipoUsuario());
+            pstmt.setInt(5, usr.getTipoUsuario());
+            pstmt.setString(6, usr.getEmail());
+            pstmt.setInt(7, usr.getId());
             pstmt.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,6 +85,7 @@ public class UsuarioDao {
             user.setLoginName(rs.getString(4));
             user.setPasswd(rs.getString(5));
             user.setTipoUsuario(rs.getInt(6));
+            user.setEmail(rs.getString(7));
             DBConnection.closeConnection(c);
             return user;
         } catch (Exception ex) {
@@ -98,7 +101,7 @@ public class UsuarioDao {
             Statement stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios ORDER BY apellido, nombre");
             while (rs.next()) {
-                Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(7));
                 retorno.add(usr);
             }
             rs.close();
@@ -127,6 +130,7 @@ public class UsuarioDao {
                 u.setLoginName(rs.getString("login_name"));
                 u.setPasswd(rs.getString(5));
                 u.setTipoUsuario(rs.getInt(6));
+                u.setEmail(rs.getString(7));
                 retorno = u;
             }
             rs.close();

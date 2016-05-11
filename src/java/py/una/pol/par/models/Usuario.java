@@ -19,6 +19,7 @@ public class Usuario extends BaseEntity implements Serializable {
     private String passwd;
     private Integer tipoUsuario; // 0 (Administrador), 1 (Cliente)
     private List<TransaccionesCab> transaccionesCabList;
+    private String email;
 
     public Usuario() {
     }
@@ -27,12 +28,13 @@ public class Usuario extends BaseEntity implements Serializable {
         this.id = id;
     }
 
-    public Usuario(Integer id, String nombre, String apellido, String loginName, String passwd) {
+    public Usuario(Integer id, String nombre, String apellido, String loginName, String passwd, String email) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.loginName = loginName;
         this.passwd = passwd;
+        this.email = email;
     }
 
     public String getNombre() {
@@ -83,6 +85,14 @@ public class Usuario extends BaseEntity implements Serializable {
         this.transaccionesCabList = transaccionesCabList;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
