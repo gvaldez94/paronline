@@ -21,6 +21,11 @@ function activarRegistro() {
             break;
         }
     }
-
-    document.getElementById('submitRegistro').disabled = !lleno;
+    
+    if(formTransaccion['tipo'].value == '0' || 
+            (formTransaccion['tipo'].value == '1' && formTransaccion['nroTarjeta'].value != '')) {
+        document.getElementById('submitRegistro').disabled = !lleno;
+    } else {
+        document.getElementById('submitRegistro').disabled = true;
+    }
 }

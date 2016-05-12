@@ -26,17 +26,17 @@
             <%if (request.getSession().getAttribute("usuario") != null) { %>
             <form id="formTransaccion" action="/paronline/Compras/Comprar" >
                 Direccion:
-                <input type="text" id="direccion" name="direccion" onfocusout="validarDireccion()" onkeyup="activarRegistro()" autofocus><p id="direccionMsg" class="warningMsg"></p><br>
+                <input type="text" id="direccion" name="direccion" onfocusout="validarDireccion()" oninput="activarRegistro()" autofocus><p id="direccionMsg" class="warningMsg"></p><br>
                 Efectivo
-                <input type="radio" name="tipo" value="0" onchange="document.getElementById('tarjeta').disabled = true">
+                <input type="radio" name="tipo" value="0" onchange="document.getElementById('tarjeta').disabled = true; activarRegistro()">
                 Tarjeta
-                <input type="radio" name="tipo" value="1" onchange="document.getElementById('tarjeta').disabled = false"><br/>
+                <input type="radio" name="tipo" value="1" onchange="document.getElementById('tarjeta').disabled = false; activarRegistro()"><br/>
                 <br/>
                 Nro Tarjeta:
-                <input type="text" name="nroTarjeta" id="tarjeta" disabled="true"><br/>
+                <input type="text" name="nroTarjeta" id="tarjeta" disabled="true" oninput="activarRegistro()"><br/>
                 <br/>
-                <input id="submitRegistro" type="submit" style="width:49%; display: inline" value="Registrar" disabled="true">
-                <button type="button" style="width:49%; display: inline" name="Cancelar" onclick="location.href = '/paronline/index.jsp'">Cancelar</button>
+                <input id="submitRegistro" type="submit" value="Registrar" disabled="true">
+                <button type="button" name="Cancelar" onclick="location.href = '/paronline/index.jsp'">Cancelar</button>
             </form>
             <%} else {
                     RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
