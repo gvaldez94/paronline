@@ -1,11 +1,13 @@
 ﻿var formLogin,
     formRegistro,
+    formEditarRegistro,
     formCategoria,
     formUnidad;
 
 document.addEventListener('DOMContentLoaded', function() {
     formLogin = document.forms['formLogin'];
     formRegistro = document.forms['formRegistro'];
+    formEditarRegistro = document.forms['formEditarRegistro'];
     formCategoria = document.forms['formCategoria'];
     formUnidad = document.forms['formUnidad'];
     activarRegistro();
@@ -222,4 +224,41 @@ function activarUniGuardar() {
     }
 
     document.getElementById('submitUnidad').disabled = !lleno;
+}
+
+/* formEditarRegistro */
+function validarNombreE() {
+    var nombre = formEditarRegistro['nombre'].value;
+    document.getElementById('nombreMsg').innerHTML = (nombre == ''
+        ? 'Debe ingresar su nombre.'
+        : '');
+}
+
+function validarApellidoE() {
+    var apellido = formEditarRegistro['apellido'].value;
+    document.getElementById('apellidoMsg').innerHTML = (apellido == ''
+        ? 'Debe ingresar su apellido.'
+        : '');
+}
+
+function validarEmailE() {
+    var email = formEditarRegistro['email'].value;
+    document.getElementById('emailMsg').innerHTML = (email == ''
+            ? 'Debe ingresar su dirección de correo.'
+            : '');
+}
+
+
+function activarEditarRegistro() {
+    var campos = ['nombre','apellido','email'],
+        lleno = true;
+
+    for (var i = 0; i < campos.length; ++i) {
+        if (formEditarRegistro[campos[i]].value == '') {
+            lleno = false;
+            break;
+        }
+    }
+
+    document.getElementById('submitEditarRegistro').disabled = !lleno;
 }

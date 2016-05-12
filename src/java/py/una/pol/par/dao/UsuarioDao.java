@@ -45,7 +45,8 @@ public class UsuarioDao {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
-            pstmt = c.prepareStatement("UPDATE usuarios SET nombre = ?, apellido=?, login_name=?, passwd= md5(?), tipoUsuario=?, email=? WHERE id=?");
+            // se le pasa el hash de la contrasenha desde html con un hidden field
+            pstmt = c.prepareStatement("UPDATE usuarios SET nombre = ?, apellido=?, login_name=?, passwd= ?, tipo_usuario=?, email=? WHERE id=?");
             pstmt.setString(1, usr.getNombre());
             pstmt.setString(2, usr.getApellido());
             pstmt.setString(3, usr.getLoginName());

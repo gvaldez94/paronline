@@ -41,6 +41,7 @@
                 <li class="li-navbar" style="float: right;">
                     <button class="dropdown dropbtn" onclick="dropdownMenu()" style="min-width: 177px;">Bienvenido, <%=usuario.getNombre()%></button>
                     <div id="dropdown" class="dropdown-content">
+                        <a href="/paronline/usuarios/editarUsuario.jsp">Editar cuenta</a>
                         <a href="/paronline/usuarios/cambiarPass.jsp">Cambiar contraseña</a>
                         <a href="/paronline/Sesion">Cerrar Sesión</a>
                     </div>
