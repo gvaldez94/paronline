@@ -45,9 +45,9 @@
               <fieldset>
                 <legend>Credenciales de usuario</legend>
                 Usuario:<br/>
-                <input id="login_nameLogin" name="login_name" type="text" onfocusout="validarLogin_nameLogin()" onkeyup="activarLogIn()" autofocus><p id="login_nameLoginMsg"></p><br>
+                <input id="login_nameLogin" name="login_name" type="text" onfocusout="validarLogin_nameLogin()" oninput="activarLogIn()" autofocus><p id="login_nameLoginMsg"></p><br>
                 Contraseña:<br/>
-                <input id="passwdLogin" name="passwd" type="password" onfocusout="validarPasswdLogin()" onkeyup="activarLogIn()"><p id="passwdLoginMsg"></p><br>
+                <input id="passwdLogin" name="passwd" type="password" onfocusout="validarPasswdLogin()" oninput="activarLogIn()"><p id="passwdLoginMsg"></p><br>
                 <input type="hidden" name="modo" value="login">
                 <input id="submitLogin" type="submit" value="LogIn" disabled="true">
               </fieldset>

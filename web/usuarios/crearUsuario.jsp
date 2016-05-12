@@ -48,17 +48,17 @@
               <fieldset>
                 <legend>Nuevo usuario</legend>
                 Nombre *:<br/>
-                <input id="nombreRegistro" name="nombre" type="text" onfocusout="validarNombre()" onkeyup="activarRegistro()" autofocus><p id="nombreMsg" class="warningMsg"></p><br>
+                <input id="nombreRegistro" name="nombre" type="text" onfocusout="validarNombre()" oninput="activarRegistro()" autofocus><p id="nombreMsg" class="warningMsg"></p><br>
                 Apellido *:<br/>
-                <input id="apellidoRegistro" name="apellido" type="text" onfocusout="validarApellido()" onkeyup="activarRegistro()"><p id="apellidoMsg" class="warningMsg"></p><br>
+                <input id="apellidoRegistro" name="apellido" type="text" onfocusout="validarApellido()" oninput="activarRegistro()"><p id="apellidoMsg" class="warningMsg"></p><br>
                 Nombre de usuario *:<br/>
-                <input id="login_nameRegistro" name="login_name" type="text" onfocusout="validarLogin_name()" onkeyup="login_nameUnico(); activarRegistro()"><p id="login_nameMsg" class="warningMsg"></p><br>
+                <input id="login_nameRegistro" name="login_name" type="text" onfocusout="validarLogin_name()" oninput="login_nameUnico(); activarRegistro()"><p id="login_nameMsg" class="warningMsg"></p><br>
                 E-mail *:<br/>
-                <input id="emailRegistro" name="email" type="email" onfocusout="validarEmail()" onkeyup="activarRegistro()"><p id="emailMsg" class="warningMsg"></p><br>
+                <input id="emailRegistro" name="email" type="email" onfocusout="validarEmail()" oninput="activarRegistro()"><p id="emailMsg" class="warningMsg"></p><br>
                 Contraseña *:<br/>
-                <input id="passwdRegistro" name="passwd" type="password" onkeyup="validarPasswd(); activarRegistro()"><p id="passwdMsg" class="warningMsg"></p><br>
+                <input id="passwdRegistro" name="passwd" type="password" oninput="validarPasswd(); activarRegistro()"><p id="passwdMsg" class="warningMsg"></p><br>
                 Contraseña (verificación) *:<br/>
-                <input id="passwd_verRegistro" name="passwd_ver" type="password" onkeyup="validarPasswd_ver(); activarRegistro()"><p id="passwd_verMsg" class="warningMsg"></p><br>
+                <input id="passwd_verRegistro" name="passwd_ver" type="password" oninput="validarPasswd_ver(); activarRegistro()"><p id="passwd_verMsg" class="warningMsg"></p><br>
                 <input type="hidden" name="modo" value="G">
                 <input type="hidden" name="tipo" value="N">
                 <input type="hidden" name="tipoUsuario" value="1">
