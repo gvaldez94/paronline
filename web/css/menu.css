@@ -19,7 +19,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #85adad;
+    background-color: #008080; /* #85adad; */
 }
 
 .li-navbar {
@@ -36,9 +36,9 @@ body {
 
 /* Change the link color to #111 (black) on hover */
 .li-navbar a:hover {
-    background-color: #527a7a;
+    background-color: #009090;
 }
 
 .active {
-    background-color: #669999;
+    background-color: #009090;
 }
