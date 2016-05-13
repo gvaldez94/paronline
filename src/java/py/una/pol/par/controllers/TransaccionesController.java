@@ -65,7 +65,7 @@ public class TransaccionesController extends HttpServlet {
             cab.setFecha(day);
             cab.setEstado("I");
             TransaccionesDao tdao = new TransaccionesDao();
-            if (tipo == 1 && UtilClass.leerCadena(tarjeta) && UtilClass.leerCadena(direccion) || tipo == 0 && UtilClass.leerCadena(direccion)) {
+            if ((tipo == 1 && UtilClass.leerCadena(tarjeta) && UtilClass.leerCadena(direccion)) || (tipo == 0 && UtilClass.leerCadena(direccion))) {
                 try {
                     cab = tdao.crearTransaccionesCab(cab);
                     int id = cab.getId();
