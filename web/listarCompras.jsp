@@ -84,7 +84,7 @@
                     <th>Cantidad</th>
                     <th>Subtotal</th>
                 </tr>
-                <th colspan="5">No se encontró registro de compras</th>
+                <td colspan="5">No se encontró registro de compras</td>
             </table>
             <br/>
             <button type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Volver</button>    
