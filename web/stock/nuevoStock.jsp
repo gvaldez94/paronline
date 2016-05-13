@@ -16,6 +16,7 @@
         <title>Nuevo Stock</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="/paronline/js/validarProducto.js"></script>
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <%if (request.getSession().getAttribute("usuario") != null) {%>
@@ -23,6 +24,9 @@
         <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
+        <header>
+            <h1>Nuevo Stock</h1>
+        </header>
         <section>
             <form id="formStock" method="POST" action="/paronline/StockController">
                 <input type="hidden" name="modo" value="G"/>
@@ -41,8 +45,8 @@
                         <input id="cantidad" type="number" name="cantidad" onfocusout="validarCantidad()" onkeyup="activarStock()" /><p id="cantMsg"></p><br/>
 
                 <br/>
-                <input id="submitStock" type="submit" style="width:49%; display: inline" value="Guardar" disabled="true"/>
-                <button type="button" style="width:49%; display: inline" name="Cancelar" onclick="location.href = '/paronline/StockController'">Cancelar</button>
+                <input id="submitStock" type="submit" value="Guardar" disabled="true"/>
+                <button type="button" name="Cancelar" onclick="location.href = '/paronline/StockController'">Cancelar</button>
             </form>
         </section>
     </body>

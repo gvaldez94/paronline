@@ -33,8 +33,8 @@
                         <input id="descripcion" name="descripcion" onfocusout="validarCategoria()" onkeyup="activarCatGuardar()" type="text" style="width: 96%" value="<%=cat.getDescripcion()%>" /><p id="categoriaDescMsg"></p><br>
 
                 <br/>
-                <input id="submitCategoria" type="submit" style="width:49%; display: inline" value="Guardar" disabled="true"/>
-                <button type="button" style="width:49%; display: inline" name="Cancelar" onclick="location.href = '/paronline/Categorias'">Cancelar</button>
+                <input id="submitCategoria" type="submit" value="Guardar" disabled="true"/>
+                <button type="button" name="Cancelar" onclick="location.href = '/paronline/Categorias'">Cancelar</button>
             </form>
         </section>        
     </body>

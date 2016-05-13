@@ -27,8 +27,8 @@
                 <input type="hidden" name="tipo" value="N"/>
                     Descripcion
                     <input id="descripcion" name="descripcion" onfocusout="validarUnidad()" onkeyup="activarUniGuardar()"><p id="unidadDescMsg"></p><br>
-                    <input id="submitUnidad" type="submit" style="width:49%; display: inline" value="Guardar" disabled="true"/>
-                <button type="button" style="width:49%; display: inline" name="Cancelar" onclick="location.href = '/paronline/Unidades'">Cancelar</button>
+                    <input id="submitUnidad" type="submit" value="Guardar" disabled="true"/>
+                <button type="button" name="Cancelar" onclick="location.href = '/paronline/Unidades'">Cancelar</button>
             </form>
         </section>
     </body>

@@ -17,6 +17,7 @@
         <title>Editar Producto</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="/paronline/js/validarProducto.js"></script>
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <%if (request.getSession().getAttribute("usuario") != null) {%>
@@ -58,9 +59,10 @@
                             <option value="<%=unidad.getId()%>" <%if (unidad.getId()==prod.getCategorias().getId()) { %> selected <%; }%>><%=unidad.getDescripcion()%></option>
                             <% } %>
                         </select>
-                <br/>
-                <input id="submitProducto" type="submit" style="width:49%; display: inline" value="Guardar" disabled="true"/>
-                <button type="button" style="width:49%; display: inline" name="Cancelar" onclick="location.href = '/paronline/Productos'">Cancelar</button>
+                        
+                <br/><br/>
+                <input id="submitProducto" type="submit" value="Guardar" disabled="true"/>
+                <button type="button" name="Cancelar" onclick="location.href = '/paronline/Productos'">Cancelar</button>
             </form>
         </section>
     </body>

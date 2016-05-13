@@ -28,7 +28,7 @@
                 Direccion:
                 <input type="text" id="direccion" name="direccion" onfocusout="validarDireccion()" oninput="activarRegistro()" autofocus><p id="direccionMsg" class="warningMsg"></p><br>
                 Efectivo
-                <input type="radio" name="tipo" value="0" onchange="document.getElementById('tarjeta').disabled = true; activarRegistro()">
+                <input type="radio" name="tipo" value="0" onchange="document.getElementById('tarjeta').disabled = true; activarRegistro()" checked="true">
                 Tarjeta
                 <input type="radio" name="tipo" value="1" onchange="document.getElementById('tarjeta').disabled = false; activarRegistro()"><br/>
                 <br/>

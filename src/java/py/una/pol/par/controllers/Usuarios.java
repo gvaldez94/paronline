@@ -124,7 +124,7 @@ public class Usuarios extends HttpServlet {
                 String id = (String) req.getParameter("id");
                 usr.setId(Integer.valueOf(id));
                 this.um.actualizar(usr);
-                req.setAttribute("usuario", usr);
+                req.getSession().setAttribute("usuario", usr);
             } catch (SQLException ex) {
                 Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
             }

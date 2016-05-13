@@ -47,8 +47,8 @@
                     Cantidad
                     <input id="cantidad" type="number" name="cantidad" onfocusout="validarCantidad()" onkeyup="activarStock()" value="<%=stock.getCantidad()%>" /><p id="cantMsg"></p><br/>
                 <br/>
-                <input id="submitStock" type="submit" style="width:49%; display: inline" value="Guardar" disabled="true"/>
-                <button type="button" style="width:49%; display: inline" name="Cancelar" onclick="location.href = '/paronline/StockController'">Cancelar</button>
+                <input id="submitStock" type="submit" value="Guardar" disabled="true"/>
+                <button type="button" name="Cancelar" onclick="location.href = '/paronline/StockController'">Cancelar</button>
             </form>
         </section>
     </body>
