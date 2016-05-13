@@ -16,7 +16,7 @@
         <title>Nuevo Stock</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="/paronline/js/validarProducto.js"></script>
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="/paronline/css/style.css">
     </head>
     <body>
         <%if (request.getSession().getAttribute("usuario") != null) {%>

@@ -15,7 +15,7 @@
     <head>
         <title>Compras</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="/paronline/css/style.css">
     </head>
     <body>
         <%if (request.getSession().getAttribute("usuario")!=null){%>
@@ -91,6 +91,7 @@
         <%
             }
         %>
+        <br/><br/>
         </section>
     </body>
 </html>

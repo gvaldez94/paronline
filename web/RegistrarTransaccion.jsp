@@ -11,6 +11,7 @@
         <title>Registrar Transaccion</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="/paronline/js/transaccion.js"></script>
+        <link rel="stylesheet" href="/paronline/css/style.css">
         
     </head>
     <body>
@@ -24,7 +25,7 @@
         </header>
         <section>
             <%if (request.getSession().getAttribute("usuario") != null) { %>
-            <form id="formTransaccion" action="/paronline/Compras/Comprar" >
+            <form id="formTransaccion" action="/paronline/Compras/Comprar" method="POST">
                 Direccion:
                 <input type="text" id="direccion" name="direccion" onfocusout="validarDireccion()" oninput="activarRegistro()" autofocus><p id="direccionMsg" class="warningMsg"></p><br>
                 Efectivo

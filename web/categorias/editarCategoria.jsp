@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="/paronline/js/validacion.js"></script>
+        <link rel="stylesheet" href="/paronline/css/style.css">
         <title>Modificación de Categoría</title>
     </head>
     <body>

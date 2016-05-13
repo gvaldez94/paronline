@@ -15,6 +15,7 @@
     <head>
         <title>Carga de Stock</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/paronline/css/style.css">
     </head>
     <body>
         <%
