@@ -7,6 +7,7 @@ package py.una.pol.par.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,6 +42,9 @@ public class ComprasController extends HttpServlet {
             TransaccionesDao td = new TransaccionesDao();
             try {
                 List<Compra> compras = td.getAll(u.getId());
+                if(compras == null) {
+                    compras = new ArrayList<>();
+                }
                 request.getSession().setAttribute("compras", compras);
                 RequestDispatcher rd = request.getRequestDispatcher("/Compras/listar");
                 if (rd != null) {
