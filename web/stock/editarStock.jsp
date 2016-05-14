@@ -35,19 +35,18 @@
                 <%
                     Stock stock = (Stock) request.getSession().getAttribute("stock");
                 %>
-                    Producto
-                    <select name="producto_id" >
-                    <%
-                        ProductoDao c = new ProductoDao();
-                        List<Producto> productos= c.getAll();
-                        for (Producto prod : productos){
-                    %>    
-                        <option value="<%=prod.getId()%>" <%if (prod.getId()==stock.getProductoId()) {%> selected<% ; }%>><%=prod.getDescripcion()%></option>
-                        <% } %>
-                    </select>
-                    Cantidad
-                    <input id="cantidad" type="number" name="cantidad" onfocusout="validarCantidad()" onkeyup="activarStock()" value="<%=stock.getCantidad()%>" /><p id="cantMsg"></p><br/>
-                <br/>
+                Producto
+                <select name="producto_id" >
+                <%
+                    ProductoDao c = new ProductoDao();
+                    List<Producto> productos= c.getAll();
+                    for (Producto prod : productos){
+                %>    
+                    <option value="<%=prod.getId()%>" <%if (prod.getId()==stock.getProductoId()) {%> selected<% ; }%>><%=prod.getDescripcion()%></option>
+                    <% } %>
+                </select>
+                Cantidad
+                <input id="cantidad" type="number" name="cantidad" onfocusout="validarCantidad()" onkeyup="activarStock()" value="<%=stock.getCantidad()%>"/><p id="cantMsg" class="warningMsg"></p><br/><br/>
                 <input id="submitStock" type="submit" value="Guardar" disabled="true"/>
                 <button type="button" name="Cancelar" onclick="location.href = '/paronline/StockController'">Cancelar</button>
             </form>

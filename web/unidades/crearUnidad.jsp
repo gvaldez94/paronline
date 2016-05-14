@@ -26,9 +26,9 @@
             <form id="formUnidad" method="POST" action="/paronline/Unidades">
                 <input type="hidden" name="modo" value="G"/>
                 <input type="hidden" name="tipo" value="N"/>
-                    Descripcion
-                    <input id="descripcion" name="descripcion" onfocusout="validarUnidad()" onkeyup="activarUniGuardar()"><p id="unidadDescMsg"></p><br>
-                    <input id="submitUnidad" type="submit" value="Guardar" disabled="true"/>
+                Descripcion
+                <input id="descripcion" type="text" name="descripcion" onfocusout="validarUnidad()" onkeyup="activarUniGuardar()"><p id="unidadDescMsg" class="warningMsg"></p><br>
+                <input id="submitUnidad" type="submit" value="Guardar" disabled="true"/>
                 <button type="button" name="Cancelar" onclick="location.href = '/paronline/Unidades'">Cancelar</button>
             </form>
         </section>

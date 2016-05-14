@@ -30,9 +30,8 @@
                 %>
                 <input type="hidden" name="modo" value="G"/>
                 <input type="hidden" name="tipo" value="E"/>
-                    Descripción
-                    <input id="descripcion" name="descripcion" onfocusout="validarUnidad()" onkeyup="activarUniGuardar()" type="text" style="width: 96%" value="<%=unidad.getDescripcion()%>" /><p id="unidadDescMsg"></p><br>
-                <br/>
+                Descripción
+                <input id="descripcion" name="descripcion" onfocusout="validarUnidad()" onkeyup="activarUniGuardar()" type="text" value="<%=unidad.getDescripcion()%>"/><p id="unidadDescMsg"></p><br/><br/>
                 <input id="submitUnidad" type="submit" value="Guardar" disabled="true"/>
                 <button type="button" name="Cancelar" onclick="location.href = '/paronline/Unidades'">Cancelar</button>
             </form>

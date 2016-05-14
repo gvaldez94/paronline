@@ -40,9 +40,9 @@
             <form id="changePasswd" action="/paronline/Sesion" method="POST">
                 <fieldset>
                     Contraseña Actual:<br/>
-                    <input type="password" name="actual" onfocusout="validarPasswdLogin()" onkeyup="activarCambio()" autofocus><br><br>
+                    <input type="password" name="actual" onfocusout="validarPasswdLogin()" oninput="activarCambio()" autofocus><br/><br/>
                     Contraseña Nueva:<br/>
-                    <input type="password" name="nueva"  onfocusout="validarPasswdLogin()" onkeyup="activarCambio()"><p id="passwdMsg"></p><br>
+                    <input type="password" name="nueva"  onfocusout="validarPasswdLogin()" oninput="activarCambio()"><p id="passwdMsg" class="warningMsg"></p><br>
                     <input type="hidden" name="modo" value="C">
                     <input id="submitChangePasswd" type="submit" value="Cambiar" name="cambiar" disabled="true">
                 </fieldset>

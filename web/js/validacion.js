@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     formEditarRegistro = document.forms['formEditarRegistro'];
     formCategoria = document.forms['formCategoria'];
     formUnidad = document.forms['formUnidad'];
-    activarRegistro();
+    //activarRegistro();
 });
 
 /* formLogin */

@@ -35,31 +35,31 @@
                 <%
                     Producto prod = (Producto) request.getSession().getAttribute("producto");
                 %>
-                        Descripcion
-                        <input id="descripcion" type="text" name="descripcion" onfocusout="validarDescripcion()" onkeyup="activarProducto()" value="<%=prod.getDescripcion()%>"/><p id="descMsg"></p><br/>
-                        Categoria
-                        <select name="categoria">
-                        <%
-                            CategoriaDao c = new CategoriaDao();
-                            List<Categoria> categorias= c.getAll();
-                            for (Categoria cat : categorias){
-                        %>    
-                            <option value="<%=cat.getId()%>" <%if (cat.getId()==prod.getCategorias().getId()) {%> selected<% ; }%>><%=cat.getDescripcion()%></option>
-                            <% } %>
-                        </select>
-                        Precio Unitario
-                        <input id="precio_unit" type="number" name="precio_unit" onfocusout="validarPrecioUnit()" onkeyup="activarProducto()" value="<%=prod.getPrecioUnit()%>" /><p id="precioUnitMsg"></p><br/>
-                        Unidad de Medida
-                        <select name="unidad_medida">
-                        <%
-                            UnidadDao u = new UnidadDao();
-                            List<Unidad> unidades= u.getAll();
-                            for (Unidad unidad : unidades){
-                        %>    
-                            <option value="<%=unidad.getId()%>" <%if (unidad.getId()==prod.getCategorias().getId()) { %> selected <%; }%>><%=unidad.getDescripcion()%></option>
-                            <% } %>
-                        </select>
-                        
+                Descripcion
+                <input id="descripcion" type="text" name="descripcion" onfocusout="validarDescripcion()" onkeyup="activarProducto()" value="<%=prod.getDescripcion()%>"/><p id="descMsg" class="warningMsg"></p><br/>
+                Precio Unitario
+                <input id="precio_unit" type="number" name="precio_unit" onfocusout="validarPrecioUnit()" onkeyup="activarProducto()" value="<%=prod.getPrecioUnit()%>"/><p id="precioUnitMsg" class="warningMsg"></p><br/>
+                Categoria
+                <select name="categoria">
+                <%
+                    CategoriaDao c = new CategoriaDao();
+                    List<Categoria> categorias= c.getAll();
+                    for (Categoria cat : categorias){
+                %>    
+                    <option value="<%=cat.getId()%>" <%if (cat.getId()==prod.getCategorias().getId()) {%> selected<% ; }%>><%=cat.getDescripcion()%></option>
+                    <% } %>
+                </select>
+                <br/><br/>
+                Unidad de Medida
+                <select name="unidad_medida">
+                <%
+                    UnidadDao u = new UnidadDao();
+                    List<Unidad> unidades= u.getAll();
+                    for (Unidad unidad : unidades){
+                %>    
+                    <option value="<%=unidad.getId()%>" <%if (unidad.getId()==prod.getCategorias().getId()) { %> selected <%; }%>><%=unidad.getDescripcion()%></option>
+                    <% } %>
+                </select>
                 <br/><br/>
                 <input id="submitProducto" type="submit" value="Guardar" disabled="true"/>
                 <button type="button" name="Cancelar" onclick="location.href = '/paronline/Productos'">Cancelar</button>

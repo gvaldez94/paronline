@@ -26,9 +26,9 @@
             <form id="formCategoria" method="POST" action="/paronline/Categorias">            
                 <input type="hidden" name="modo" value="G"/>
                 <input type="hidden" name="tipo" value="N"/>
-                    Descripcion
-                    <input id="descripcion" name="descripcion" onfocusout="validarCategoria()" onkeyup="activarCatGuardar()"><p id="categoriaDescMsg"></p><br>
-                    <input id="submitCategoria" type="submit" value="Guardar" disabled="true"/>
+                Descripcion
+                <input id="descripcion" name="descripcion" type="text" onfocusout="validarCategoria()" onkeyup="activarCatGuardar()"><p id="categoriaDescMsg" class="warningMsg"></p><br>
+                <input id="submitCategoria" type="submit" value="Guardar" disabled="true"/>
                 <button type="button" name="Cancelar" onclick="location.href = '/paronline/Categorias'">Cancelar</button>
             </form>
         </section>

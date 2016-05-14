@@ -32,7 +32,9 @@
                 <input type="hidden" name="modo" value="G"/>
                 <input type="hidden" name="tipo" value="N"/>
                 Descripcion
-                <input id="descripcion" type="text" name="descripcion" onfocusout="validarDescripcion()" onkeyup="activarProducto()"/><p id="descMsg"></p><br/>
+                <input id="descripcion" type="text" name="descripcion" onfocusout="validarDescripcion()" onkeyup="activarProducto()"/><p id="descMsg" class="warningMsg"></p><br/>
+                Precio Unitario
+                <input id="precio_unit" type="number" name="precio_unit" onfocusout="validarPrecioUnit()" onkeyup="activarProducto()"/><p id="precioUnitMsg" class="warningMsg"></p><br/>
                 Categoria
                 <select name="categoria">
                 <%
@@ -43,8 +45,7 @@
                     <option value="<%=cat.getId()%>"><%=cat.getDescripcion()%></option>
                     <% } %>
                 </select>
-                Precio Unitario
-                <input id="precio_unit" type="number" name="precio_unit" onfocusout="validarPrecioUnit()" onkeyup="activarProducto()"/><p id="precioUnitMsg"></p><br/>
+                <br/><br/>
                 Unidad de Medida
                 <select name="unidad_medida">
                 <%

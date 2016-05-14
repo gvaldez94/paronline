@@ -4,7 +4,6 @@ var formProducto,
 document.addEventListener('DOMContentLoaded', function() {
     formProducto = document.forms['formProducto'];
     formStock = document.forms['formStock'];
-    activarRegistro();
 });
 
 function validarDescripcion() {
