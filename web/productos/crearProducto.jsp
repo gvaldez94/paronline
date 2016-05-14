@@ -44,7 +44,7 @@
                     <% } %>
                 </select>
                 Precio Unitario
-                <input id="precio_unit" type="number" name="precio_unit" onfocusout="validarPrecioUnit()" onkeyup="activarProducto()" /><p id="precioUnitMsg"></p><br/>
+                <input id="precio_unit" type="number" name="precio_unit" onfocusout="validarPrecioUnit()" onkeyup="activarProducto()"/><p id="precioUnitMsg"></p><br/>
                 Unidad de Medida
                 <select name="unidad_medida">
                 <%

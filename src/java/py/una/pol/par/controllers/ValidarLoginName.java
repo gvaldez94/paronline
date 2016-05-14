@@ -8,7 +8,6 @@ package py.una.pol.par.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -17,7 +16,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import py.una.pol.par.dao.ProductoDao;
 import py.una.pol.par.util.DBConnection;
 
 /**
@@ -44,7 +42,6 @@ public class ValidarLoginName extends HttpServlet {
                 Connection c = DBConnection.getConnection();
                 Statement stmt = c.createStatement();
                 String loginName = request.getParameter("login_name");
-                /* Buscar una mejor manera de hacer esta parte, si java deja */
                 ResultSet rs = stmt.executeQuery("SELECT count(*) as total FROM public.usuarios WHERE login_name = '" + loginName + "';");
                 if(rs.next()) {
                     int total = rs.getInt("total");
@@ -54,7 +51,6 @@ public class ValidarLoginName extends HttpServlet {
                         out.write("no_valido");
                     }
                 }
-                /* */
                 DBConnection.closeConnection(c);
             } catch (Exception ex) {
                 Logger.getLogger(ValidarLoginName.class.getName()).log(Level.SEVERE, null, ex);

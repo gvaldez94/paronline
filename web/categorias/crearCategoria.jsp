@@ -14,9 +14,9 @@
         <title>Creación de Categoría</title>
     </head>
     <body>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
         <header>
@@ -26,9 +26,9 @@
             <form id="formCategoria" method="POST" action="/paronline/Categorias">            
                 <input type="hidden" name="modo" value="G"/>
                 <input type="hidden" name="tipo" value="N"/>
-                        Descripcion
-                        <input id="descripcion" name="descripcion" onfocusout="validarCategoria()" onkeyup="activarCatGuardar()"><p id="categoriaDescMsg"></p><br>
-                        <input id="submitCategoria" type="submit" value="Guardar" disabled="true"/>
+                    Descripcion
+                    <input id="descripcion" name="descripcion" onfocusout="validarCategoria()" onkeyup="activarCatGuardar()"><p id="categoriaDescMsg"></p><br>
+                    <input id="submitCategoria" type="submit" value="Guardar" disabled="true"/>
                 <button type="button" name="Cancelar" onclick="location.href = '/paronline/Categorias'">Cancelar</button>
             </form>
         </section>

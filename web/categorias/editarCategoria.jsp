@@ -15,9 +15,9 @@
         <title>Modificación de Categoría</title>
     </head>
     <body>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
         <header>
@@ -32,7 +32,6 @@
                 <input type="hidden" name="tipo" value="E"/>
                         Descripción
                         <input id="descripcion" name="descripcion" onfocusout="validarCategoria()" onkeyup="activarCatGuardar()" type="text" style="width: 96%" value="<%=cat.getDescripcion()%>" /><p id="categoriaDescMsg"></p><br>
-
                 <br/>
                 <input id="submitCategoria" type="submit" value="Guardar" disabled="true"/>
                 <button type="button" name="Cancelar" onclick="location.href = '/paronline/Categorias'">Cancelar</button>

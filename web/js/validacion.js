@@ -75,22 +75,7 @@ function validarLogin_name() {
     if (login_name == '')
         document.getElementById('login_nameMsg').innerHTML = 'Debe ingresar un nombre de usuario.'
     else {
-        /* var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                if (xmlhttp.responseText != 'valido') {
-                    document.getElementById('login_nameMsg').innerHTML =
-                        'Nombre de usuario ya existente.';
-                } else {
-                    document.getElementById('login_nameMsg').innerHTML =
-                            '';
-                }
-            }
-        };
-        xmlhttp.open("GET", "../ValidarLoginName?login_name=" + login_name, true);
-        xmlhttp.send(); */
         login_nameUnico();
-        // document.getElementById('login_nameMsg').innerHTML = '';
     }
 }
 

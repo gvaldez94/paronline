@@ -18,8 +18,8 @@ function validarPrecioUnit() {
     var precioUnit = formProducto['precio_unit'].value;
     
     document.getElementById('precioUnitMsg').innerHTML = (precioUnit == ''
-            ? 'Debe ingresar un precio.'
-                    : '');
+        ? 'Debe ingresar un precio.'
+        : '');
 }
 
 function activarProducto() {
@@ -40,8 +40,8 @@ function validarCantidad() {
     var cantidad = formStock['cantidad'].value;
     
     document.getElementById('cantMsg').innerHTML = (cantidad == ''
-            ? 'Debe ingresar una cantidad.'
-                    : '');
+        ? 'Debe ingresar una cantidad.'
+        : '');
 }
 
 function activarStock() {

@@ -24,7 +24,6 @@
                 ArrayList<Stock> stocks = (ArrayList<Stock>) request.getAttribute("stocks");
                 if (stocks.size() > 0) {
         %>
-        <%-- <div > --%>
         <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
         <%} else {%>
@@ -107,6 +106,5 @@
         <% }
             }
         %>
-        <%-- </div> --%>
     </body>
 </html>

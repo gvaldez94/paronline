@@ -33,7 +33,8 @@
                         <a href="/paronline/Unidades">Unidades</a>
                         <a href="/paronline/Productos">Productos</a>
                         <a href="/paronline/StockController">Stock</a>
-                    </div></li>
+                    </div>
+                </li>
                 <%
                     }
                 %>

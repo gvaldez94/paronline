@@ -16,34 +16,32 @@
         <link rel="stylesheet" type="text/css" href="/paronline/css/style.css"/>
     </head>
     <body onload="activarRegistro()">
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
         <header>
             <h1>Registro</h1>
         </header>
-        <%
-            String error = (String) request.getAttribute("error");
-            if (error != null) {
-        %>
-        <section>
-            <%
-                out.print(error);
-            %>
-        </section>
-        <%
-            }
-        %>
         <br/>
         <% Usuario u = (Usuario) request.getSession().getAttribute("usuario");
             if (u == null) {
         %>
-        <nav>
-            <!-- add menu here -->
-        </nav>
         <section>
+            <%
+                String error = (String) request.getAttribute("error");
+                if (error != null) {
+            %>
+                <p class="alertMsg">
+                <%
+                    out.print(error);
+                %>
+                </p>
+            <%
+                }
+            %>
+            <br/>
             <form id="formRegistro" action="/paronline/Usuarios" method="POST">
               <fieldset>
                 <legend>Nuevo usuario</legend>

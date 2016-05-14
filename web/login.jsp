@@ -16,9 +16,9 @@
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body onload="activarLogIn()">
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
         <header>
@@ -42,15 +42,15 @@
             if (u == null) {
         %>
             <form id="formLogin" action="Login" method="POST">
-              <fieldset>
-                <legend>Credenciales de usuario</legend>
-                Usuario:<br/>
-                <input id="login_nameLogin" name="login_name" type="text" onfocusout="validarLogin_nameLogin()" oninput="activarLogIn()" autofocus><p id="login_nameLoginMsg"></p><br>
-                Contraseña:<br/>
-                <input id="passwdLogin" name="passwd" type="password" onfocusout="validarPasswdLogin()" oninput="activarLogIn()"><p id="passwdLoginMsg"></p><br>
-                <input type="hidden" name="modo" value="login">
-                <input id="submitLogin" type="submit" value="LogIn" disabled="true">
-              </fieldset>
+                <fieldset>
+                    <legend>Credenciales de usuario</legend>
+                    Usuario:<br/>
+                    <input id="login_nameLogin" name="login_name" type="text" onfocusout="validarLogin_nameLogin()" oninput="activarLogIn()" autofocus><p id="login_nameLoginMsg"></p><br>
+                    Contraseña:<br/>
+                    <input id="passwdLogin" name="passwd" type="password" onfocusout="validarPasswdLogin()" oninput="activarLogIn()"><p id="passwdLoginMsg"></p><br>
+                    <input type="hidden" name="modo" value="login">
+                    <input id="submitLogin" type="submit" value="LogIn" disabled="true">
+                </fieldset>
             </form>
 
             <h2>Registro</h2>

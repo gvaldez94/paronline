@@ -80,7 +80,6 @@
             <br/>
 
             <button type="button" name="Buscar Productos" onclick="location.href = '/paronline/index.jsp'">Buscar Productos</button>    
-            <%-- <button type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Pantalla Principal</button> --%>
             </section>
             <% }
             %>

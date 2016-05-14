@@ -31,19 +31,18 @@
             <form id="formStock" method="POST" action="/paronline/StockController">
                 <input type="hidden" name="modo" value="G"/>
                 <input type="hidden" name="tipo" value="N"/>
-                        Producto
-                        <select name="producto_id">
-                        <%
-                            ProductoDao c = new ProductoDao();
-                            List<Producto> productos= c.getAll();
-                            for (Producto prod : productos){
-                        %>    
-                            <option value="<%=prod.getId()%>"><%=prod.getDescripcion()%></option>
-                            <% } %>
-                        </select>
-                        Cantidad
-                        <input id="cantidad" type="number" name="cantidad" onfocusout="validarCantidad()" onkeyup="activarStock()" /><p id="cantMsg"></p><br/>
-
+                    Producto
+                    <select name="producto_id">
+                    <%
+                        ProductoDao c = new ProductoDao();
+                        List<Producto> productos= c.getAll();
+                        for (Producto prod : productos){
+                    %>    
+                        <option value="<%=prod.getId()%>"><%=prod.getDescripcion()%></option>
+                        <% } %>
+                    </select>
+                    Cantidad
+                    <input id="cantidad" type="number" name="cantidad" onfocusout="validarCantidad()" onkeyup="activarStock()" /><p id="cantMsg"></p><br/>
                 <br/>
                 <input id="submitStock" type="submit" value="Guardar" disabled="true"/>
                 <button type="button" name="Cancelar" onclick="location.href = '/paronline/StockController'">Cancelar</button>

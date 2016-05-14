@@ -21,9 +21,9 @@
                 ArrayList<Categoria> categ = (ArrayList<Categoria>) request.getAttribute("categorias");
                 if (categ.size() > 0) {
         %>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="../mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="../main.jsp" %>    
         <%}%>
         <header>

@@ -18,9 +18,9 @@
         <link rel="stylesheet" href="/paronline/css/style.css">
     </head>
     <body>
-        <%if (request.getSession().getAttribute("usuario")!=null){%>
+        <%if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="mainL.jsp" %>
-        <%}else {%>
+        <%} else {%>
             <%@ include file="main.jsp" %>    
         <%}%>
         <section>
@@ -65,12 +65,9 @@
                 <%
                     }
                 %>
-
             </table>
-
             <%
                 }
-
             %>
             <br/>
             <button type="button" name="Volver" onclick="location.href = '/paronline/index.jsp'">Volver</button>    
