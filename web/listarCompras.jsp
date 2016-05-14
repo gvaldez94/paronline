@@ -40,8 +40,8 @@
 
             %>
             <br/>
-            <label>Fecha:<%=c.getCab().getFecha()%></label>
-            <label>Total:<%=c.getCab().getTotal()%></label>
+            <label>Fecha: <%=c.getCab().getFecha()%></label>
+            <label>Total: <%=c.getCab().getTotal()%></label>
             <label>Medio Pago: <% if (c.getCab().getMedioPago()==0){%> Efectivo <%}else {%> Tarjeta <%}%></label>
             <%if (c.getCab().getMedioPago()==1){%><label>Nro Tarjeta: <%=c.getCab().getNroTarjeta()%></label><%}%><br/>
             <table>
