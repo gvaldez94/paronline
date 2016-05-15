@@ -26,8 +26,9 @@
         <section>
             <% Usuario u = (Usuario)request.getSession().getAttribute("usuario"); 
                if (u==null){
-                RequestDispatcher rd = request.getRequestDispatcher("/paronline/login.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
                 if (rd!= null){
+                    request.getSession().setAttribute("url", "/Compras/listar");
                     rd.forward(request, response);
                 }
                }

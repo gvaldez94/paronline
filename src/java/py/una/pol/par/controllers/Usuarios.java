@@ -71,6 +71,10 @@ public class Usuarios extends HttpServlet {
 
     public String abmUsuario(HttpServletRequest req) {
         req.setAttribute("modo", "L"); //Modo Lista
+        Usuario u = (Usuario) req.getSession().getAttribute("usuario");
+        if (u == null || u.getTipoUsuario() != 0) {
+            return "/index.jsp";
+        }
         try {
             req.setAttribute("usuarios", this.um.getAll());
         } catch (SQLException ex) {

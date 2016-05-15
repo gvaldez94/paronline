@@ -151,6 +151,14 @@ function activarRegistro() {
 }
 
 
+function validarPasswdChange() {
+    var contrasenya = changePasswd['nueva'].value;
+    document.getElementById('passwdMsg').innerHTML = (contrasenya == ''
+        ? 'Ingrese su contraseña.'
+        : '');
+}
+
+
 function activarCambio() {
     var campos = ['actual','nueva'],
         lleno = true;

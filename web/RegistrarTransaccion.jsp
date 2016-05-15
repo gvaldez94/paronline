@@ -4,6 +4,7 @@
     Author     : Gabriel
 --%>
 
+<%@page import="py.una.pol.par.models.Carrito" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,9 @@
         
     </head>
     <body>
-        <%if (request.getSession().getAttribute("usuario") != null) {%>
+        <%
+            Carrito c = (Carrito) request.getSession().getAttribute("carrito");
+            if (request.getSession().getAttribute("usuario") != null) {%>
             <%@ include file="mainL.jsp" %>
         <%} else {%>
             <%@ include file="main.jsp" %>    
@@ -24,7 +27,13 @@
             <h1>Registrar Transacción</h1>
         </header>
         <section>
-            <%if (request.getSession().getAttribute("usuario") != null) { %>
+            <%
+                if (c == null) {
+                    RequestDispatcher rd = request.getRequestDispatcher("/carrito.jsp");
+                    if (rd != null) {
+                        rd.forward(request, response);
+                    }
+                } else if (request.getSession().getAttribute("usuario") != null) { %>
             <form id="formTransaccion" action="/paronline/Compras/Comprar" method="POST">
                 Direccion:
                 <input type="text" id="direccion" name="direccion" onfocusout="validarDireccion()" oninput="activarRegistro()" autofocus><p id="direccionMsg" class="warningMsg"></p><br>

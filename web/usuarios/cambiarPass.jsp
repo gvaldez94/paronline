@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cambiar pass</title>
+        <title>Cambiar password</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="/paronline/js/validacion.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -40,9 +40,9 @@
             <form id="changePasswd" action="/paronline/Sesion" method="POST">
                 <fieldset>
                     Contraseña Actual:<br/>
-                    <input type="password" name="actual" onfocusout="validarPasswdLogin()" oninput="activarCambio()" autofocus><br/><br/>
+                    <input type="password" name="actual" onfocusout="validarPasswdChange()" oninput="activarCambio()" autofocus><br/><br/>
                     Contraseña Nueva:<br/>
-                    <input type="password" name="nueva"  onfocusout="validarPasswdLogin()" oninput="activarCambio()"><p id="passwdMsg" class="warningMsg"></p><br>
+                    <input type="password" name="nueva" onfocusout="validarPasswdChange()" oninput="activarCambio()"><p id="passwdMsg" class="warningMsg"></p><br>
                     <input type="hidden" name="modo" value="C">
                     <input id="submitChangePasswd" type="submit" value="Cambiar" name="cambiar" disabled="true">
                 </fieldset>
