@@ -63,7 +63,8 @@ public class UsuarioDao {
     public void eliminar(Integer usrId) throws SQLException {
         try {
             Connection c = DBConnection.getConnection();
-            PreparedStatement pstmt = c.prepareStatement("DELETE FROM usuarios WHERE id = ?");
+            //PreparedStatement pstmt = c.prepareStatement("DELETE FROM usuarios WHERE id = ?");
+            PreparedStatement pstmt = c.prepareStatement("UPDATE usuarios SET status = 'D' WHERE id = ?");
             pstmt.setInt(1, usrId);
             pstmt.executeUpdate();
             DBConnection.closeConnection(c);
@@ -75,7 +76,7 @@ public class UsuarioDao {
     public Usuario consultar(Integer usrId) {
         try {
             Connection c = DBConnection.getConnection();
-            PreparedStatement pstmt = c.prepareStatement("SELECT * FROM usuarios WHERE id = ?");
+            PreparedStatement pstmt = c.prepareStatement("SELECT * FROM usuarios WHERE id = ? AND status != 'D'");
             pstmt.setInt(1, usrId);
             ResultSet rs = pstmt.executeQuery();
             Usuario user = new Usuario();
@@ -100,7 +101,7 @@ public class UsuarioDao {
         try {
             Connection c = DBConnection.getConnection();
             Statement stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios ORDER BY apellido, nombre");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios WHERE status != 'D' ORDER BY apellido, nombre");
             while (rs.next()) {
                 Usuario usr = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(7));
                 retorno.add(usr);
@@ -119,7 +120,7 @@ public class UsuarioDao {
         Usuario retorno = null;
         try {
             Connection c = DBConnection.getConnection();
-            PreparedStatement pstmt = c.prepareStatement("SELECT * FROM usuarios WHERE login_name = ? AND passwd = md5(?)");
+            PreparedStatement pstmt = c.prepareStatement("SELECT * FROM usuarios WHERE login_name = ? AND passwd = md5(?) AND status != 'D'");
             pstmt.setString(1, loginName);
             pstmt.setString(2, passwd);
             ResultSet rs = pstmt.executeQuery();
