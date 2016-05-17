@@ -39,6 +39,7 @@ public class StockController extends HttpServlet {
             throws ServletException, IOException {
 
         String modo = request.getParameter("modo");
+        request.setAttribute("resultadoCompra", null);
         String vista = null;
 
         if (modo == null || "L".equals(modo)) {

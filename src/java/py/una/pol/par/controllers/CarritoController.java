@@ -33,6 +33,7 @@ public class CarritoController extends HttpServlet {
             throws ServletException, IOException {
         
         Carrito c = (Carrito) request.getSession().getAttribute("carrito");
+        request.setAttribute("resultadoCompra", null);
         int id = Integer.parseInt(request.getParameter("id"));
         c.remove(new ProductoDao().consultar(id));
         request.getSession().setAttribute("carrito", c);

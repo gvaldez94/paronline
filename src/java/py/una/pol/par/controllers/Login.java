@@ -33,6 +33,7 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         request.getSession().setAttribute("error", null);
+        request.setAttribute("resultadoCompra", null);
         UsuarioDao um = new UsuarioDao();
         String modo = request.getParameter("modo");
         if (modo != null && modo.compareTo("login") == 0) {

@@ -49,6 +49,7 @@ public class TransaccionesController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+        request.setAttribute("resultadoCompra", null);
         if (u != null) {
             TransaccionesCab cab = new TransaccionesCab();
             cab.setUsuarios(u);
@@ -103,12 +104,14 @@ public class TransaccionesController extends HttpServlet {
                         tdao.actualizarTotal(total, id);
                         request.getSession().setAttribute("carrito", null);
                         RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                        request.setAttribute("resultadoCompra", "Su compra ha sido exitosa!.");
                         if (rd != null) {
                             rd.forward(request, response);
                         }
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(TransaccionesController.class.getName()).log(Level.SEVERE, null, ex);
+                    request.setAttribute("resultadoCompra", "Lo sentimos, ocurrió un error inesperado, intente de nuevo más tarde.");
                 }
             } else {
                 RequestDispatcher rd = request.getRequestDispatcher("/carrito.jsp");

@@ -37,6 +37,7 @@ public class Usuarios extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String modo = request.getParameter("modo");
+        request.setAttribute("resultadoCompra", null);
         String vista = null;
         // logged
         if (modo == null || "L".equals(modo)) {

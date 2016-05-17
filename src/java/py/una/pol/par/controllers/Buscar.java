@@ -46,6 +46,7 @@ public class Buscar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String modo = request.getParameter("modo");
+        request.setAttribute("resultadoCompra", null);
         if ("B".equals(modo)) {
             String descripcion = request.getParameter("descripcion");
             Integer categoria_id = Integer.parseInt((request.getParameter("categoria")));

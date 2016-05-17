@@ -22,6 +22,20 @@
             <%@ include file="main.jsp" %>    
         <%}%>
         <br/>
+        <header>
+        <%
+            String resultadoCompra = (String) request.getAttribute("resultadoCompra");
+            if (resultadoCompra != null) {
+        %>
+        <p class="alertMsg">
+            <%
+                out.print(resultadoCompra);
+            %>
+        </p>
+        </header>
+        <%
+            }
+        %>
         <%@ include file="buscar.jsp" %>
     </body>
 </html>

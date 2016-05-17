@@ -38,6 +38,7 @@ public class ComprasController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+        request.setAttribute("resultadoCompra", null);
         if (u != null) {
             TransaccionesDao td = new TransaccionesDao();
             try {

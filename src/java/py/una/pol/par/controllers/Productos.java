@@ -43,6 +43,7 @@ public class Productos extends HttpServlet {
 
         String modo = request.getParameter("modo");
         request.setAttribute("error", null);
+        request.setAttribute("resultadoCompra", null);
         String vista = null;
 
         if (modo == null || "L".equals(modo)) {

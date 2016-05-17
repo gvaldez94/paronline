@@ -32,6 +32,7 @@ public class Sesion extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String modo = request.getParameter("modo");
+        request.setAttribute("resultadoCompra", null);
         if ( modo != null && modo.equals("C")) {
             UsuarioDao um = new UsuarioDao();
             Usuario u = (Usuario) request.getSession().getAttribute("usuario");
