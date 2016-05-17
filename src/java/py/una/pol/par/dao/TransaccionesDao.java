@@ -133,11 +133,11 @@ public class TransaccionesDao {
         try {
             Connection c = DBConnection.getConnection();
             PreparedStatement pstmt;
-            pstmt = c.prepareStatement("DELETE FROM transacciones_cab WHERE id = ?");
+            pstmt = c.prepareStatement("DELETE FROM transacciones_det WHERE transacciones_cab_id = ?");
             pstmt.setInt(1, tranId);
             pstmt.executeUpdate();
             pstmt.close();
-            pstmt = c.prepareStatement("DELETE FROM transacciones_det WHERE transacciones_cab_id = ?");
+            pstmt = c.prepareStatement("DELETE FROM transacciones_cab WHERE id = ?");
             pstmt.setInt(1, tranId);
             pstmt.executeUpdate();
             pstmt.close();
