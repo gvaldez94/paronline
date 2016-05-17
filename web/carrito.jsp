@@ -35,9 +35,13 @@
                     <th>Producto</th>
                     <th>Precio</th>
                     <th>Cantidad</th>
+                    <th>Total</th>
                     <th colspan="2">Accion</th>
                 </tr>
-                <% for (Pedido p : pedidos) {
+                <% 
+                    double total = 0;
+                    for (Pedido p : pedidos) {
+                        total = total + p.getCantidad().doubleValue()*p.getProducto().getPrecioUnit().doubleValue();
                 %>
                 <tr>
                     <td>
@@ -50,6 +54,9 @@
                         <%=p.getCantidad()%>
                     </td>
                     <td>
+                        <%=p.getCantidad().doubleValue()*p.getProducto().getPrecioUnit().doubleValue()%>
+                    </td>
+                    <td>
                         <form method="POST" action="/paronline/Carrito">
                             <input type="hidden" name="id" value="<%=p.getProducto().getId()%>"/>
                             <input type="submit" onclick="return confirm('Está seguro?')" value="Eliminar"/>
@@ -57,7 +64,13 @@
                     </td>
                 </tr>
                 <%
-                    }%>    
+                    }%>
+                    <tfoot>
+                        <tr>
+                            <td>Total General:</td>
+                            <td style="text-align: right; padding-right: 7%" colspan="5"><%=total%></td>
+                        </tr>
+                    </tfoot>
             </table>
             <br/>
             <button type="button" onclick="location.href = '/paronline/RegistrarTransaccion.jsp'">Comprar</button>

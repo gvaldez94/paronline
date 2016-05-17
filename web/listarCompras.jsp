@@ -41,11 +41,15 @@
 
             %>
             <br/>
-            <label>Fecha: <%=c.getCab().getFecha()%></label>
-            <label>Total: <%=c.getCab().getTotal()%></label>
-            <label>Medio Pago: <% if (c.getCab().getMedioPago()==0){%> Efectivo <%}else {%> Tarjeta <%}%></label>
-            <%if (c.getCab().getMedioPago()==1){%><label>Nro Tarjeta: <%=c.getCab().getNroTarjeta()%></label><%}%><br/>
             <table>
+                <thead>
+                    <tr>
+                        <th>Fecha: <%=c.getCab().getFecha()%></th>
+                        <th>Total: <%=c.getCab().getTotal()%></th>
+                        <th <% if (c.getCab().getMedioPago()==0) {%>colspan="3"<%} else { %>colspan="2"<%}%>>Medio Pago: <% if (c.getCab().getMedioPago()==0){%> Efectivo <%}else {%> Tarjeta <%}%></th>
+                        <%if (c.getCab().getMedioPago()==1){%><th>Nro Tarjeta: <%=c.getCab().getNroTarjeta()%></th><%}%>
+                    </tr>
+                </thead>
                 <tr>
                     <th>Item</th>
                     <th>Producto</th>

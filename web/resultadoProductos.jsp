@@ -90,7 +90,7 @@
                                 <input type="hidden" id="cant<%=cont%>" value="<%=stock.getCantidad()%>"/>
                                 Cantidad:<input type="number" name="cantidad" style="width: 35%" id="cantidad<%=cont%>" min="1" max="<%=stock.getCantidad()%>">
                                 <input type="hidden" name="modo" value="C"/>
-                                <input type="submit" style="display: inline" value="Comprar"/>
+                                <input type="submit" style="display: inline" value="Agregar al carrito"/>
                             </form>
                         </td>
                         <%
