@@ -63,6 +63,7 @@ CREATE TABLE public.usuarios(
 	passwd character varying(50) NOT NULL,
 	tipo_usuario integer NOT NULL,
         email character varying(50) NOT NULL,
+        status character varying(1) NOT NULL DEFAULT 'E'::character varying,
 	CONSTRAINT pkusuarios PRIMARY KEY (id),
 	CONSTRAINT unique_login_name UNIQUE (login_name)
 
