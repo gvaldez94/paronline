@@ -58,6 +58,7 @@ public class UnidadDao {
             DBConnection.closeConnection(c);
         } catch (Exception ex) {
             Logger.getLogger(UnidadDao.class.getName()).log(Level.SEVERE, null, ex);
+            throw new SQLException("No se puede eliminar unidad de medida, existe al menos un producto utilizándola.");
         }
     }
     public Unidad consultar(Integer unidadId) {

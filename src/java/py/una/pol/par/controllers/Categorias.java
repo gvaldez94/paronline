@@ -38,6 +38,7 @@ public class Categorias extends HttpServlet {
             throws ServletException, IOException {
         
         String modo = request.getParameter("modo");
+        request.setAttribute("error", null);
         String vista = null;
 
         if (modo == null || "L".equals(modo)) {
@@ -90,6 +91,7 @@ public class Categorias extends HttpServlet {
             this.cm.eliminar(Integer.valueOf(id));
         } catch (SQLException ex) {
             Logger.getLogger(Categorias.class.getName()).log(Level.SEVERE, null, ex);
+            req.setAttribute("error", ex.getMessage());
         }
         return abmCategoria(req);
     }

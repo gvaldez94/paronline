@@ -30,6 +30,18 @@
             <h1>Unidades</h1>
         </header>
         <section>
+            <%
+                String error = (String) request.getAttribute("error");
+                if (error != null) {
+            %>
+                <p class="alertMsg">
+                <%
+                    out.print(error);
+                %>
+                </p>
+            <%
+                }
+            %>
             <table>
                 <tr>
                     <th>Id</th>

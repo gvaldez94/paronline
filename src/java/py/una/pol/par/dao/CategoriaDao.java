@@ -58,6 +58,7 @@ public class CategoriaDao {
             DBConnection.closeConnection(c);
         } catch (Exception ex) {
             Logger.getLogger(CategoriaDao.class.getName()).log(Level.SEVERE, null, ex);
+            throw new SQLException("No se puede eliminar categoría, existe al menos un producto utilizándola.");
         }
     }
     public Categoria consultar(Integer catId) {

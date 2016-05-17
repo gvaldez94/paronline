@@ -65,6 +65,7 @@ public class ProductoDao {
             DBConnection.closeConnection(c);
         } catch (Exception ex) {
             Logger.getLogger(ProductoDao.class.getName()).log(Level.SEVERE, null, ex);
+            throw new SQLException("No se puede eliminar producto, existe al menos un stock o compra realizada para dicho producto");
         }
     }
     

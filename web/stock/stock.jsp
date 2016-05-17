@@ -9,6 +9,8 @@
 <%@page import="py.una.pol.par.dao.StockDao"%>
 <%@page import="py.una.pol.par.models.Producto"%>
 <%@page import="py.una.pol.par.dao.ProductoDao"%>
+<%@page import="py.una.pol.par.models.Unidad"%>
+<%@page import="py.una.pol.par.dao.UnidadDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -51,7 +53,7 @@
                         <%=stock.getProducto().getDescripcion()%>
                     </td>
                     <td>
-                        <%=stock.getCantidad()%>
+                        <%=stock.getCantidad() + " " + new UnidadDao().consultar(stock.getProducto().getUnidadMedida()).getDescripcion()%>
                     </td>
                     <td>
                         <form method="POST" action="/paronline/StockController">
