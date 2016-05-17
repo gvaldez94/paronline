@@ -75,6 +75,7 @@ public class StockDao {
             DBConnection.closeConnection(c);
         } catch (Exception ex) {
             Logger.getLogger(StockDao.class.getName()).log(Level.SEVERE, null, ex);
+            throw new SQLException("Stock insuficiente.");
         }
     }
 

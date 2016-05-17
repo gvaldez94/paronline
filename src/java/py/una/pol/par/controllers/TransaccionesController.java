@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
@@ -95,6 +96,7 @@ public class TransaccionesController extends HttpServlet {
                             item++;
                             td.setPrecio(p.getProducto().getPrecioUnit());
                             BigDecimal cant = new BigDecimal(td.getCantidad());
+                            Logger.getLogger("INFO").info("Stock - pedido: " + (stock.getCantidad()-cant.intValue()));
                             stockDao.disminuir(stock.getId(), stock.getCantidad()-cant.intValue());
                             td.setSubtotal(td.getPrecio().multiply(cant));
                             td.setTransaccionesCab(cab);
@@ -109,9 +111,18 @@ public class TransaccionesController extends HttpServlet {
                             rd.forward(request, response);
                         }
                     }
-                } catch (SQLException ex) {
+                } catch (Exception ex) {
+                    tdao.rollback(cab.getId());
+                    request.getSession().setAttribute("carrito", null);
                     Logger.getLogger(TransaccionesController.class.getName()).log(Level.SEVERE, null, ex);
-                    request.setAttribute("resultadoCompra", "Lo sentimos, ocurrió un error inesperado, intente de nuevo más tarde.");
+                    if (!"Stock insuficiente.".equals(ex.getMessage()))
+                        request.setAttribute("resultadoCompra", "Lo sentimos, ocurrió un error inesperado, intente de nuevo más tarde.");
+                    else
+                        request.setAttribute("resultadoCompra", ex.getMessage());
+                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    if (rd != null) {
+                        rd.forward(request, response);
+                    }
                 }
             } else {
                 RequestDispatcher rd = request.getRequestDispatcher("/carrito.jsp");
