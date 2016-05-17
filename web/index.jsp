@@ -32,10 +32,10 @@
                 out.print(resultadoCompra);
             %>
         </p>
-        </header>
         <%
             }
         %>
+        </header>
         <%@ include file="buscar.jsp" %>
     </body>
 </html>

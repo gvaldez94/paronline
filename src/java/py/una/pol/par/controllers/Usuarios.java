@@ -64,6 +64,11 @@ public class Usuarios extends HttpServlet {
             vista = this.eliminarUsuario(request);
         }
         
+        // eliminar el propio usuario
+        if ("DEL".equals(modo)) {
+            vista = this.eliminarPropioUsuario(request);
+        }
+        
         RequestDispatcher rd = request.getRequestDispatcher(vista);
         if (rd != null) {
             rd.forward(request, response);
@@ -103,6 +108,20 @@ public class Usuarios extends HttpServlet {
         return abmUsuario(req);
     }
 
+    public String eliminarPropioUsuario(HttpServletRequest req) {
+        try {
+            String id = req.getParameter("id");
+            this.um.eliminar(Integer.valueOf(id));
+            req.getSession().invalidate();
+            // se reutiliza el mensaje con nombre inapropiado pero sirve a los efectos
+            req.setAttribute("resultadoCompra", "Cuenta eliminada satisfactoriamente.");
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+            req.setAttribute("resultadoCompra", "Lo sentimos, ocurrió un error al eliminar su cuenta, intente de nuevo más tarde.");
+        }
+        return abmUsuario(req);
+    }
+    
     public String guardarUsuario(HttpServletRequest req) {
         String tipo = req.getParameter("tipo");
         String nombre = req.getParameter("nombre");

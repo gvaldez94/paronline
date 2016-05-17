@@ -60,6 +60,17 @@
                     <button type="button" style="display: inline" name="Cancelar" onclick="location.href = '/paronline/index.jsp'">Cancelar</button>
                 </fieldset>
             </form>
+            <br/>
+            <form method="POST" action="/paronline/Usuarios">
+                <fieldset>
+                    <legend>Eliminar cuenta</legend>
+                    <p>Desea eliminar su cuenta?, presione el botón para continuar...</p>
+                    <input type="hidden" name="id" value="<%=u.getId()%>"/>
+                    <input type="hidden" name="modo" value="DEL"/>
+                    <input type="submit" onclick="return confirm('Está seguro?')" value="Eliminar cuenta" <% if (u.getTipoUsuario() == 0) { %> disabled="true" <% } %>/>
+                </fieldset>
+            </form>
+            <br/>
         </section>
     </body>
 </html>
